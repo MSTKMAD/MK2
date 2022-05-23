@@ -8290,6 +8290,8 @@ Created 2014-10-08, Karrer Zheng&lt;br&gt;
 <part name="U$16" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="5VMCU"/>
 <part name="GND58" library="SparkFun" deviceset="GND" device=""/>
 <part name="R34" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:39650/1" value="N.A"/>
+<part name="TP1" library="SparkFun-Connectors" deviceset="M01" device="POGOPIN_HOLE_LARGE" value=""/>
+<part name="R38" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:39650/1" value="N.A"/>
 </parts>
 <sheets>
 <sheet>
@@ -9433,6 +9435,14 @@ Fc= 7Hz</text>
 <instance part="R34" gate="G$1" x="269.24" y="281.94" smashed="yes" rot="R90">
 <attribute name="NAME" x="267.716" y="281.94" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="270.764" y="281.94" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="TP1" gate="G$1" x="424.18" y="203.2" smashed="yes" rot="R270">
+<attribute name="VALUE" x="419.1" y="205.74" size="1.778" layer="96" rot="R270"/>
+<attribute name="NAME" x="427.482" y="205.74" size="1.778" layer="95" rot="R270"/>
+</instance>
+<instance part="R38" gate="G$1" x="431.8" y="193.04" smashed="yes" rot="R180">
+<attribute name="NAME" x="431.8" y="191.516" size="1.778" layer="95" font="vector" rot="R180" align="bottom-center"/>
+<attribute name="VALUE" x="431.8" y="194.564" size="1.778" layer="96" font="vector" rot="R180" align="top-center"/>
 </instance>
 </instances>
 <busses>
@@ -11590,6 +11600,26 @@ Fc= 7Hz</text>
 <wire x1="-96.52" y1="279.4" x2="-12.7" y2="279.4" width="0.1524" layer="91" style="shortdash"/>
 <wire x1="-12.7" y1="279.4" x2="-12.7" y2="337.82" width="0.1524" layer="91" style="shortdash"/>
 <wire x1="-12.7" y1="337.82" x2="-96.52" y2="337.82" width="0.1524" layer="91" style="shortdash"/>
+</segment>
+</net>
+<net name="SPARE2" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PB1(OC1A)"/>
+<wire x1="-134.62" y1="50.8" x2="-121.92" y2="50.8" width="0.1524" layer="91"/>
+<label x="-127" y="50.8" size="1.778" layer="95"/>
+</segment>
+<segment>
+<label x="441.96" y="193.04" size="1.778" layer="95"/>
+<wire x1="436.88" y1="193.04" x2="452.12" y2="193.04" width="0.1524" layer="91"/>
+<pinref part="R38" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$38" class="0">
+<segment>
+<pinref part="TP1" gate="G$1" pin="1"/>
+<wire x1="424.18" y1="195.58" x2="424.18" y2="193.04" width="0.1524" layer="91"/>
+<pinref part="R38" gate="G$1" pin="2"/>
+<wire x1="424.18" y1="193.04" x2="426.72" y2="193.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
