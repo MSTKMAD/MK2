@@ -8221,7 +8221,7 @@ Created 2014-10-08, Karrer Zheng&lt;br&gt;
 <part name="L5" library="SparkFun" deviceset="RESISTOR" device="0805-RES" value="MMZ2012Y202BT000"/>
 <part name="L6" library="SparkFun" deviceset="RESISTOR" device="0805-RES" value="MMZ2012Y202BT000"/>
 <part name="C16" library="SparkFun" deviceset="CAP" device="0805" value="1uF"/>
-<part name="TP2" library="SparkFun-Connectors" deviceset="M01" device="POGOPIN_HOLE_LARGE" value=""/>
+<part name="TP2" library="SparkFun-Connectors" deviceset="M01" device="POGOPIN_HOLE_LARGE" value="VCCIO"/>
 <part name="U$15" library="microbuilder" deviceset="VCCIO" device=""/>
 <part name="TP3" library="SparkFun-Connectors" deviceset="M01" device="NOSILK-KIT" value="M01NOSILK-KIT"/>
 <part name="TP4" library="SparkFun-Connectors" deviceset="M01" device="POGOPIN_HOLE_LARGE" value=""/>
@@ -8234,7 +8234,7 @@ Created 2014-10-08, Karrer Zheng&lt;br&gt;
 <part name="U$35" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="5VMCU"/>
 <part name="L7" library="SparkFun" deviceset="RESISTOR" device="0805-RES" value="MMZ2012Y202BT000"/>
 <part name="P+5" library="microbuilder" deviceset="VCC" device=""/>
-<part name="TP5" library="SparkFun-Connectors" deviceset="M01" device="POGOPIN_HOLE_LARGE" value=""/>
+<part name="TP5" library="SparkFun-Connectors" deviceset="M01" device="POGOPIN_HOLE_LARGE" value="PEDAL"/>
 <part name="R99" library="SparkFun" deviceset="RESISTOR" device="0805-RES" value="33"/>
 <part name="R32" library="SparkFun" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="GND14" library="SparkFun" deviceset="GND" device=""/>
@@ -10735,7 +10735,7 @@ Fc= 7Hz</text>
 <junction x="-99.06" y="180.34"/>
 </segment>
 </net>
-<net name="N$31" class="0">
+<net name="PEDAL" class="0">
 <segment>
 <pinref part="R19" gate="G$1" pin="1"/>
 <wire x1="38.1" y1="88.9" x2="38.1" y2="81.28" width="0.1524" layer="91"/>
