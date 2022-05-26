@@ -3,13 +3,13 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.01" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="GND" color="5" fill="1" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -24,7 +24,7 @@
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="PWR" color="3" fill="1" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
@@ -37,7 +37,7 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -211,10 +211,10 @@
 <text x="76.2188" y="69.408" size="1.4224" layer="21">+</text>
 <text x="26.4112" y="34.2532" size="1.27" layer="21">+</text>
 <text x="31.5432" y="34.0532" size="1.27" layer="21">+</text>
-<rectangle x1="104.406" y1="23.05" x2="105.803" y2="25.082" layer="29"/>
-<rectangle x1="104.316" y1="20.49" x2="105.84" y2="22.522" layer="29"/>
-<rectangle x1="93.648" y1="23.04" x2="94.791" y2="25.072" layer="29"/>
-<rectangle x1="93.638" y1="20.52" x2="94.781" y2="22.552" layer="29"/>
+<rectangle x1="103.156" y1="22.98" x2="104.553" y2="25.012" layer="29"/>
+<rectangle x1="103.026" y1="20.45" x2="104.55" y2="22.482" layer="29"/>
+<rectangle x1="92.388" y1="23" x2="93.531" y2="25.032" layer="29"/>
+<rectangle x1="92.408" y1="20.46" x2="93.551" y2="22.492" layer="29"/>
 <circle x="63.849" y="51.12" radius="7.73136875" width="0.6096" layer="22"/>
 <wire x1="110.8" y1="64.8" x2="102.7028" y2="72.7972" width="0.1" layer="48"/>
 <wire x1="102.7028" y1="72.7972" x2="22.6972" y2="72.7972" width="0.1" layer="48"/>
@@ -306,6 +306,10 @@
 <circle x="78.862" y="59.6336" radius="0.93394375" width="0.254" layer="22"/>
 <text x="79.0268" y="57.6964" size="0.8128" layer="22" rot="MR0">ISENSE</text>
 <text x="107.8868" y="43.5064" size="0.8128" layer="22" rot="MR0">SPARE2</text>
+<rectangle x1="100.75" y1="20.46" x2="104.54" y2="22.47" layer="31"/>
+<rectangle x1="100.73" y1="22.98" x2="104.54" y2="25.01" layer="31"/>
+<rectangle x1="92.41" y1="22.97" x2="95.68" y2="25.03" layer="31"/>
+<rectangle x1="92.41" y1="20.4" x2="95.66" y2="22.51" layer="31"/>
 </plain>
 <libraries>
 <library name="SparkFun-Electromechanical">
