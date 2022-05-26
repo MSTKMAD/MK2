@@ -8338,7 +8338,6 @@ the 5V rail with higher voltage than 5.6V
 <text x="269.24" y="73.66" size="1.778" layer="91">OJO!!
 Es el de G=25 (TEUK version)</text>
 <text x="269.24" y="68.58" size="1.778" layer="91">ISENSE = Iout * 0.05 * 25 = Iout * 1.25</text>
-<text x="279.4" y="-58.42" size="1.778" layer="91">POSIBLE EXTIRPACION!!</text>
 <text x="99.06" y="231.14" size="6.4516" layer="94">FLEX Connectors</text>
 <text x="-40.64" y="297.18" size="1.778" layer="91">Ratio= 1/5
 5V @ Vi=25V</text>
@@ -11463,14 +11462,6 @@ Fc= 7Hz</text>
 <pinref part="U1" gate="G$1" pin="PC0(ADC0)"/>
 <wire x1="-134.62" y1="99.06" x2="-121.92" y2="99.06" width="0.1524" layer="91"/>
 <label x="-134.62" y="99.06" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$33" class="0">
-<segment>
-<wire x1="274.32" y1="-91.44" x2="340.36" y2="-91.44" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="-91.44" x2="340.36" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="-30.48" x2="274.32" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="-30.48" x2="274.32" y2="-91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VOUT" class="0">
