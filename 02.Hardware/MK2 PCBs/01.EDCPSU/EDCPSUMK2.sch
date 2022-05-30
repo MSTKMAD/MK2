@@ -8300,7 +8300,8 @@ Created 2014-10-08, Karrer Zheng&lt;br&gt;
 <text x="180.34" y="-43.18" size="6.4516" layer="94">SENSING CONDITIONING</text>
 <text x="289.56" y="238.76" size="6.4516" layer="94">DIGITAL LDO + ROUTING + ISENSING</text>
 <text x="-172.72" y="111.76" size="6.4516" layer="94">MCU + USB</text>
-<text x="73.66" y="383.54" size="6.4516" layer="94">EDCPSU r15</text>
+<text x="73.66" y="383.54" size="6.4516" layer="94">EDCPSU MK2r1
+May-2022</text>
 <text x="-22.86" y="-86.36" size="1.778" layer="94">(DATA/COMMAND)</text>
 <text x="-193.04" y="-38.1" size="1.778" layer="91">Overlap buzzer assy concentric</text>
 <text x="-157.48" y="27.94" size="5.08" layer="91">ICSP</text>
@@ -8308,7 +8309,7 @@ Created 2014-10-08, Karrer Zheng&lt;br&gt;
 <text x="-132.08" y="-22.86" size="6.4516" layer="94">ROTARY + SWITCH</text>
 <text x="-7.62" y="-22.86" size="6.4516" layer="94">DISPLAY</text>
 <wire x1="-228.6" y1="-88.9" x2="-228.6" y2="-10.16" width="0.1524" layer="98" style="shortdash"/>
-<wire x1="-83.82" y1="408.94" x2="584.2" y2="416.56" width="0.1524" layer="98" style="shortdash"/>
+<wire x1="-106.68" y1="416.56" x2="584.2" y2="416.56" width="0.1524" layer="98" style="shortdash"/>
 <wire x1="584.2" y1="416.56" x2="571.5" y2="-33.02" width="0.1524" layer="98" style="shortdash"/>
 <wire x1="571.5" y1="-33.02" x2="571.5" y2="-86.36" width="0.1524" layer="98" style="shortdash"/>
 <wire x1="571.5" y1="-86.36" x2="195.58" y2="-86.36" width="0.1524" layer="98" style="shortdash"/>
