@@ -1,0 +1,11 @@
+"Qty";"Value";"Device";"Package";"Parts";"Description";"";
+"1";"10k";"RESISTOR0603";"0603";"R3";"Generic Resistor Package";"";
+"2";"220R";"RESISTOR0603";"0603";"R8, R9";"Generic Resistor Package";"";
+"5";"2N7002PW";"MOSFET-NCH-2N7002PW";"SOT323";"Q1, Q2, Q3, Q4, Q5";"N-channel MOSFETs";"";
+"1";"330";"RESISTOR0603";"0603";"R4";"Generic Resistor Package";"";
+"1";"3k3";"RESISTOR0603";"0603";"R7";"Generic Resistor Package";"";
+"2";"47k";"RESISTOR0603";"0603";"R5, R6";"Generic Resistor Package";"";
+"3";"ACJS-MHDR";"ACJS-MHDR";"CONN_MHDR_AMP";"MACHINE1, MACHINE2, PEDAL";"";"";
+"2";"APA3010SRCPRV-GX";"APA3010SRCPRV-GX";"LED_APA3010SRCPRV-GX_KNB";"LED1, LED2";"";"";
+"1";"FLEX8";"FLEX8";"FLEX8";"K1";"WR-FPC 1mm SMT Horiz. Bot. Contact Hinge type WR-FPC 1mm 08 pins Hinge type SMT Horizontal Bottom Contact";"";
+"2";"SI4459ADY-T1-GE3";"SI4459ADY-T1-GE3";"SOIC127P600X175-8N";"Q6, Q7";"Trans MOSFET P-CH 30V 29A 8-Pin SOIC N T/R";"";
