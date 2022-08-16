@@ -5,10 +5,11 @@
 #define VERSION 730
 /**************************************************
 *******************
-  EDCPSU Tattoo DUAL edition HW r10.0 (MK2 DUAL OUTPUT)
-  10 ago 2022
 
-  VERSION: see above
+EDCPSU Tattoo edition HW USB-C M2
+10 AGO 2022
+IDE Version: 1.8.13
+VERSION: see above
 
 *********************************************************************/
 
@@ -130,7 +131,6 @@ const unsigned long LONG_PRESS_TIME = 300;   // Milliseconds
 const unsigned long OVC_ALARM_TIMER = 2000;  // Milliseconds
 const unsigned long MEM_DISPLAY_TIME = 2000; // Milliseconds
 const int LenNITROLookupTable = 20;
-const int _12_3V_INDEX = 181; // This is the index position in TPIClookuptable corresponding to 12.3V which is the peak value in NITRO mode
 
 const int OVC_SENSE_MAX_TIME = 2000;          // Maximum time that can last the overcurrent with SENSE method (in Milliseconds)
 const int OVC_UVOLT_MAX_TIME = 1000;          // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
@@ -149,7 +149,7 @@ const byte LONGPRESS_INFO_CONT = 1;
 const byte LONGPRESS_INFO_NO_CONT = 2;
 const byte LONGPRESS_INFO_TIMER_ON = 3;
 const byte LONGPRESS_INFO_TIMER_OFF = 4;
-const unsigned long SHOW_LONGPRESS_TIME = 1800; // Time that the longpress information is shown on display (Milliseconds)
+const unsigned long SHOW_LONGPRESS_TIME = 800; // Time that the longpress information is shown on display (Milliseconds)
 
 const unsigned long RX_CHAR_TIMEOUT = 10; // (ms) time allowed for an orphan char received via Serial
 const byte TLG_RX_BYTES = 3;              // Bytes compounding a Serial telegram of the Test mode
@@ -157,9 +157,10 @@ const byte TLG_RX_BYTES = 3;              // Bytes compounding a Serial telegram
 const byte ALARM_FLAG = 0; // Flag to report that OVC_ALARM sensor is activated. This is set in ReportFlags report byte in the Test Mode
 const byte PEDAL_FLAG = 1; // Flag to report that PEDAL input is activated. This is set in ReportFlags report byte in the Test Mode
 // ------------------------------------------------- PIN DEFINITION r7,r6 -------------------------------------------
-const int DCDC_EN = A1;  //
-const int LED_FRONT = 9; // Arduino 7 (pin 11 in ATMEGA368)
-const int CHG_POL = 7;   // Arduino 9 (pin 13 in ATMEGA368)
+const int DCDC_EN = A1; //
+//const int LED_FRONT = 9; // Arduino 7 (pin 11 in ATMEGA368)
+const int LIFE_CHECK = 9; // SPARE2 Pin used for testing
+
 const int ISEN = A7;
 const int VOSEN = A6;
 const int PUSHBUTTON_IP = A2; // HIGH = OFF; LOW = ON
@@ -168,14 +169,14 @@ const int ROTA = 4;
 const int OVC_ALARM = 5; // New in r8.0 (before pin 2)
 const int ROTB = 3;
 const int BUZZ = 6;
-const int PEDAL_IP = 2;      // New in r8.0 (before pin 5)
-const int ANALOG_PEDAL = A0; // New in r8.0 (before LED)
-const int CHANNEL_SEL = 0;   // RXi-- caution! this digital line overlaps with RXi, so Serial has to be disabled
-const int ENA_OUT = 1;       // TXo-- caution! this digital line overlaps with TXo, so Serial has to be disabled
+const int PEDAL_IP = 2;    // New in r8.0 (before pin 5)
+const int VBUS_SENSE = A0; // New in r8.0 (before LED)
+const int CHANNEL_SEL = 7; // Previous HW version this pin was CHG_POL
+//const int ENA_OUT = 1;       // TXo-- caution! this digital line overlaps with TXo, so Serial has to be disabled
 
 //-------------------------- PROGMEM DEFINITION -----------------------------------------------------------------
 
-const static unsigned char __attribute__((progmem)) MusotokuLogo[] = {
+const static unsigned char __attribute__((progmem)) MusotokuLogo[] = { // NEW LOGO
     0x03, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00,
     0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x80,
     0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0,
@@ -489,7 +490,7 @@ void DisplayTimer(int Hours, int Minutes);
 void DisplayMem(int MachinePosition);
 void RunTimer(unsigned long val, int *hours, int *minutes);
 void Handle_ConfigMenus(byte RunMode, int index, byte *NextRunMode, byte *NitroStartGrade, byte *ResetRunTimer, int *ChangePol, byte *RuntimerEnable);
-void StartupFrontLEDs();
+//void StartupFrontLEDs();
 // ------------------------------------------ VARIABLES -----------------------------------------
 byte MachinesMemory[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // Holds the 3 working points for each of the 3 Machines (9 values in total)
 int MachineOffset = MACHINE1_OFFSET;                          // Holds the actual value of the offset needed for indexing the MachinesMemory[]
@@ -552,13 +553,13 @@ int PUSHB_Longpress_1st_Action = true;    // If true then it is 1st action. THis
 int ROTPUSHB_Longpress_1st_Action = true; // If true then it is 1st action. THis avoids continuous entering in the LONGPRESS action
 int NitroForContinuousMode;               // This varible enables the "RISE event" of the continuous mode and therefore facilitates the Nitro
 unsigned long PartialRuntimer = 0;        // Runtimer counter that accounts for the current segment of time being added up to the total counter.
-                                          // Each time that it is around 1 minute accumulated, it is transferred to the TotalRuntimer and the PartialRuntimer is cleared.
-unsigned long TotalRuntimer = 0;          // Accounts for the total run time of this session
-byte RuntimerEnable = true;               // Variable used for getting noticed for Runtimer to run.
-int runningHours;                         // Used by Runtimer
-int runningMinutes;                       // Used by Runtimer
-byte ResetRunTimer = false;               // Indicates if the TotalRuntimer has to be reset
-byte NextRunMode;                         // Used on the Top configuration menu to learn about the next selected menu
+// Each time that it is around 1 minute accumulated, it is transferred to the TotalRuntimer and the PartialRuntimer is cleared.
+unsigned long TotalRuntimer = 0; // Accounts for the total run time of this session
+byte RuntimerEnable = true;      // Variable used for getting noticed for Runtimer to run.
+int runningHours;                // Used by Runtimer
+int runningMinutes;              // Used by Runtimer
+byte ResetRunTimer = false;      // Indicates if the TotalRuntimer has to be reset
+byte NextRunMode;                // Used on the Top configuration menu to learn about the next selected menu
 
 int PolarityStatus;            // Holds the current polarity status. At the start up is initializated with the EEPROM_POLARITY_STATUS value
 int ChangePol = false;         // Managed in the configuration Menu to indicate if a polarity change is needed
@@ -569,8 +570,8 @@ unsigned long Show_Mem_Timer;  // Accounts for the total run time of this sessio
 byte toggleTimer = false;
 unsigned long ShowLongPressTimer;           // Timer to control the longpress information shown on display (Milliseconds)
 byte ShowLongpressInfo = NO_LONGPRESS_INFO; // ATTENTION: Global var! Determines if Longpress info has to be shown. Used on other display
-                                            // functions to enable or not the display info.
-byte OVCerrorsConsecutive = 0;              // Number of consecutive OVC errors. After reached a limit, it is requiered that pedal is released by user in order to continue
+// functions to enable or not the display info.
+byte OVCerrorsConsecutive = 0; // Number of consecutive OVC errors. After reached a limit, it is requiered that pedal is released by user in order to continue
 
 byte RxBuffer;                  // Number of bytes received at Serial
 unsigned long TimedataInBuffer; // Timer for Serial reception in Test Mode
@@ -581,8 +582,9 @@ byte ReportFlags;               // Collection of flags that reports the status i
 
 void setup()
 {
-  digitalWrite(LED_FRONT, LOW);
-  pinMode(LED_FRONT, OUTPUT);
+  //  digitalWrite(LED_FRONT, LOW);
+  //  pinMode(LED_FRONT, OUTPUT);
+  pinMode(LIFE_CHECK, OUTPUT);
 
   //Serial.begin(9600);
   //Serial.print("Initializing version: ");
@@ -597,9 +599,10 @@ void setup()
 
   RunMode = RUNMODE_NORMAL;
 
-  digitalWrite(LED_FRONT, LOW);
-  pinMode(LED_FRONT, OUTPUT);
-  pinMode(ANALOG_PEDAL, INPUT);
+  //  digitalWrite(LED_FRONT, LOW);
+  //  pinMode(LED_FRONT, OUTPUT);
+  pinMode(LIFE_CHECK, OUTPUT);
+  pinMode(VBUS_SENSE, INPUT);
   pinMode(PUSHBUTTON_IP, INPUT);
   pinMode(ROTPUSH_IP, INPUT);
   pinMode(ROTA, INPUT);
@@ -609,28 +612,28 @@ void setup()
   pinMode(ISEN, INPUT);
   pinMode(VOSEN, INPUT);
   pinMode(DCDC_EN, OUTPUT);
-  pinMode(CHG_POL, OUTPUT);
-  pinMode(ENA_OUT, OUTPUT);
+
+  //  pinMode(ENA_OUT, OUTPUT);
   pinMode(CHANNEL_SEL, OUTPUT);
   pinMode(OVC_ALARM, INPUT);
 
   //-----------------
 
-  digitalWrite(ENA_OUT, LOW);     // O/P Disabled --> works for led yellow/green
+  //  digitalWrite(ENA_OUT, LOW);     // O/P Disabled --> works for led yellow/green
   digitalWrite(CHANNEL_SEL, LOW); // Channel = Machine 1
-  digitalWrite(LED_FRONT, LOW);
-  digitalWrite(CHG_POL, POL_NORMAL);
+                                  //  digitalWrite(LED_FRONT, LOW);
+                                  //  digitalWrite(CHG_POL, POL_NORMAL);
   digitalWrite(BUZZ, LOW);
   digitalWrite(PEDAL_IP, HIGH); // Pullup
-                                //  digitalWrite(ROTA,    HIGH);  // Pullup
-                                //  digitalWrite(ROTB,    HIGH);  // Pullup
+  //  digitalWrite(ROTA,    HIGH);  // Pullup
+  //  digitalWrite(ROTB,    HIGH);  // Pullup
 
   display.clearDisplay();
-  display.drawRect(29, 0, 71, 64, WHITE);
-  display.drawBitmap(36, 7, MusotokuLogo, 57, 50, WHITE);
+  //display.drawRect(29, 0, 71, 64, WHITE);
+  display.drawBitmap(29, 10, MusotokuLogo, 70, 48, WHITE);
   display.display();
-  StartupFrontLEDs();
-  digitalWrite(LED_FRONT, HIGH);
+  //  StartupFrontLEDs();
+  //  digitalWrite(LED_FRONT, HIGH);
   delay(1000);
 
   //------------- TEST MODE -------
@@ -843,14 +846,14 @@ void setup()
   NitroStartGradePrev = NitroStartGrade;
 
   // Polarity configuration
-  if (PolarityStatus == POL_NORMAL)
-  {
-    digitalWrite(CHG_POL, POL_NORMAL);
-  }
-  else
-  {
-    digitalWrite(CHG_POL, POL_REVERSE);
-  }
+  //  if (PolarityStatus == POL_NORMAL)
+  //  {
+  //    digitalWrite(CHG_POL, POL_NORMAL);
+  //  }
+  //  else
+  //  {
+  //    digitalWrite(CHG_POL, POL_REVERSE);
+  //  }
 
   encoderPos = MachinesMemory[MachineOffset]; // Starts in the 1st memory position of the 1st machinef
   Time = millis();
@@ -1019,7 +1022,7 @@ void loop()
     if ((Time - ShowLongPressTimer) > SHOW_LONGPRESS_TIME)
     {
       ShowLongpressInfo = NO_LONGPRESS_INFO;
-      //      Serial.println("timer");
+      //Serial.println("timer");
       updateDisplayVoltsFLAG = FLAG_ON; // To refresh the display with the output value
     }
   }
@@ -1058,6 +1061,7 @@ void loop()
       }
       else
       {
+        BuzzerClick(LOW_PITCH, 210);
         //do nothing
         //While the output is ON (OUTLATCHSTATE = TRUE) it won't
         //change the memory
@@ -1083,14 +1087,14 @@ void loop()
 
       if (continuousMode == true) // Continuous Mode with toggle function in order to completely avoid the pedal if needed
       {
-        digitalWrite(ENA_OUT, LOW);
+        //        digitalWrite(ENA_OUT, LOW);
         continuousMode = false;
         OutLatchState = false;
         ShowLongpressInfo = LONGPRESS_INFO_NO_CONT;
       }
       else
       {
-        digitalWrite(ENA_OUT, HIGH);
+        //        digitalWrite(ENA_OUT, HIGH);
         continuousMode = true;
         OutLatchState = true; // output is latched by default to ON state
         ShowLongpressInfo = LONGPRESS_INFO_CONT;
@@ -1187,27 +1191,27 @@ void loop()
 
       else if (RunMode == RUNMODE_CHANGE_POL)
       {
-        RunMode = RUNMODE_NORMAL; // Next mode
-        if (ChangePol == true)
-        {
-          ChangePol = false;
-          digitalWrite(DCDC_EN, DCDC_DISABLED);
-          delay(333);
-
-          if (PolarityStatus == POL_NORMAL)
-          {
-            PolarityStatus = POL_REVERSE;
-            digitalWrite(CHG_POL, POL_REVERSE);
-          }
-          else
-          {
-            PolarityStatus = POL_NORMAL;
-            digitalWrite(CHG_POL, POL_NORMAL);
-          }
-        }
-        updateDisplayVoltsFLAG = FLAG_ON; // For refreshing the Normal display view
-        updateMenuDisplayFLAG = FLAG_OFF; // Disable the Menu display view
-        EEPROM[EEPROM_POLARITY_STATUS] = PolarityStatus;
+        //        RunMode = RUNMODE_NORMAL; // Next mode
+        //        if (ChangePol == true)
+        //        {
+        //          ChangePol = false;
+        //          digitalWrite(DCDC_EN, DCDC_DISABLED);
+        //          delay(333);
+        //
+        //          if (PolarityStatus == POL_NORMAL)
+        //          {
+        //            PolarityStatus = POL_REVERSE;
+        //            digitalWrite(CHG_POL, POL_REVERSE);
+        //          }
+        //          else
+        //          {
+        //            PolarityStatus = POL_NORMAL;
+        //            digitalWrite(CHG_POL, POL_NORMAL);
+        //          }
+        //        }
+        //        updateDisplayVoltsFLAG = FLAG_ON; // For refreshing the Normal display view
+        //        updateMenuDisplayFLAG = FLAG_OFF; // Disable the Menu display view
+        //        EEPROM[EEPROM_POLARITY_STATUS] = PolarityStatus;
       }
       else
       {
@@ -1375,12 +1379,12 @@ void loop()
       if (OutLatchState == true)
       {
         OutLatchState = false;
-        digitalWrite(ENA_OUT, LOW);
+        //        digitalWrite(ENA_OUT, LOW);
       }
       else
       {
         OutLatchState = true;
-        digitalWrite(ENA_OUT, HIGH);
+        //        digitalWrite(ENA_OUT, HIGH);
         NitroForContinuousMode = true; // This is to enable the Nitro action during the continuous mode
       }
     }
@@ -1482,12 +1486,12 @@ void loop()
         OVCerrorsConsecutive++;
         Mitigate_OVChazard(&OVCerrorsConsecutive);
         PedalNow = PEDAL_OFF; // After mitigate_ovcHazard the pedal is OFF. It is updated to prevent the following
-                              // over current test to trigger double
+        // over current test to trigger double
 
         continuousMode = false; // To prevent re-entering continuously (same as PEDAL_OFF above)
         NitroForContinuousMode = false;
         OutLatchState = false;
-        digitalWrite(ENA_OUT, LOW);
+        //        digitalWrite(ENA_OUT, LOW);
 
         updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
       }
@@ -1499,28 +1503,16 @@ void loop()
   {
     if (IoutSense > OVC_SENSE_LIMIT_SUP)
     {
-      Time = millis();
       OVCsenseTime = Time;
-      digitalWrite(CHG_POL, HIGH);
-      delay(50);
-      digitalWrite(CHG_POL, LOW);
-      delay(50);
 
       boolean OVCerror = true;
       while ((OVCerror == true) && ((Time - OVCsenseTime) < OVC_SENSE_MAX_TIME))
       {
-        digitalWrite(CHG_POL, HIGH);
-        delay(50);
-        digitalWrite(CHG_POL, LOW);
-        delay(50);
-
         //Serial.print('-');
         IoutSense = Read_Analog(ISEN);
         if (IoutSense < OVC_SENSE_LIMIT_INF)
         {
           OVCerror = false;
-
-          digitalWrite(CHG_POL, LOW);
         }
         Time = millis();
       }
@@ -1534,8 +1526,6 @@ void loop()
                                           // over current test to trigger double
       }
     }
-    else
-      digitalWrite(CHG_POL, LOW);
   }
 
 } // End main
@@ -1763,22 +1753,6 @@ void NitroStart(byte NGrade, int encoderPosition)
       TPICvalue = pgm_read_byte_near(NitroLookupTable + n); // Program the DCDC with the value in the nitrolookuptable
       Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
     }
-
-    ////------------ NITRO OUTPUT FALLING profile -----------------
-    ////If encoderPos is Lower than 12.3V
-    ////there is a fallout profile to arrive to the actual encoderPos
-    ////from the 12.3V
-    //
-    //n = _12_3V_INDEX; // This is the index for 12.3V in TPICLookupTable[]
-    //while ((n - encoderPosition) > 0)
-    //{
-    //  n=n-3;
-    //  TPICvalue = pgm_read_byte_near(TPICLookupTable + n);          // Go from the index position of 12.3V
-    //  Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);                     // to the value corresponding to the encoderPos
-    //}
-    //// THE End value is ALWAYS  = encoderPos
-    //// if encoderPos > 12.3V then the "while" is not executed and encoderPos value is
-    //// sent directly to the TPIC here withot the fallout profile
     TPICvalue = pgm_read_byte_near(TPICLookupTable + encoderPos);
     Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
 
@@ -1792,71 +1766,6 @@ void NitroStart(byte NGrade, int encoderPosition)
   {
   } // NITRO is OFF--> do nothing
 }
-
-//---------------------------------------------
-
-//---------------------------------------------
-//void NitroStart(byte NGrade, int encoderPosition)
-//{
-//  int NitroStepDuration = 10; // Milliseconds
-//  byte NitroIndex;
-//  byte TPICvalue;
-//
-//  if ((encoderPosition < MAX_THRESHOLD_NITRO) && (NGrade != NITRO_CFG_NO)) // No NITRO for Vout > 11.5V or NITRO= OFF either
-//  {
-//
-//    //-------Brings the programmed output to the lowest value to avoid first output value bounce-----------
-//    TPICvalue = pgm_read_byte_near(TPICLookupTable); // Lowest value of output corresponds to just the start of the TPICLookupTable
-//    Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
-//    digitalWrite(DCDC_EN, DCDC_ENABLED);
-//
-//    if (encoderPosition < HIGH_THRESHOLD_NITRO)
-//    {
-//      DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
-//
-//      //------------ NITRO LOW profile  -----------------
-//      for (int n = 0; n < LenNITROLookupTable; n++)
-//      {
-//        NitroIndex = pgm_read_byte_near(NitroLookupTableLow + n);     // Recover the index in the TPICLookupTable
-//        TPICvalue = pgm_read_byte_near(TPICLookupTable + NitroIndex); // Get the value corresponding to such index
-//        Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);                     // Program the DCDC with that value
-//        delay(NitroStepDuration);
-//      }
-//    }
-//    else // NITRO_HIGH
-//    {
-//      //------------ NITRO HIGH profile  -----------------
-//      for (int n = 0; n < LenNITROLookupTable; n++)
-//      {
-//        NitroIndex = pgm_read_byte_near(NitroLookupTableHigh + n);    // Recover the index in the TPICLookupTable
-//        TPICvalue = pgm_read_byte_near(TPICLookupTable + NitroIndex); // Get the value corresponding to such index
-//        Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);                     // Program the DCDC with that value
-//        delay(NitroStepDuration);
-//      }
-//    }
-//
-//    //------------ NITRO OUTPUT FALLING profile -----------------
-//
-//    //NitroIndex is now pointing to the maximum value
-//    //of the Nitro profile. Let's begin the fall profile
-//    //from this point.
-//
-//    while ((NitroIndex - encoderPosition) > 0)
-//    {
-//      TPICvalue = pgm_read_byte_near(TPICLookupTable + NitroIndex); // Get the value corresponding to such index
-//      Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);                     // Program the DCDC with that value
-//
-//      delay(2);
-//      NitroIndex--;
-//    }
-//
-//    //------------ DELETE THE NITRO TEXT ------------------------
-//    if (encoderPosition < HIGH_THRESHOLD_NITRO)
-//    {
-//      DisplayMessage(RunMode, DELETE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
-//    }
-//  }
-//}
 
 //==========================================ReadPushbutton=======================================================
 // PIN_IP: HW input
@@ -2235,7 +2144,7 @@ void Mitigate_OVChazard(byte *OVCerrorsConsecutive)
       *OVCerrorsConsecutive = 0;
       OutLatchState = false;  // Just in case continuousMode is ON, the output latch is stopped.
       continuousMode = false; // And the continuous mode is stopped
-      digitalWrite(ENA_OUT, LOW);
+                              //      digitalWrite(ENA_OUT, LOW);
     }
   }
 
@@ -2333,27 +2242,27 @@ void RunTimer(unsigned long val, int *hours, int *minutes)
 //
 //===============================================================================================================
 
-void StartupFrontLEDs()
-{
-  byte i, j, k, m, n;
-  i = 1;
-  j = 20;
-  m = 0;
-  n = 10;
-
-  while (m < 19)
-  {
-    for (k = 0; k < n; k++)
-    {
-      digitalWrite(LED_FRONT, HIGH);
-      delay(i);
-      digitalWrite(LED_FRONT, LOW);
-      delay(j);
-    }
-    i++;
-    j--;
-    m++;
-    n--;
-    n = constrain(n, 5, 10);
-  }
-}
+//void StartupFrontLEDs()
+//{
+//  byte i, j, k, m, n;
+//  i = 1;
+//  j = 20;
+//  m = 0;
+//  n = 10;
+//
+//  while (m < 19)
+//  {
+//    for (k = 0; k < n; k++)
+//    {
+//      digitalWrite(LED_FRONT, HIGH);
+//      delay(i);
+//      digitalWrite(LED_FRONT, LOW);
+//      delay(j);
+//    }
+//    i++;
+//    j--;
+//    m++;
+//    n--;
+//    n = constrain(n, 5, 10);
+//  }
+//}
