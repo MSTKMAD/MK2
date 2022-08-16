@@ -1,12 +1,12 @@
 
-//******************************
-//   VERSION r10.0-30
+/******************************
+//   VERSION M2-800
 //*****************************
-#define VERSION 730
+#define VERSION 800
 /**************************************************
 *******************
-
 EDCPSU Tattoo edition HW USB-C M2
+This version is an evolution of the 730 (M1 dual)
 10 AGO 2022
 IDE Version: 1.8.13
 VERSION: see above
@@ -149,7 +149,7 @@ const byte LONGPRESS_INFO_CONT = 1;
 const byte LONGPRESS_INFO_NO_CONT = 2;
 const byte LONGPRESS_INFO_TIMER_ON = 3;
 const byte LONGPRESS_INFO_TIMER_OFF = 4;
-const unsigned long SHOW_LONGPRESS_TIME = 800; // Time that the longpress information is shown on display (Milliseconds)
+const unsigned long SHOW_LONGPRESS_TIME = 900; // Time that the longpress information is shown on display (Milliseconds)
 
 const unsigned long RX_CHAR_TIMEOUT = 10; // (ms) time allowed for an orphan char received via Serial
 const byte TLG_RX_BYTES = 3;              // Bytes compounding a Serial telegram of the Test mode
@@ -634,7 +634,7 @@ void setup()
   display.display();
   //  StartupFrontLEDs();
   //  digitalWrite(LED_FRONT, HIGH);
-  delay(1000);
+  delay(2000);
 
   //------------- TEST MODE -------
   // Evaluate RX Data::::::::::::
