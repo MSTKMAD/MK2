@@ -2,12 +2,12 @@
 /******************************
 //   VERSION M2-800
 //*****************************
-#define VERSION 800
+#define VERSION 801
 /**************************************************
 *******************
 EDCPSU Tattoo edition HW USB-C M2
 This version is an evolution of the 730 (M1 dual)
-10 AGO 2022
+17 AGO 2022
 IDE Version: 1.8.13
 VERSION: see above
 
