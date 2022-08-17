@@ -872,6 +872,10 @@ void loop()
 
   if (RunMode == RUNMODE_NORMAL) // Only display if NOT in any configuration menu
   {
+    if (NitroStartGrade != NITRO_CFG_NO) // Confirm that NITRO is ON
+    {
+      DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
+    }
     if (RuntimerEnable == true) //PLAY
     {
       if ((Time - PartialRuntimer) > 10000)
@@ -964,34 +968,15 @@ void loop()
     if (ShowLongpressInfo == LONGPRESS_INFO_CONT)
     {
       display.setCursor(33, 8);
-      if (MachineMemPos == 0)
-      {
-        //MEMORY = 0 --> MACHINE OUTPUT 1
-        display.setCursor(40, 8);
-        display.print("-1-");
-      }
-      else
-      {
-        //MEMORY = 1 --> MACHINE OUTPUT 2
-        display.setCursor(40, 8);
-        display.print("-2-");
-      }
-      display.setCursor(48, 35);
+      display.print("CONT");
+      display.setCursor(43, 35);
       display.print("ON");
     }
     else if (ShowLongpressInfo == LONGPRESS_INFO_NO_CONT)
     {
-      if (MachineMemPos == 0)
-      {
-        display.setCursor(40, 8);
-        display.print("-1-");
-      }
-      else
-      {
-        display.setCursor(40, 8);
-        display.print("-2-");
-      }
-      display.setCursor(41, 35);
+      display.setCursor(33, 8);
+      display.print("CONT");
+      display.setCursor(36, 35);
       display.print("OFF");
     }
     else if (ShowLongpressInfo == LONGPRESS_INFO_TIMER_ON)
@@ -1041,7 +1026,7 @@ void loop()
       RotaryChangedFlag = FLAG_OFF; // RESET the rotary change action to avoid memory update after the button is pressed
 
       StandbyGlobalTimer = Time;  // Reset the standby timer
-      if (OutLatchState == false) // Only change MEMORY SETUP if Output is OFF
+      if ((OutLatchState == false) && (PedalNow == PEDAL_OFF))// Only change MEMORY SETUP if Output is OFF
       {
         MachineMemPos = (MachineMemPos + 1) % NUM_MEMORY;
         if (MachineMemPos == 0)
@@ -1409,6 +1394,7 @@ void loop()
   {
     digitalWrite(DCDC_EN, DCDC_DISABLED);
   }
+  //============================= PROTECCTIONS======================================//
 
   //----------- OVC ALARM MANAGEMENT --------------
 
@@ -1675,10 +1661,11 @@ void DisplayMessage(byte RunMode, byte WriteORdelete, char Message[25], byte Typ
     {
     case INFO_MESSG:
       display.setTextSize(1);
-      if (DisplayValue < 100)
-        display.setCursor(62, 57);
-      else
-        display.setCursor(2, 57);
+      display.setCursor(55, 57);
+      // if (DisplayValue < 100)
+      //   display.setCursor(62, 57);
+      // else
+      //   display.setCursor(2, 57);
       break;
 
     case WARNING_MESSG:
@@ -1696,7 +1683,8 @@ void DisplayMessage(byte RunMode, byte WriteORdelete, char Message[25], byte Typ
 
     case NITRO_MESSG:
       display.setTextSize(1);
-      display.setCursor(95, 2);
+      display.setCursor(2, 57);
+      //display.setCursor(95, 2);//<---------------------------------------------
       //display.drawRect(91,0,33,11,WHITE);
       break;
     }
