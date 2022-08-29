@@ -83,23 +83,24 @@ const int NUM_MEMORY = 2;
 const int SAVE_MEM_TIMER = 2000;       // Milliseconds
 const int EEPROM_RECORDED_DONE = 0xDA; // THis signature indicates if the EEPROM is recorded or if it is brand new and not recorded
 const int EEPROM_POLARITY_STATUS = 0x19;
-;                                     //Initial value for the polarity
-const int EEPROM_NITRO_STATUS = 0X20; // Position of EEPROM NITRO STATUS  --> INDICATES if NITRO is active or not
-const int EEPROM_RECORD_STAT = 0x21;  // Position of EEPROM RECORDED FLAG --> INDICATES if EEPROM is recorded (when value = EEPROM_RECORDED_DONE)
-const int EEPROM_MNF_YEAR = 0xF0;     // Position of EEPROM MANUFACTURED YEAR (Binary)
-const int EEPROM_MNF_MONTH = 0xF1;    // Position of EEPROM MANUFACTURED YEAR (Binary)
-const int EEPROM_SERIAL_NO = 0xF2;    // Position of EEPROM MANUFACTURED YEAR (Binary)
-const byte NITRO_CFG_NO = 1;          // Nitro Signature configured as NOT (menu selection 1)
-const byte NITRO_CFG_YES = 2;         // Nitro Signature configured as YES (menu selection 2)
-const int MACHINE_EEPROM_POS0 = 0;    // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
-const int MACHINE_EEPROM_POS1 = 1;    // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
-const int MACHINE_EEPROM_POS2 = 2;    // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
-const int MACHINE_EEPROM_POS3 = 3;    // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
-const int MACHINE1_OFFSET = 0;        // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_1 WorkingPoint Memories
-const int MACHINE2_OFFSET = 4;        // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_2 WorkingPoint Memories
-const int MACHINE3_OFFSET = 8;        // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_3 WorkingPoint Memories
-const byte NITRO_SETUP_OFF = 0;       // If Nitro setup is taking place
-const byte NITRO_SETUP_ON = 0xAA;     // If No Nitro setup is taking place
+;                                       //Initial value for the polarity
+const int EEPROM_NITRO_STATUS_CH_1 = 0X20; // Position of EEPROM NITRO STATUS  --> INDICATES if NITRO is active or not
+const int EEPROM_NITRO_STATUS_CH_2 = 0X25; // Position of EEPROM NITRO STATUS  --> INDICATES if NITRO is active or not
+const int EEPROM_RECORD_STAT = 0x21;    // Position of EEPROM RECORDED FLAG --> INDICATES if EEPROM is recorded (when value = EEPROM_RECORDED_DONE)
+const int EEPROM_MNF_YEAR = 0xF0;       // Position of EEPROM MANUFACTURED YEAR (Binary)
+const int EEPROM_MNF_MONTH = 0xF1;      // Position of EEPROM MANUFACTURED YEAR (Binary)
+const int EEPROM_SERIAL_NO = 0xF2;      // Position of EEPROM MANUFACTURED YEAR (Binary)
+const byte NITRO_CFG_NO = 1;            // Nitro Signature configured as NOT (menu selection 1)
+const byte NITRO_CFG_YES = 2;           // Nitro Signature configured as YES (menu selection 2)
+const int MACHINE_EEPROM_POS0 = 0;      // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
+const int MACHINE_EEPROM_POS1 = 1;      // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
+const int MACHINE_EEPROM_POS2 = 2;      // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
+const int MACHINE_EEPROM_POS3 = 3;      // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
+const int MACHINE1_OFFSET = 0;          // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_1 WorkingPoint Memories
+const int MACHINE2_OFFSET = 4;          // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_2 WorkingPoint Memories
+const int MACHINE3_OFFSET = 8;          // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_3 WorkingPoint Memories
+const byte NITRO_SETUP_OFF = 0;         // If Nitro setup is taking place
+const byte NITRO_SETUP_ON = 0xAA;       // If No Nitro setup is taking place
 const byte BEEP_IS_TRUE = true;
 const byte BEEP_IS_FALSE = false;
 const byte WRITE_MESSG = 1;
@@ -530,7 +531,9 @@ int RotaryChangedFlag = FLAG_OFF;
 unsigned long SaveMemoryTimer;
 byte EEPROMaux; // used to write and read values from EEPROM memory and to be index
 byte updateDisplayVoltsFLAG = FLAG_ON;
-byte NitroStartGrade;
+byte NitroStartGradeCh1;
+byte NitroStartGradeCh2;
+byte ActualChannel;
 byte NitroStartGradePrev;
 byte NitroSetupStat = NITRO_SETUP_OFF;
 byte RunMode = RUNMODE_NORMAL;
@@ -615,6 +618,7 @@ void setup()
 
   //  pinMode(ENA_OUT, OUTPUT);
   pinMode(CHANNEL_SEL, OUTPUT);
+  ActualChannel = 1;
   pinMode(OVC_ALARM, INPUT);
 
   //-----------------
@@ -800,7 +804,6 @@ void setup()
   //------------ EEPROM RECORDED?? --------
   EEPROMaux = EEPROM[EEPROM_RECORD_STAT];
   if (EEPROMaux != EEPROM_RECORDED_DONE)
-
   {
     EEPROM[(MACHINE1_OFFSET + MACHINE_EEPROM_POS0)] = 10; // RECORDS the 1st position of Machine1 memory with default value
     EEPROM[(MACHINE1_OFFSET + MACHINE_EEPROM_POS1)] = 20; // RECORDS the 2nd position of Machine1 memory with default value
@@ -817,7 +820,8 @@ void setup()
     EEPROM[(MACHINE3_OFFSET + MACHINE_EEPROM_POS2)] = 42; // RECORDS the 3rd position of Machine3 memory with default value
     EEPROM[(MACHINE3_OFFSET + MACHINE_EEPROM_POS3)] = 52; // RECORDS the 4rd position of Machine3 memory with default value
 
-    EEPROM[EEPROM_NITRO_STATUS] = NITRO_CFG_NO;        // NITRO configuration
+    EEPROM[EEPROM_NITRO_STATUS_CH_1] = NITRO_CFG_NO;        // NITRO configuration
+    EEPROM[EEPROM_NITRO_STATUS_CH_2] = NITRO_CFG_NO;        // NITRO configuration
     EEPROM[EEPROM_POLARITY_STATUS] = POL_NORMAL;       // Polarity set to normal by default (relay in resting mode)
     EEPROM[EEPROM_RECORD_STAT] = EEPROM_RECORDED_DONE; // Now signature is set to indicate that EEPROM is recorded
   }
@@ -839,11 +843,12 @@ void setup()
   MachinesMemory[10] = EEPROM[(MACHINE3_OFFSET + MACHINE_EEPROM_POS2)];
   MachinesMemory[11] = EEPROM[(MACHINE3_OFFSET + MACHINE_EEPROM_POS3)];
 
-  NitroStartGrade = EEPROM[EEPROM_NITRO_STATUS];
+  NitroStartGradeCh1 = EEPROM[EEPROM_NITRO_STATUS_CH_1];
+  NitroStartGradeCh2 = EEPROM[EEPROM_NITRO_STATUS_CH_2];
   PolarityStatus = EEPROM[EEPROM_POLARITY_STATUS];
 
   //------- VAR INITIALIZATION ------------
-  NitroStartGradePrev = NitroStartGrade;
+  // NitroStartGradePrev = NitroStartGrade;
 
   // Polarity configuration
   //  if (PolarityStatus == POL_NORMAL)
@@ -872,7 +877,12 @@ void loop()
 
   if (RunMode == RUNMODE_NORMAL) // Only display if NOT in any configuration menu
   {
-    if (NitroStartGrade != NITRO_CFG_NO) // Confirm that NITRO is ON
+
+    if ((NitroStartGradeCh1 != NITRO_CFG_NO) && (ActualChannel == 1)) // Confirm that NITRO in Channel 1 is ON
+    {
+      DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
+    }
+    else if ((NitroStartGradeCh2 != NITRO_CFG_NO) && (ActualChannel == 2)) // Confirm that NITRO in Channel 2 is ON
     {
       DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
     }
@@ -1025,19 +1035,21 @@ void loop()
     {
       RotaryChangedFlag = FLAG_OFF; // RESET the rotary change action to avoid memory update after the button is pressed
 
-      StandbyGlobalTimer = Time;  // Reset the standby timer
-      if ((OutLatchState == false) && (PedalNow == PEDAL_OFF))// Only change MEMORY SETUP if Output is OFF
+      StandbyGlobalTimer = Time;                               // Reset the standby timer
+      if ((OutLatchState == false) && (PedalNow == PEDAL_OFF)) // Only change MEMORY SETUP if Output is OFF
       {
         MachineMemPos = (MachineMemPos + 1) % NUM_MEMORY;
         if (MachineMemPos == 0)
         {
           //MEMORY = 0 --> MACHINE OUTPUT 1
           digitalWrite(CHANNEL_SEL, LOW);
+          ActualChannel = 1;
         }
         else
         {
           //MEMORY = 1 --> MACHINE OUTPUT 2
           digitalWrite(CHANNEL_SEL, HIGH);
+          ActualChannel = 2;
         }
         encoderPos = MachinesMemory[(MachineOffset + MachineMemPos)];
         updateDisplayVoltsFLAG = FLAG_ON;
@@ -1108,7 +1120,6 @@ void loop()
         updateDisplayVoltsFLAG = FLAG_OFF; // Disable the Normal display view
         MenuSelection = 1;                 // Forces the Config Menu to start indexing the 1st element
       }
-
       else if (RunMode == RUNMODE_CONFIG_TOP)
       {
         switch (NextRunMode)
@@ -1119,13 +1130,27 @@ void loop()
           updateDisplayVoltsFLAG = FLAG_OFF; // Disable the Normal display view
 
           // Allocation of the default selection of Nitro
-          if (NitroStartGrade == NITRO_CFG_NO) // Forces the Config Menu to start with the saved setup
+          if (ActualChannel == 1)
           {
-            MenuSelection = 1;
+            if (NitroStartGradeCh1 == NITRO_CFG_NO) // Confirm that NITRO is ON
+            {
+              MenuSelection = 1;
+            }
+            else
+            {
+              MenuSelection = 2;
+            }
           }
-          else
+          else if (ActualChannel == 2)
           {
-            MenuSelection = 2;
+            if (NitroStartGradeCh2 == NITRO_CFG_NO) // Confirm that NITRO is ON
+            {
+              MenuSelection = 1;
+            }
+            else
+            {
+              MenuSelection = 2;
+            }
           }
           break;
 
@@ -1156,7 +1181,8 @@ void loop()
         RunMode = RUNMODE_NORMAL;
         updateDisplayVoltsFLAG = FLAG_ON; // For refreshing the Normal display view
         updateMenuDisplayFLAG = FLAG_OFF; // Disable the Menu display view
-        EEPROM[EEPROM_NITRO_STATUS] = NitroStartGrade;
+        EEPROM[EEPROM_NITRO_STATUS_CH_1] = NitroStartGradeCh1;
+        EEPROM[EEPROM_NITRO_STATUS_CH_2] = NitroStartGradeCh2;
       }
 
       else if (RunMode == RUNMODE_MENU_TIMER)
@@ -1171,7 +1197,8 @@ void loop()
         }
         updateDisplayVoltsFLAG = FLAG_ON; // For refreshing the Normal display view
         updateMenuDisplayFLAG = FLAG_OFF; // Disable the Menu display view
-        EEPROM[EEPROM_NITRO_STATUS] = NitroStartGrade;
+        EEPROM[EEPROM_NITRO_STATUS_CH_1] = NitroStartGradeCh1;
+        EEPROM[EEPROM_NITRO_STATUS_CH_2] = NitroStartGradeCh2;
       }
 
       else if (RunMode == RUNMODE_CHANGE_POL)
@@ -1343,8 +1370,14 @@ void loop()
     if (updateMenuDisplayFLAG == FLAG_ON)
     {
       updateMenuDisplayFLAG = FLAG_OFF;
-
-      Handle_ConfigMenus(RunMode, MenuSelection, &NextRunMode, &NitroStartGrade, &ResetRunTimer, &ChangePol, &RuntimerEnable);
+      if (ActualChannel == 1)
+      {
+        Handle_ConfigMenus(RunMode, MenuSelection, &NextRunMode, &NitroStartGradeCh1, &ResetRunTimer, &ChangePol, &RuntimerEnable);
+      }
+      else if (ActualChannel == 2)
+      {
+        Handle_ConfigMenus(RunMode, MenuSelection, &NextRunMode, &NitroStartGradeCh2, &ResetRunTimer, &ChangePol, &RuntimerEnable);
+      }
     }
   }
 
@@ -1354,7 +1387,14 @@ void loop()
     PedalEvent = PUSHBUTTON_IDLE;
     if (continuousMode == false) // Pedal works different during Continuous mode: when pressed --> toggles the latch output (OutLatchState)
     {
-      NitroStart(NitroStartGrade, encoderPos);
+      if (ActualChannel == 1)
+      {
+        NitroStart(NitroStartGradeCh1, encoderPos);
+      }
+      else if (ActualChannel == 2)
+      {
+        NitroStart(NitroStartGradeCh2, encoderPos);
+      }
       digitalWrite(DCDC_EN, DCDC_ENABLED);
       //updateDisplayVoltsFLAG = FLAG_ON;          // NOTE: ELIMINATED TO AVOID LOSS OF DISPLAY WHILE IN CONFIG MENU AND PEDAL IS PUSHED (On test...)
       // Second Note: this line was initially added on version 24.
@@ -1379,7 +1419,14 @@ void loop()
   if ((NitroForContinuousMode == true) && (OutLatchState == true))
   {
     NitroForContinuousMode = false;
-    NitroStart(NitroStartGrade, encoderPos);
+    if (ActualChannel == 1)
+    {
+      NitroStart(NitroStartGradeCh1, encoderPos);
+    }
+    else if (ActualChannel == 2)
+    {
+      NitroStart(NitroStartGradeCh2, encoderPos);
+    }
     digitalWrite(DCDC_EN, DCDC_ENABLED);
     updateDisplayVoltsFLAG = FLAG_ON; // To force renewing the display and the output value
   }
