@@ -1,8 +1,8 @@
 
 //******************************
-//   VERSION M2-801
+//   VERSION M2-803
 //*****************************
-#define VERSION 802
+#define VERSION 803
 /**************************************************
 *******************
 EDCPSU Tattoo edition HW USB-C M2
@@ -638,9 +638,37 @@ void setup()
   //display.drawRect(29, 0, 71, 64, WHITE);
   display.drawBitmap(29, 10, MusotokuLogo, 70, 48, WHITE);
   display.display();
+
+  delay(2000);
+
+  int32_t vbus = 0;
+  for (int i = 0; i < 8; i++)
+  {
+    vbus += analogRead(VBUS_SENSE);
+  }
+  vbus = vbus >> 3;
+
+  vbus = (vbus * 5000 / 1023) * 5;
+
+  if (vbus < 17500)
+  {
+    display.clearDisplay();
+    display.setTextSize(2);
+    display.setTextColor(WHITE);
+    display.setCursor(35, 5);
+    display.print("USB-C");
+    display.setCursor(45, 26);
+    display.print("NOT");
+    display.setCursor(5, 47);
+    display.print("COMPATIBLE");
+    display.display();
+
+    while (1)
+      ;
+  }
+
   //  StartupFrontLEDs();
   //  digitalWrite(LED_FRONT, HIGH);
-  delay(2000);
 
   //------------- TEST MODE -------
   // Evaluate RX Data::::::::::::
