@@ -11,6 +11,7 @@ This version is an evolution of the 730 (M1 dual)
 IDE Version: 1.8.13
 VERSION: see above
 
+CAMBIOS : En esta version se cierra el Issue #8. 
 *********************************************************************/
 
 //----------------------------------------------  INCLUDE SECTION --------------------------------------------
@@ -908,14 +909,6 @@ void loop()
   if (RunMode == RUNMODE_NORMAL) // Only display if NOT in any configuration menu
   {
 
-    if ((NitroStartGradeCh1 != NITRO_CFG_NO) && (ActualChannel == CHANNEL_1)) // Confirm that NITRO in Channel 1 is ON
-    {
-      DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
-    }
-    else if ((NitroStartGradeCh2 != NITRO_CFG_NO) && (ActualChannel == CHANNEL_2)) // Confirm that NITRO in Channel 2 is ON
-    {
-      DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
-    }
     if (RuntimerEnable == true) //PLAY
     {
       if ((Time - PartialRuntimer) > 10000)
@@ -965,6 +958,14 @@ void loop()
       showMem = CLEAR_DISPLAY_MEM;
       //DisplayMem(MachineMemPos);    // Dual model must not display the memory memory because there are only
       // two memories that are associated to each channel.
+    }
+    if ((NitroStartGradeCh1 != NITRO_CFG_NO) && (ActualChannel == CHANNEL_1)) // Confirm that NITRO in Channel 1 is ON
+    {
+      DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
+    }
+    else if ((NitroStartGradeCh2 != NITRO_CFG_NO) && (ActualChannel == CHANNEL_2)) // Confirm that NITRO in Channel 2 is ON
+    {
+      DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
     }
     DisplayTimer(runningHours, runningMinutes);
   }
