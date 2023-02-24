@@ -1,8 +1,8 @@
 
 //******************************
-//   VERSION M2-803
+//   VERSION M2-805
 //*****************************
-#define VERSION 803
+#define VERSION 805
 /**************************************************
 *******************
 EDCPSU Tattoo edition HW USB-C M2
@@ -11,7 +11,7 @@ This version is an evolution of the 730 (M1 dual)
 IDE Version: 1.8.13
 VERSION: see above
 
-CAMBIOS : En esta version se cierra el Issue #8. 
+CAMBIOS : En esta version se cierra el Issue #1 de Github. 
 *********************************************************************/
 
 //----------------------------------------------  INCLUDE SECTION --------------------------------------------
@@ -953,12 +953,13 @@ void loop()
     VoutTarget = int(DisplayValue * DISP_TO_VTARGET_CONV);
 
     ShowDisplayValue(DisplayValue);
-    if (showMem == DISPLAY_MEM)
+    /*if (showMem == DISPLAY_MEM)
     {
       showMem = CLEAR_DISPLAY_MEM;
-      //DisplayMem(MachineMemPos);    // Dual model must not display the memory memory because there are only
-      // two memories that are associated to each channel.
+      DisplayMem(MachineMemPos);    // Dual model must not display the memory memory because there are only
+                                       two memories that are associated to each channel.
     }
+    */
     if ((NitroStartGradeCh1 != NITRO_CFG_NO) && (ActualChannel == CHANNEL_1)) // Confirm that NITRO in Channel 1 is ON
     {
       DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
@@ -969,7 +970,6 @@ void loop()
     }
     DisplayTimer(runningHours, runningMinutes);
   }
-
   //----------------- UPDATE MEMORY ---------------------------
   if (RotaryChangedFlag == FLAG_ON)
   {
@@ -984,7 +984,7 @@ void loop()
       DisplayMessage(RunMode, DELETE_MESSG, "REC", INFO_MESSG, DisplayValue);
     }
   }
-
+  /*
   //------------------ CLEAR THE MEMORY INFORMATION ON DISPLAY --------------
   if (showMem == CLEAR_DISPLAY_MEM)
   {
@@ -995,6 +995,7 @@ void loop()
       display.display();
     }
   }
+*/
 
   //---------------- SPECIAL INFO ON DISPLAY (LONGPRESS ACTIONS) ---------
 
