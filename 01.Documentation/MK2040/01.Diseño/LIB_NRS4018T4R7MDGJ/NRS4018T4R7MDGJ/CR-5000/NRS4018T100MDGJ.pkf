@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "NRS4018T100MDGJ"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "NRS4018T100MDGJ")
+        (spec "default")
+    )
+)

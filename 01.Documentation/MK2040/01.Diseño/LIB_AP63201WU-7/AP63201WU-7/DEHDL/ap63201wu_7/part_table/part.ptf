@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'AP63201WU_7'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Diodes Inc.", "AP63201WU-7" (!) = "", "SOT95P280X100-6N", "SOT23 (6-Pin)", "621-AP63201WU-7", "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP63201WU-7?qs=u16ybLDytRaVD%252BU3eG30NA%3D%3D", "AP63201WU-7", "https://www.arrow.com/en/products/ap63201wu-7/diodes-incorporated?region=nac", "Switching Voltage Regulators DCDC Conv HV Buck TSOT26 T&R 3K", "https://mouser.componentsearchengine.com/Datasheets/1/AP63201WU-7.pdf", "1 mm"
+END_PART
+
+END.

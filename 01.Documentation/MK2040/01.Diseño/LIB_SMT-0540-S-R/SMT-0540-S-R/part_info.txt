@@ -1,0 +1,9 @@
+Manufacturer=PUI Audio
+PartNumber=SMT-0540-S-R
+PartCategory=Loudspeaker or Buzzer
+PackageCategory=Other
+PinCount=3
+Version=1.2
+Released=2018-02-28 12:38:33
+Downloaded=2023-03-10 10:46:55
+3D=Y

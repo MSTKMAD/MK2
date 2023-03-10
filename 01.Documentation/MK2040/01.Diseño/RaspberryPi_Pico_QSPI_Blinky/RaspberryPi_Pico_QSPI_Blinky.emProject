@@ -1,0 +1,79 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="RaspberryPi_Pico_QSPI_Blinky" target="8" version="2">
+  <project Name="RaspberryPi_Pico_QSPI_Blinky">
+    <configuration
+      LIBRARY_IO_TYPE="RTT"
+      Name="Common"
+      Target="RP2040_M0_0"
+      arm_architecture="v6M"
+      arm_compiler_variant="SEGGER"
+      arm_core_type="Cortex-M0+"
+      arm_endian="Little"
+      arm_fp_abi="Soft"
+      arm_fpu_type="None"
+      arm_linker_heap_size="0"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="2048"
+      arm_linker_variant="SEGGER"
+      arm_rtl_variant="SEGGER"
+      arm_target_debug_interface_type="ADIv5"
+      arm_target_device_name="RP2040_M0_0"
+      arm_target_interface_type="SWD"
+      c_preprocessor_definitions="__VTOR_CONFIG;ARM_MATH_CM0PLUS;RP2040;__RP2040_FAMILY;__NO_FPU_ENABLE"
+      c_user_include_directories="$(ProjectDir)/CMSIS_5/CMSIS/Core/Include;$(ProjectDir)/RP2040_Pico_BSP/pico-sdk/src/rp2040/hardware_regs/include;$(ProjectDir)/RP2040_Pico_BSP/pico-sdk/src/rp2_common/boot_stage2/asminclude;$(ProjectDir)/RP2040_Pico_BSP/pico-sdk/src/rp2_common/pico_platform/include;$(ProjectDir)/RP2040_Pico_BSP/pico-sdk/src/common/pico_base/include;$(ProjectDir)/RP2040_Pico_BSP/pico-sdk/src/common/pico_binary_info/include;$(ProjectDir)/RP2040/Device/Include"
+      debug_register_definition_file="$(ProjectDir)/rp2040_Registers.xml"
+      debug_stack_pointer_start="__stack_end__"
+      debug_start_from_entry_point_symbol="No"
+      debug_target_connection="J-Link"
+      gcc_entry_point="Reset_Handler"
+      link_linker_script_file="$(ProjectDir)/RP2040_Pico_Flash.icf"
+      linker_memory_map_file="$(ProjectDir)/RP2040_M0_0_MemoryMap.xml"
+      linker_output_format="hex"
+      macros="DeviceHeaderFile=$(PackagesDir)/RP2040_Pico_BSP/Device/Include/RP2040.h;DeviceLibraryIdentifier=M0l;DeviceSystemFile=$(PackagesDir)/RP2040_Pico_BSP/Device/Source/system_RP2040.c;DeviceVectorsFile=$(PackagesDir)/RP2040_Pico_BSP/Source/RP2040_Vectors.s;DeviceFamily=RP2040;Target=RP2040_M0_0"
+      project_directory=""
+      project_type="Executable"
+      target_load_end_script="Reset();"
+      target_reset_script="Reset();"
+      target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)" />
+    <folder Name="CMSIS Files">
+      <file file_name="RP2040_Pico_BSP/Device/Include/RP2040.h" />
+      <file file_name="RP2040_Pico_BSP/Device/Source/system_RP2040.c">
+        <configuration
+          Name="Common"
+          default_code_section=".init"
+          default_const_section=".init_rodata" />
+      </file>
+    </folder>
+    <folder Name="Script Files">
+      <file file_name="RP2040_Pico_BSP/Scripts/RP2040_Pico_BSP_Target.js">
+        <configuration Name="Common" file_type="Reset Script" />
+      </file>
+    </folder>
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <file file_name="main.c" />
+      <file file_name="BSP.c" />
+      <file file_name="BSP.h" />
+    </folder>
+    <folder Name="System Files">
+      <file file_name="SEGGER_THUMB_Startup.s" />
+      <file file_name="RP2040_Pico_BSP/Source/RP2040_Startup.s" />
+      <file file_name="RP2040_Pico_BSP/Source/RP2040_Vectors.s">
+        <configuration Name="Common" file_type="Assembly" />
+      </file>
+      <file file_name="RP2040_Pico_BSP/pico-sdk/src/rp2_common/boot_stage2/boot2_w25q080.S" />
+    </folder>
+  </project>
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="None" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 2"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 balanced" />
+</solution>

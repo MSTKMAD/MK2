@@ -1,0 +1,72 @@
+(Japanese_coding: sjis)
+(function "ECS_237377"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-02-28-12:38:33)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+        (port "3" (symbPinId 3) (portType INOUT))
+    )
+    (property "symbolName" "SMT-0540-S-R")
+)
+
+
+(pinAssign "ECS_237377"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-02-28-12:38:33)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portName "+") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "-") (portType INOUT))
+        (port "3" (symbPinId 3) (portName "DUMMY") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_237377")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+                (port "3" (match "3"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "SMT-0540-S-R")
+)
+
+
+(part "SMT-0540-S-R"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-02-28-12:38:33)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "SMT-0540-S-R")
+    (pinAssignRef "ECS_237377")
+    (interface
+        (port "1" (symbPinId 1) (portName "+") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "-") (portType INOUT))
+        (port "3" (symbPinId 3) (portName "DUMMY") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "YES")
+    (property "refDesPrefix" "LS")
+    (property "description" "Speakers & Transducers SMD TRANSDUCER 3VP-P 100MA")
+    (property "Manufacturer_Name" "PUI Audio")
+    (property "Manufacturer_Part_Number" "SMT-0540-S-R")
+    (property "Mouser_Part_Number" "665-SMT0540SR")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/PUI-Audio/SMT-0540-S-R?qs=e16JbV5WBEu5VaDVzQP23Q%3D%3D")
+    (property "Arrow_Part_Number" "")
+    (property "Arrow_Price/Stock" "")
+    (property "Datasheet_Link" "http://www.puiaudio.com/pdf/SMT-0540-S-R.pdf")
+    (property "compAreaTopHeight" 2)
+)
+
+

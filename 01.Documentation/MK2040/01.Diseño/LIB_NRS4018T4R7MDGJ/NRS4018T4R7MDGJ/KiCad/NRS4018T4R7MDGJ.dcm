@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NRS4018T4R7MDGJ
+D Inductor SMD wirewound 4.7uH
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DGA11/2190982.pdf
+$ENDCMP
+#
+#End Doc Library

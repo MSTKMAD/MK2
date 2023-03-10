@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'RP2040TR7'
+CLASS = IO
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "RASPBERRY-PI", "RP2040TR7" (!) = "", "RP2040TR7", "Other", "", "", "", "", "ARM MCU, RP2040 Series Microcontrollers, ARM Cortex-M0+, 32 bit, 133 MHz, 16 MB, 56 Pins", "https://componentsearchengine.com/Datasheets/2/RP2040TR7.pdf", "0.9 mm"
+END_PART
+
+END.

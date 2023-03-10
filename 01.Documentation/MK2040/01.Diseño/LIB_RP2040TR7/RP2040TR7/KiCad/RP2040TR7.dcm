@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RP2040TR7
+D ARM MCU, RP2040 Series Microcontrollers, ARM Cortex-M0+, 32 bit, 133 MHz, 16 MB, 56 Pins
+K
+F https://componentsearchengine.com/Datasheets/2/RP2040TR7.pdf
+$ENDCMP
+#
+#End Doc Library

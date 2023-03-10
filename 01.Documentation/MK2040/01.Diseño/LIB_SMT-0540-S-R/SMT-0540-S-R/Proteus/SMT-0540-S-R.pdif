@@ -1,0 +1,149 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "SMT-0540-S-R"
+   (description "Speakers & Transducers SMD TRANSDUCER 3VP-P 100MA")
+   (family "ANA")
+   (package "SMT0540SR")
+   (attribute "Datasheet Link" "http://www.puiaudio.com/pdf/SMT-0540-S-R.pdf")
+   (attribute "Geometry.Height" "2mm")
+   (attribute "Manufacturer_Name" "PUI Audio")
+   (attribute "Manufacturer_Part_Number" "SMT-0540-S-R")
+   (attribute "Mouser Part Number" "665-SMT0540SR")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/PUI-Audio/SMT-0540-S-R?qs=e16JbV5WBEu5VaDVzQP23Q%3D%3D")
+   (attribute "Arrow Part Number" "")
+   (attribute "Arrow Price/Stock" "")
+   (gate
+    (symbol "SMT-0540-S-R")
+    (pin "+" 1 PS)
+    (pin "-" 2 PS)
+    (pin "DUMMY" 3 PS)
+   )
+  )
+  (symbol "SMT-0540-S-R"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 800 100) (pt 800 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1000 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "SMT0540SR"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -2.5 2.5)
+      (pt 2.5 2.5)
+      (pt 2.5 -2.5)
+      (pt -2.5 -2.5)
+      (pt -2.5 2.5))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -4.6 3.55)
+      (pt 4 3.55)
+      (pt 4 -3.5)
+      (pt -4.6 -3.5)
+      (pt -4.6 3.55))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -2.5 1)
+      (pt -2.5 -0.75))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -1 2.5)
+      (pt 2.5 2.5)
+      (pt 2.5 -0.75))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -1 -2.5)
+      (pt 1 -2.5))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -1 2.5)
+      (pt -1.4 2.5))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -3.5 -1.7)
+      (arc (pt -3.500 -1.700) (pt -3.600 -1.900) (pt -3.400 -1.700) (start -180.0) (sweep 90.0))
+      (pt -3.5 -1.9)
+      (arc (pt -3.500 -1.900) (pt -3.600 -1.900) (pt -3.400 -1.700) (start -180.0) (sweep -90.0))
+      (pt -3.5 -1.7))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -2.5 -2.5)
+      (pt -0.8 -2.491))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt 1 -2.5)
+      (pt 2.5 -2.491))))
+   (leg 1 (pt -2.250 -1.600) (padstack 0))
+   (leg 2 (pt 2.250 -1.600) (padstack 0))
+   (leg 3 (pt -2.250 1.900) (padstack 3))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 1.300 1.500 0 0 0.000))
+   )
+   (padstack 3
+    (plated false)
+    (pad (layer TCOP) (square 1.300))
+   )
+   (model "SMT-0540-S-R.stp"
+    (euler 0 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)
