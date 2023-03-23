@@ -6891,7 +6891,7 @@ Es el de G=25 (TEUK version)</text>
 <text x="-477.52" y="-60.96" size="1.778" layer="91">LOW PASS FILTER
 Fc= 7Hz</text>
 <text x="-474.98" y="198.12" size="6.4516" layer="94">SWD PROGRAMMER CONNECTOR</text>
-<text x="-462.28" y="106.68" size="6.4516" layer="94">3v3 LDO/DCDC Buck</text>
+<text x="-462.28" y="106.68" size="6.4516" layer="94">3v3 DCDC Buck</text>
 <text x="-439.42" y="86.36" size="1.778" layer="91">OJO:
 Indicar en BOM que 
 es el AP63203 !!</text>
