@@ -3646,226 +3646,6 @@ Source: LITEON, LTV816.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-Connectors" urn="urn:adsk.eagle:library:513">
-<description>&lt;h3&gt;SparkFun Connectors&lt;/h3&gt;
-This library contains electrically-functional connectors. 
-&lt;br&gt;
-&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
-&lt;br&gt;
-&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
-&lt;br&gt;
-&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;
-&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="PAD.02X.02" urn="urn:adsk.eagle:footprint:37959/1" library_version="1">
-<description>&lt;h3&gt;Electrically Conductive Pad 0.02" Square&lt;/h3&gt;
-Used as a test point connection for pogo pins or other debugging tools. 
-&lt;p&gt;Specifications:
-&lt;li&gt;Area: 0.02" x 0.02"&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<smd name="P$1" x="0" y="0" dx="0.508" dy="0.508" layer="1"/>
-</package>
-<package name="PAD.03X.03" urn="urn:adsk.eagle:footprint:37960/1" library_version="1">
-<description>&lt;h3&gt;Electrically Conductive Pad 0.03" Circle&lt;/h3&gt;
-Used as a test point connection for pogo pins or other debugging tools. 
-&lt;p&gt;Specifications:
-&lt;li&gt;Area: 0.03" x 0.03"&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<smd name="P$1" x="0" y="0" dx="0.762" dy="0.762" layer="1" roundness="100" cream="no"/>
-</package>
-<package name="PAD.03X.05" urn="urn:adsk.eagle:footprint:37961/1" library_version="1">
-<description>&lt;h3&gt;Electrically Conductive Pad 0.05" Circle&lt;/h3&gt;
-Used as a test point connection for pogo pins or other debugging tools. 
-&lt;p&gt;Specifications:
-&lt;li&gt;Area: 0.05" x 0.05"&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<smd name="P$1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
-</package>
-<package name="PAD.03X.04" urn="urn:adsk.eagle:footprint:37962/1" library_version="1">
-<description>&lt;h3&gt;Electrically Conductive Pad 0.04" Circle&lt;/h3&gt;
-Used as a test point connection for pogo pins or other debugging tools. 
-&lt;p&gt;Specifications:
-&lt;li&gt;Area: 0.04" x 0.04"&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<smd name="P$1" x="0" y="0" dx="1.016" dy="1.016" layer="1" roundness="100" cream="no"/>
-</package>
-<package name="TP_15TH" urn="urn:adsk.eagle:footprint:37963/1" library_version="1">
-<description>&lt;h3&gt;Electrically Conductive Via 0.015" Drill&lt;/h3&gt;
-Used as a test point connection for pogo pins or other debugging tools. 
-&lt;p&gt;Specifications:
-&lt;li&gt;Area:0.015"&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<pad name="P$1" x="0" y="0" drill="0.381" diameter="0.6096" stop="no"/>
-<circle x="0" y="0" radius="0.381" width="0" layer="30"/>
-</package>
-</packages>
-<packages3d>
-<package3d name="PAD.02X.02" urn="urn:adsk.eagle:package:38284/1" type="box" library_version="1">
-<description>Electrically Conductive Pad 0.02" Square
-Used as a test point connection for pogo pins or other debugging tools. 
-Specifications:
-Area: 0.02" x 0.02"
-
-Example device(s):
-TEST_POINT
-</description>
-<packageinstances>
-<packageinstance name="PAD.02X.02"/>
-</packageinstances>
-</package3d>
-<package3d name="PAD.03X.03" urn="urn:adsk.eagle:package:38286/1" type="box" library_version="1">
-<description>Electrically Conductive Pad 0.03" Circle
-Used as a test point connection for pogo pins or other debugging tools. 
-Specifications:
-Area: 0.03" x 0.03"
-
-Example device(s):
-TEST_POINT
-</description>
-<packageinstances>
-<packageinstance name="PAD.03X.03"/>
-</packageinstances>
-</package3d>
-<package3d name="PAD.03X.05" urn="urn:adsk.eagle:package:38285/1" type="box" library_version="1">
-<description>Electrically Conductive Pad 0.05" Circle
-Used as a test point connection for pogo pins or other debugging tools. 
-Specifications:
-Area: 0.05" x 0.05"
-
-Example device(s):
-TEST_POINT
-</description>
-<packageinstances>
-<packageinstance name="PAD.03X.05"/>
-</packageinstances>
-</package3d>
-<package3d name="PAD.03X.04" urn="urn:adsk.eagle:package:38287/1" type="box" library_version="1">
-<description>Electrically Conductive Pad 0.04" Circle
-Used as a test point connection for pogo pins or other debugging tools. 
-Specifications:
-Area: 0.04" x 0.04"
-
-Example device(s):
-TEST_POINT
-</description>
-<packageinstances>
-<packageinstance name="PAD.03X.04"/>
-</packageinstances>
-</package3d>
-<package3d name="TP_15TH" urn="urn:adsk.eagle:package:38288/1" type="box" library_version="1">
-<description>Electrically Conductive Via 0.015" Drill
-Used as a test point connection for pogo pins or other debugging tools. 
-Specifications:
-Area:0.015"
-
-Example device(s):
-TEST_POINT
-</description>
-<packageinstances>
-<packageinstance name="TP_15TH"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="TEST-POINT" urn="urn:adsk.eagle:symbol:37958/1" library_version="1">
-<wire x1="2.54" y1="0" x2="0" y2="0" width="0.1524" layer="94"/>
-<wire x1="3.302" y1="0.762" x2="3.302" y2="-0.762" width="0.1524" layer="94" curve="180"/>
-<text x="-2.54" y="2.54" size="1.778" layer="95" font="vector">&gt;Name</text>
-<text x="-2.54" y="-2.54" size="1.778" layer="96" font="vector">&gt;Value</text>
-<pin name="1" x="0" y="0" visible="off" length="point" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="TEST-POINT" urn="urn:adsk.eagle:component:38391/1" prefix="TP" library_version="1">
-<description>&lt;h3&gt;SparkFun Test Points&lt;/h3&gt;
-&lt;p&gt;Bare copper test points for troubleshooting or In-Circuit-Testing. These are used by our Production team for verifying production board runs using pogo-pins on test beds.&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;SparkFun Products:&lt;/b&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href=”https://www.sparkfun.com/products/13284”&gt;SparkFun LSM9DS1 Breakout&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=”https://www.sparkfun.com/products/13714”&gt;SparkFun PSOC&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/13879"&gt;SparkFun Load Cell Amplifier&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="TEST-POINT" x="0" y="0"/>
-</gates>
-<devices>
-<device name="2" package="PAD.02X.02">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:38284/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="3" package="PAD.03X.03">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:38286/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="3X5" package="PAD.03X.05">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:38285/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="3X4" package="PAD.03X.04">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:38287/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="TP_15TH_THRU" package="TP_15TH">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:38288/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="MAX9064">
 <packages>
 <package name="21-0057F_MXM">
@@ -6553,7 +6333,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R42" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="10K"/>
 <part name="P+6" library="microbuilder" deviceset="VCC" device=""/>
 <part name="GND74" library="SparkFun" deviceset="GND" device=""/>
-<part name="IN+" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="TEST-POINT" device="3" package3d_urn="urn:adsk.eagle:package:38286/1"/>
 <part name="U9" library="MAX9064" deviceset="MAX9064EUK+T" device="" value="MAX9064EUK+T"/>
 <part name="R59" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="1K"/>
 <part name="C55" library="SparkFun-Passives" deviceset="CAP" device="0805" value="100n 50v X7R/X5R"/>
@@ -6675,9 +6454,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R58" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="N.C"/>
 <part name="R60" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="N.C"/>
 <part name="X1" library="ABM3C-12.000MHZ-D4Y-T" deviceset="ABM3C-12.000MHZ-D4Y-T" device=""/>
-<part name="JP5" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
-<part name="JP1" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
-<part name="JP2" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
+<part name="USB_D+" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
+<part name="USB_D-" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
+<part name="FB_ADJ" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
 <part name="C66" library="SparkFun-Passives" deviceset="CAP" device="0805" value="100n 50v X7R/X5R"/>
 <part name="GND75" library="SparkFun" deviceset="GND" device=""/>
 <part name="U$15" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
@@ -7410,9 +7189,6 @@ ESD Protection Data</text>
 <instance part="GND74" gate="1" x="281.94" y="172.72" smashed="yes">
 <attribute name="VALUE" x="279.4" y="170.18" size="1.778" layer="96"/>
 </instance>
-<instance part="IN+" gate="G$1" x="-167.64" y="2.54" smashed="yes" rot="R90">
-<attribute name="NAME" x="-167.64" y="7.62" size="1.778" layer="95" font="vector"/>
-</instance>
 <instance part="U9" gate="A" x="-154.94" y="-68.58" smashed="yes">
 <attribute name="NAME" x="-139.3444" y="-59.4614" size="2.0828" layer="95" ratio="6" rot="SR0"/>
 <attribute name="VALUE" x="-139.9794" y="-62.0014" size="2.0828" layer="96" ratio="6" rot="SR0"/>
@@ -7843,13 +7619,13 @@ ESD Protection Data</text>
 <attribute name="NAME" x="-298.45" y="175.26" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="-298.45" y="172.72" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="JP5" gate="G$1" x="-177.8" y="289.56" smashed="yes" rot="R90">
+<instance part="USB_D+" gate="G$1" x="-177.8" y="289.56" smashed="yes" rot="R90">
 <attribute name="NAME" x="-180.34" y="287.02" size="1.778" layer="95" font="vector" rot="R90"/>
 </instance>
-<instance part="JP1" gate="G$1" x="-175.26" y="289.56" smashed="yes" rot="R90">
+<instance part="USB_D-" gate="G$1" x="-175.26" y="289.56" smashed="yes" rot="R90">
 <attribute name="NAME" x="-177.8" y="287.02" size="1.778" layer="95" font="vector" rot="R90"/>
 </instance>
-<instance part="JP2" gate="G$1" x="-378.46" y="55.88" smashed="yes" rot="R180">
+<instance part="FB_ADJ" gate="G$1" x="-378.46" y="55.88" smashed="yes" rot="R180">
 <attribute name="NAME" x="-375.92" y="53.34" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
 <instance part="C66" gate="G$1" x="-109.22" y="251.46" smashed="yes" rot="R180">
@@ -8580,12 +8356,22 @@ ESD Protection Data</text>
 <wire x1="-340.36" y1="-45.72" x2="-340.36" y2="-50.8" width="0.1524" layer="91"/>
 <junction x="-340.36" y="-50.8"/>
 </segment>
+<segment>
+<wire x1="-160.02" y1="223.52" x2="-139.7" y2="223.52" width="0.1524" layer="91"/>
+<label x="-142.24" y="223.52" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U1" gate="G$1" pin="GPIO28_/_ADC2"/>
+</segment>
 </net>
 <net name="BUZZ" class="0">
 <segment>
 <pinref part="R28" gate="G$1" pin="1"/>
 <wire x1="-167.64" y1="327.66" x2="-157.48" y2="327.66" width="0.1524" layer="91"/>
 <label x="-165.1" y="327.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO21"/>
+<wire x1="-160.02" y1="203.2" x2="-139.7" y2="203.2" width="0.1524" layer="91"/>
+<label x="-152.4" y="203.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PUSH" class="0">
@@ -8607,6 +8393,11 @@ ESD Protection Data</text>
 <wire x1="477.52" y1="182.88" x2="495.3" y2="182.88" width="0.1524" layer="91"/>
 <label x="482.6" y="182.88" size="1.778" layer="95"/>
 <label x="495.3" y="182.88" size="1.778" layer="95" xref="yes"/>
+</segment>
+<segment>
+<wire x1="-160.02" y1="220.98" x2="-139.7" y2="220.98" width="0.1524" layer="91"/>
+<label x="-142.24" y="220.98" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U1" gate="G$1" pin="GPIO27_/_ADC1"/>
 </segment>
 </net>
 <net name="ROTPUSH" class="0">
@@ -8668,12 +8459,22 @@ ESD Protection Data</text>
 <wire x1="83.82" y1="340.36" x2="78.74" y2="340.36" width="0.1524" layer="91"/>
 <label x="78.74" y="340.36" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO17"/>
+<wire x1="-170.18" y1="175.26" x2="-170.18" y2="157.48" width="0.1524" layer="91"/>
+<label x="-170.18" y="160.02" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="MOSI" class="0">
 <segment>
 <label x="78.74" y="355.6" size="1.778" layer="95"/>
 <wire x1="91.44" y1="355.6" x2="78.74" y2="355.6" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO19"/>
+<wire x1="-160.02" y1="198.12" x2="-139.7" y2="198.12" width="0.1524" layer="91"/>
+<label x="-142.24" y="198.12" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -8682,12 +8483,22 @@ ESD Protection Data</text>
 <wire x1="88.9" y1="345.44" x2="78.74" y2="345.44" width="0.1524" layer="91"/>
 <pinref part="R24" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO16"/>
+<wire x1="-172.72" y1="175.26" x2="-172.72" y2="157.48" width="0.1524" layer="91"/>
+<label x="-172.72" y="160.02" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="SCK" class="0">
 <segment>
 <label x="78.74" y="360.68" size="1.778" layer="95"/>
 <wire x1="86.36" y1="360.68" x2="78.74" y2="360.68" width="0.1524" layer="91"/>
 <pinref part="R14" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO18"/>
+<wire x1="-160.02" y1="195.58" x2="-139.7" y2="195.58" width="0.1524" layer="91"/>
+<label x="-142.24" y="195.58" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -8704,6 +8515,11 @@ ESD Protection Data</text>
 <wire x1="530.86" y1="152.4" x2="538.48" y2="152.4" width="0.1524" layer="91"/>
 <label x="533.4" y="152.4" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO5"/>
+<wire x1="-210.82" y1="213.36" x2="-231.14" y2="213.36" width="0.1524" layer="91"/>
+<label x="-228.6" y="213.36" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SDA" class="0">
 <segment>
@@ -8718,12 +8534,22 @@ ESD Protection Data</text>
 <wire x1="530.86" y1="142.24" x2="538.48" y2="142.24" width="0.1524" layer="91"/>
 <label x="533.4" y="142.24" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO4"/>
+<wire x1="-210.82" y1="215.9" x2="-231.14" y2="215.9" width="0.1524" layer="91"/>
+<label x="-228.6" y="215.9" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="DSP_RST" class="0">
 <segment>
 <label x="78.74" y="350.52" size="1.778" layer="95"/>
 <wire x1="96.52" y1="350.52" x2="78.74" y2="350.52" width="0.1524" layer="91"/>
 <pinref part="R21" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO7"/>
+<wire x1="-210.82" y1="208.28" x2="-231.14" y2="208.28" width="0.1524" layer="91"/>
+<label x="-228.6" y="208.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -8914,8 +8740,8 @@ ESD Protection Data</text>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IOVDD_1"/>
-<wire x1="-210.82" y1="228.6" x2="-223.52" y2="228.6" width="0.1524" layer="91"/>
-<label x="-220.98" y="228.6" size="1.778" layer="95"/>
+<wire x1="-210.82" y1="228.6" x2="-231.14" y2="228.6" width="0.1524" layer="91"/>
+<label x="-228.6" y="228.6" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$11" gate="G$1" pin="VCC-ISO"/>
@@ -8973,8 +8799,8 @@ ESD Protection Data</text>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IOVDD_2"/>
-<wire x1="-210.82" y1="205.74" x2="-223.52" y2="205.74" width="0.1524" layer="91"/>
-<label x="-220.98" y="205.74" size="1.778" layer="95"/>
+<wire x1="-210.82" y1="205.74" x2="-231.14" y2="205.74" width="0.1524" layer="91"/>
+<label x="-228.6" y="205.74" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IOVDD_3"/>
@@ -8983,13 +8809,13 @@ ESD Protection Data</text>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IOVDD_4"/>
-<wire x1="-160.02" y1="205.74" x2="-144.78" y2="205.74" width="0.1524" layer="91"/>
-<label x="-154.94" y="205.74" size="1.778" layer="95"/>
+<wire x1="-160.02" y1="205.74" x2="-139.7" y2="205.74" width="0.1524" layer="91"/>
+<label x="-142.24" y="205.74" size="1.778" layer="95" rot="MR0"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IOVDD_5"/>
-<wire x1="-144.78" y1="228.6" x2="-160.02" y2="228.6" width="0.1524" layer="91"/>
-<label x="-154.94" y="228.6" size="1.778" layer="95"/>
+<wire x1="-139.7" y1="228.6" x2="-160.02" y2="228.6" width="0.1524" layer="91"/>
+<label x="-142.24" y="228.6" size="1.778" layer="95" rot="MR0"/>
 </segment>
 <segment>
 <pinref part="C31" gate="G$1" pin="2"/>
@@ -9096,6 +8922,11 @@ ESD Protection Data</text>
 <wire x1="5.08" y1="259.08" x2="-15.24" y2="259.08" width="0.1524" layer="91"/>
 <label x="-12.7" y="259.08" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO6"/>
+<wire x1="-210.82" y1="210.82" x2="-231.14" y2="210.82" width="0.1524" layer="91"/>
+<label x="-228.6" y="210.82" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="EN_DCDC" class="0">
 <segment>
@@ -9108,6 +8939,11 @@ ESD Protection Data</text>
 <wire x1="259.08" y1="195.58" x2="246.38" y2="195.58" width="0.1524" layer="91"/>
 <label x="246.38" y="195.58" size="1.778" layer="95"/>
 <label x="246.38" y="195.58" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO2"/>
+<wire x1="-210.82" y1="220.98" x2="-231.14" y2="220.98" width="0.1524" layer="91"/>
+<label x="-228.6" y="220.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$44" class="0">
@@ -9166,6 +9002,11 @@ ESD Protection Data</text>
 <wire x1="5.08" y1="190.5" x2="-15.24" y2="190.5" width="0.1524" layer="91"/>
 <label x="-12.7" y="190.5" size="1.778" layer="95"/>
 <pinref part="U6" gate="C" pin="O"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO3"/>
+<wire x1="-210.82" y1="218.44" x2="-231.14" y2="218.44" width="0.1524" layer="91"/>
+<label x="-228.6" y="218.44" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -9246,6 +9087,11 @@ ESD Protection Data</text>
 <wire x1="5.08" y1="213.36" x2="-15.24" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="U3" gate="C" pin="O"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO12"/>
+<wire x1="-203.2" y1="175.26" x2="-203.2" y2="157.48" width="0.1524" layer="91"/>
+<label x="-203.2" y="160.02" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="N$23" class="0">
 <segment>
@@ -9270,6 +9116,11 @@ ESD Protection Data</text>
 <pinref part="U3" gate="E" pin="O"/>
 <wire x1="5.08" y1="236.22" x2="-15.24" y2="236.22" width="0.1524" layer="91"/>
 <label x="-12.7" y="236.22" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO24"/>
+<wire x1="-160.02" y1="213.36" x2="-139.7" y2="213.36" width="0.1524" layer="91"/>
+<label x="-154.94" y="213.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$25" class="0">
@@ -9303,6 +9154,11 @@ ESD Protection Data</text>
 <pinref part="U6" gate="B" pin="O"/>
 <wire x1="12.7" y1="104.14" x2="-5.08" y2="104.14" width="0.1524" layer="91"/>
 <label x="-2.54" y="104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO9"/>
+<wire x1="-210.82" y1="200.66" x2="-231.14" y2="200.66" width="0.1524" layer="91"/>
+<label x="-228.6" y="200.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$43" class="0">
@@ -9339,6 +9195,11 @@ ESD Protection Data</text>
 <wire x1="63.5" y1="-2.54" x2="48.26" y2="-2.54" width="0.1524" layer="91"/>
 <label x="50.8" y="-2.54" size="1.778" layer="95"/>
 <label x="48.26" y="-2.54" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO8"/>
+<wire x1="-210.82" y1="203.2" x2="-231.14" y2="203.2" width="0.1524" layer="91"/>
+<label x="-226.06" y="203.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$32" class="0">
@@ -9548,7 +9409,6 @@ ESD Protection Data</text>
 <wire x1="-167.64" y1="-20.32" x2="-167.64" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-167.64" y="-20.32"/>
 <wire x1="-167.64" y1="-5.08" x2="-93.98" y2="-5.08" width="0.1524" layer="91"/>
-<pinref part="IN+" gate="G$1" pin="1"/>
 <wire x1="-167.64" y1="2.54" x2="-167.64" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-167.64" y="-5.08"/>
 <pinref part="R62" gate="G$1" pin="2"/>
@@ -9626,6 +9486,11 @@ ESD Protection Data</text>
 <wire x1="-431.8" y1="-43.18" x2="-431.8" y2="-48.26" width="0.1524" layer="91"/>
 <junction x="-431.8" y="-48.26"/>
 </segment>
+<segment>
+<wire x1="-160.02" y1="218.44" x2="-139.7" y2="218.44" width="0.1524" layer="91"/>
+<label x="-142.24" y="218.44" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U1" gate="G$1" pin="GPIO26_/_ADC0"/>
+</segment>
 </net>
 <net name="VOUT" class="0">
 <segment>
@@ -9663,6 +9528,11 @@ ESD Protection Data</text>
 <wire x1="-459.74" y1="256.54" x2="-441.96" y2="256.54" width="0.1524" layer="91"/>
 <label x="-449.58" y="256.54" size="1.778" layer="95"/>
 <pinref part="K1" gate="&gt;NAME" pin="P$3"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="GPIO25"/>
+<wire x1="-160.02" y1="215.9" x2="-139.7" y2="215.9" width="0.1524" layer="91"/>
+<label x="-154.94" y="215.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PEDAL-" class="0">
@@ -9762,7 +9632,7 @@ ESD Protection Data</text>
 <label x="-447.04" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="G$1" pin="2"/>
+<pinref part="FB_ADJ" gate="G$1" pin="2"/>
 <wire x1="-383.54" y1="55.88" x2="-393.7" y2="55.88" width="0.1524" layer="91"/>
 <label x="-391.16" y="55.88" size="1.778" layer="95"/>
 </segment>
@@ -9901,7 +9771,7 @@ ESD Protection Data</text>
 </segment>
 <segment>
 <wire x1="-175.26" y1="304.8" x2="-175.26" y2="294.64" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="G$1" pin="2"/>
+<pinref part="USB_D-" gate="G$1" pin="2"/>
 <label x="-175.26" y="294.64" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
@@ -9918,7 +9788,7 @@ ESD Protection Data</text>
 </segment>
 <segment>
 <wire x1="-177.8" y1="304.8" x2="-177.8" y2="294.64" width="0.1524" layer="91"/>
-<pinref part="JP5" gate="G$1" pin="2"/>
+<pinref part="USB_D+" gate="G$1" pin="2"/>
 <label x="-177.8" y="294.64" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
@@ -9991,76 +9861,22 @@ ESD Protection Data</text>
 <label x="482.6" y="154.94" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO29_/_ADC3"/>
-<wire x1="-160.02" y1="226.06" x2="-144.78" y2="226.06" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$27" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO28_/_ADC2"/>
-<wire x1="-160.02" y1="223.52" x2="-144.78" y2="223.52" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$33" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO27_/_ADC1"/>
-<wire x1="-160.02" y1="220.98" x2="-144.78" y2="220.98" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$36" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO26_/_ADC0"/>
-<wire x1="-160.02" y1="218.44" x2="-144.78" y2="218.44" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$30" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO25"/>
-<wire x1="-160.02" y1="215.9" x2="-144.78" y2="215.9" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$42" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO24"/>
-<wire x1="-160.02" y1="213.36" x2="-144.78" y2="213.36" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$49" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="GPIO23"/>
-<wire x1="-160.02" y1="210.82" x2="-144.78" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="-160.02" y1="210.82" x2="-139.7" y2="210.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$55" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="GPIO22"/>
-<wire x1="-160.02" y1="208.28" x2="-144.78" y2="208.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$57" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO21"/>
-<wire x1="-160.02" y1="203.2" x2="-144.78" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="-160.02" y1="208.28" x2="-139.7" y2="208.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$60" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="GPIO20"/>
-<wire x1="-160.02" y1="200.66" x2="-144.78" y2="200.66" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$61" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO19"/>
-<wire x1="-160.02" y1="198.12" x2="-144.78" y2="198.12" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$62" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO18"/>
-<wire x1="-160.02" y1="195.58" x2="-144.78" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="-160.02" y1="200.66" x2="-139.7" y2="200.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="USB_DP" class="0">
@@ -10079,82 +9895,30 @@ ESD Protection Data</text>
 <pinref part="R63" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$72" class="0">
+<net name="TX" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="GPIO0"/>
-<wire x1="-210.82" y1="226.06" x2="-223.52" y2="226.06" width="0.1524" layer="91"/>
+<wire x1="-210.82" y1="226.06" x2="-231.14" y2="226.06" width="0.1524" layer="91"/>
+<label x="-226.06" y="226.06" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$73" class="0">
+<net name="RX" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="GPIO1"/>
-<wire x1="-210.82" y1="223.52" x2="-223.52" y2="223.52" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$74" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO2"/>
-<wire x1="-210.82" y1="220.98" x2="-223.52" y2="220.98" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$75" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO3"/>
-<wire x1="-210.82" y1="218.44" x2="-223.52" y2="218.44" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$76" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO4"/>
-<wire x1="-210.82" y1="215.9" x2="-223.52" y2="215.9" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$77" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO5"/>
-<wire x1="-210.82" y1="213.36" x2="-223.52" y2="213.36" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$78" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO6"/>
-<wire x1="-210.82" y1="210.82" x2="-223.52" y2="210.82" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$79" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO7"/>
-<wire x1="-210.82" y1="208.28" x2="-223.52" y2="208.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$80" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO8"/>
-<wire x1="-210.82" y1="203.2" x2="-223.52" y2="203.2" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$81" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO9"/>
-<wire x1="-210.82" y1="200.66" x2="-223.52" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="-210.82" y1="223.52" x2="-231.14" y2="223.52" width="0.1524" layer="91"/>
+<label x="-226.06" y="223.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$82" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="GPIO10"/>
-<wire x1="-210.82" y1="198.12" x2="-223.52" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="-210.82" y1="198.12" x2="-231.14" y2="198.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$83" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="GPIO11"/>
-<wire x1="-210.82" y1="195.58" x2="-223.52" y2="195.58" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$84" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO12"/>
-<wire x1="-203.2" y1="175.26" x2="-203.2" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="-210.82" y1="195.58" x2="-231.14" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$85" class="0">
@@ -10173,18 +9937,6 @@ ESD Protection Data</text>
 <segment>
 <pinref part="U1" gate="G$1" pin="GPIO15"/>
 <wire x1="-195.58" y1="175.26" x2="-195.58" y2="157.48" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$88" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO17"/>
-<wire x1="-170.18" y1="175.26" x2="-170.18" y2="157.48" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$89" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="GPIO16"/>
-<wire x1="-172.72" y1="175.26" x2="-172.72" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SWDIO" class="0">
@@ -10318,7 +10070,7 @@ ESD Protection Data</text>
 </net>
 <net name="N$38" class="0">
 <segment>
-<pinref part="JP2" gate="G$1" pin="1"/>
+<pinref part="FB_ADJ" gate="G$1" pin="1"/>
 <pinref part="C52" gate="G$1" pin="1"/>
 <wire x1="-373.38" y1="55.88" x2="-370.84" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-370.84" y1="55.88" x2="-370.84" y2="60.96" width="0.1524" layer="91"/>
@@ -10333,14 +10085,14 @@ ESD Protection Data</text>
 </net>
 <net name="N$64" class="0">
 <segment>
-<pinref part="JP5" gate="G$1" pin="1"/>
+<pinref part="USB_D+" gate="G$1" pin="1"/>
 <pinref part="R38" gate="G$1" pin="1"/>
 <wire x1="-177.8" y1="281.94" x2="-177.8" y2="284.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$65" class="0">
 <segment>
-<pinref part="JP1" gate="G$1" pin="1"/>
+<pinref part="USB_D-" gate="G$1" pin="1"/>
 <pinref part="R63" gate="G$1" pin="1"/>
 <wire x1="-175.26" y1="281.94" x2="-175.26" y2="284.48" width="0.1524" layer="91"/>
 </segment>
