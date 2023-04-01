@@ -6478,7 +6478,6 @@ Source:
 <part name="Q5" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="2N7002PW" value="2N7002PW"/>
 <part name="RSENSE" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="1206" package3d_urn="urn:adsk.eagle:package:39654/1" value="100mR"/>
 <part name="GND77" library="SparkFun" deviceset="GND" device=""/>
-<part name="GND78" library="SparkFun" deviceset="GND" device=""/>
 <part name="U$33" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
 <part name="J1" library="DX07S016JA1R1500" deviceset="DX07S016JA1R1500" device=""/>
 <part name="U10" library="IP2721" deviceset="IP2721" device=""/>
@@ -6604,6 +6603,8 @@ Source:
 <part name="R63" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="27R"/>
 <part name="U$7" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
 <part name="JP1" library="20021521-00010T1LF" deviceset="20021521-00010T1LF" device=""/>
+<part name="GND5" library="SparkFun" deviceset="GND" device=""/>
+<part name="GND15" library="SparkFun" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6648,9 +6649,24 @@ TLRP3A30CR050FTE</text>
 un consumo de
 1mA
 </text>
-<text x="-91.44" y="271.78" size="1.778" layer="91">3v3-2v5 = 0.8 /1mA = 800R</text>
+<text x="-104.14" y="266.7" size="1.778" layer="91">3v3-2v5 = 0.8 /1mA = 800R</text>
 <text x="-233.68" y="7.62" size="1.778" layer="91">TVS
 ESD Protection Data</text>
+<text x="-223.52" y="-127" size="1.778" layer="91">GND_IN es la masa original de entrada
+que se une al GND interno a traves de
+RSENSE DE 0.1R
+Toda la corriente de la EDCPSU pasa 
+por RSENSE y se cierra en GND_IN
+de entrada.
+U9 registra la caida en RSENSE y si
+supera un valor predeterminado
+dispara el comparador que corta el 
+ENABLE del DCDC.
+U9 esta referenciado a GND_IN para
+poder sensar la caida en RSENSE.</text>
+<text x="-297.18" y="53.34" size="1.778" layer="91">proteccion del bus de 3v3
+con zener de 3v6</text>
+<text x="-71.12" y="20.32" size="1.778" layer="91">Linea de corte en PCB</text>
 </plain>
 <instances>
 <instance part="S1" gate="G$1" x="-60.96" y="350.52" smashed="yes">
@@ -6878,8 +6894,8 @@ ESD Protection Data</text>
 <instance part="GND18" gate="1" x="147.32" y="-20.32" smashed="yes">
 <attribute name="VALUE" x="144.78" y="-22.86" size="1.778" layer="96"/>
 </instance>
-<instance part="P+2" gate="VCC" x="-35.56" y="5.08" smashed="yes">
-<attribute name="VALUE" x="-37.084" y="6.096" size="1.27" layer="96"/>
+<instance part="P+2" gate="VCC" x="-15.24" y="5.08" smashed="yes">
+<attribute name="VALUE" x="-16.764" y="6.096" size="1.27" layer="96"/>
 </instance>
 <instance part="R23" gate="G$1" x="101.6" y="-2.54" smashed="yes" rot="R180">
 <attribute name="NAME" x="105.41" y="-4.0386" size="1.778" layer="95" rot="R180"/>
@@ -7061,9 +7077,9 @@ ESD Protection Data</text>
 <attribute name="NAME" x="292.1" y="121.92" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="282.956" y="112.268" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="PTC1" gate="G$1" x="-50.8" y="-5.08" smashed="yes">
-<attribute name="NAME" x="-54.61" y="-8.89" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-59.69" y="-1.27" size="1.778" layer="96"/>
+<instance part="PTC1" gate="G$1" x="-30.48" y="-5.08" smashed="yes">
+<attribute name="NAME" x="-34.29" y="-8.89" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-39.37" y="-1.27" size="1.778" layer="96"/>
 </instance>
 <instance part="R35" gate="G$1" x="284.48" y="137.16" smashed="yes" rot="MR270">
 <attribute name="NAME" x="282.9814" y="140.97" size="1.778" layer="95" rot="MR270"/>
@@ -7105,19 +7121,19 @@ ESD Protection Data</text>
 <attribute name="NAME" x="435.356" y="243.967" size="1.778" layer="91"/>
 <attribute name="VALUE" x="431.419" y="234.696" size="1.778" layer="91" rot="R90"/>
 </instance>
-<instance part="C35" gate="G$1" x="-35.56" y="-22.86" smashed="yes">
-<attribute name="NAME" x="-34.036" y="-19.939" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-38.481" y="-34.036" size="1.778" layer="96" rot="R90"/>
+<instance part="C35" gate="G$1" x="-15.24" y="-22.86" smashed="yes">
+<attribute name="NAME" x="-13.716" y="-19.939" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-18.161" y="-34.036" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="C36" gate="G$1" x="-66.04" y="-20.32" smashed="yes" rot="R180">
-<attribute name="NAME" x="-64.77" y="-20.193" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-70.993" y="-12.446" size="1.778" layer="96" rot="R270"/>
+<instance part="C36" gate="G$1" x="-45.72" y="-20.32" smashed="yes" rot="R180">
+<attribute name="NAME" x="-44.45" y="-20.193" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-50.673" y="-12.446" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="GND26" gate="1" x="-66.04" y="-35.56" smashed="yes">
-<attribute name="VALUE" x="-68.58" y="-38.1" size="1.778" layer="96"/>
+<instance part="GND26" gate="1" x="-45.72" y="-35.56" smashed="yes">
+<attribute name="VALUE" x="-48.26" y="-38.1" size="1.778" layer="96"/>
 </instance>
-<instance part="GND27" gate="1" x="-35.56" y="-35.56" smashed="yes">
-<attribute name="VALUE" x="-38.1" y="-38.1" size="1.778" layer="96"/>
+<instance part="GND27" gate="1" x="-15.24" y="-35.56" smashed="yes">
+<attribute name="VALUE" x="-17.78" y="-38.1" size="1.778" layer="96"/>
 </instance>
 <instance part="C43" gate="G$1" x="480.06" y="233.68" smashed="yes" rot="R90">
 <attribute name="NAME" x="477.139" y="235.204" size="1.778" layer="95" rot="R90"/>
@@ -7329,16 +7345,16 @@ ESD Protection Data</text>
 <instance part="GND74" gate="1" x="281.94" y="172.72" smashed="yes">
 <attribute name="VALUE" x="279.4" y="170.18" size="1.778" layer="96"/>
 </instance>
-<instance part="U9" gate="A" x="-154.94" y="-68.58" smashed="yes">
-<attribute name="NAME" x="-139.3444" y="-59.4614" size="2.0828" layer="95" ratio="6" rot="SR0"/>
-<attribute name="VALUE" x="-139.9794" y="-62.0014" size="2.0828" layer="96" ratio="6" rot="SR0"/>
+<instance part="U9" gate="A" x="-154.94" y="-73.66" smashed="yes">
+<attribute name="NAME" x="-139.3444" y="-64.5414" size="2.0828" layer="95" ratio="6" rot="SR0"/>
+<attribute name="VALUE" x="-139.9794" y="-67.0814" size="2.0828" layer="96" ratio="6" rot="SR0"/>
 </instance>
-<instance part="R59" gate="G$1" x="-193.04" y="-68.58" smashed="yes">
-<attribute name="NAME" x="-193.04" y="-67.056" size="1.778" layer="95" font="vector" align="bottom-center"/>
-<attribute name="VALUE" x="-193.04" y="-70.104" size="1.778" layer="96" font="vector" align="top-center"/>
+<instance part="R59" gate="G$1" x="-198.12" y="-73.66" smashed="yes">
+<attribute name="NAME" x="-198.12" y="-72.136" size="1.778" layer="95" font="vector" align="bottom-center"/>
+<attribute name="VALUE" x="-198.12" y="-75.184" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
 <instance part="C55" gate="G$1" x="-167.64" y="-81.28" smashed="yes">
-<attribute name="NAME" x="-164.846" y="-77.089" size="1.778" layer="95"/>
+<attribute name="NAME" x="-164.846" y="-79.629" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-171.831" y="-91.186" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="Q5" gate="G$1" x="-83.82" y="-68.58" smashed="yes">
@@ -7352,11 +7368,8 @@ ESD Protection Data</text>
 <instance part="GND77" gate="1" x="-83.82" y="-91.44" smashed="yes">
 <attribute name="VALUE" x="-86.36" y="-93.98" size="1.778" layer="96"/>
 </instance>
-<instance part="GND78" gate="1" x="-203.2" y="-78.74" smashed="yes">
-<attribute name="VALUE" x="-205.74" y="-81.28" size="1.778" layer="96"/>
-</instance>
-<instance part="U$33" gate="G$1" x="-157.48" y="-76.2" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="-156.464" y="-72.644" size="1.778" layer="96" rot="MR0"/>
+<instance part="U$33" gate="G$1" x="-157.48" y="-78.74" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-148.844" y="-75.184" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="J1" gate="G$1" x="-213.36" y="-27.94" smashed="yes">
 <attribute name="NAME" x="-223.52" y="-16.51" size="2.54" layer="95"/>
@@ -7481,9 +7494,9 @@ ESD Protection Data</text>
 <attribute name="NAME" x="-356.6414" y="67.31" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="-361.442" y="67.31" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="C3" gate="G$1" x="-330.2" y="55.88" smashed="yes" rot="R180">
-<attribute name="NAME" x="-329.184" y="56.007" size="1.778" layer="91"/>
-<attribute name="VALUE" x="-333.121" y="46.736" size="1.778" layer="91" rot="R90"/>
+<instance part="C3" gate="G$1" x="-342.9" y="55.88" smashed="yes" rot="R180">
+<attribute name="NAME" x="-341.884" y="56.007" size="1.778" layer="91"/>
+<attribute name="VALUE" x="-345.821" y="46.736" size="1.778" layer="91" rot="R90"/>
 </instance>
 <instance part="R16" gate="G$1" x="-358.14" y="48.26" smashed="yes" rot="R270">
 <attribute name="NAME" x="-356.6414" y="52.07" size="1.778" layer="95" rot="R270"/>
@@ -7507,9 +7520,9 @@ ESD Protection Data</text>
 <attribute name="NAME" x="-397.51" y="80.01" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="-397.51" y="77.47" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="C62" gate="G$1" x="-317.5" y="55.88" smashed="yes" rot="R180">
-<attribute name="NAME" x="-316.484" y="56.007" size="1.778" layer="91"/>
-<attribute name="VALUE" x="-320.421" y="46.736" size="1.778" layer="91" rot="R90"/>
+<instance part="C62" gate="G$1" x="-327.66" y="55.88" smashed="yes" rot="R180">
+<attribute name="NAME" x="-326.644" y="56.007" size="1.778" layer="91"/>
+<attribute name="VALUE" x="-330.581" y="46.736" size="1.778" layer="91" rot="R90"/>
 </instance>
 <instance part="C63" gate="G$1" x="-457.2" y="60.96" smashed="yes" rot="R180">
 <attribute name="NAME" x="-456.184" y="61.087" size="1.778" layer="91"/>
@@ -7525,9 +7538,9 @@ ESD Protection Data</text>
 <instance part="GND67" gate="1" x="-474.98" y="45.72" smashed="yes">
 <attribute name="VALUE" x="-477.52" y="43.18" size="1.778" layer="96"/>
 </instance>
-<instance part="DZ1" gate="G$1" x="-342.9" y="63.5" smashed="yes" rot="R270">
-<attribute name="NAME" x="-340.36" y="64.77" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="-346.71" y="63.5" size="1.778" layer="96" rot="R270" align="center-left"/>
+<instance part="DZ1" gate="G$1" x="-302.26" y="63.5" smashed="yes" rot="R270">
+<attribute name="NAME" x="-299.72" y="64.77" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="-306.07" y="63.5" size="1.778" layer="96" rot="R270" align="center-left"/>
 </instance>
 <instance part="U5" gate="G$1" x="-200.66" y="73.66" smashed="yes">
 <attribute name="NAME" x="-148.59" y="81.28" size="1.778" layer="95" align="center-left"/>
@@ -7600,8 +7613,8 @@ ESD Protection Data</text>
 <attribute name="NAME" x="501.904" y="127.889" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="501.904" y="132.969" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="GND71" gate="1" x="500.38" y="121.92" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="500.38" y="121.666" size="1.778" layer="96" rot="MR0" align="top-center"/>
+<instance part="GND71" gate="1" x="500.38" y="116.84" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="500.38" y="116.586" size="1.778" layer="96" rot="MR0" align="top-center"/>
 </instance>
 <instance part="U1" gate="G$1" x="-210.82" y="228.6" smashed="yes">
 <attribute name="NAME" x="-163.83" y="251.46" size="1.778" layer="95" align="center-left"/>
@@ -7617,11 +7630,11 @@ ESD Protection Data</text>
 </instance>
 <instance part="C7" gate="G$1" x="-114.3" y="200.66" smashed="yes" rot="R180">
 <attribute name="NAME" x="-113.284" y="200.787" size="1.778" layer="91"/>
-<attribute name="VALUE" x="-113.284" y="195.961" size="1.778" layer="91"/>
+<attribute name="VALUE" x="-117.221" y="191.516" size="1.778" layer="91" rot="R90"/>
 </instance>
-<instance part="C16" gate="G$1" x="-106.68" y="200.66" smashed="yes" rot="R180">
-<attribute name="NAME" x="-105.664" y="200.787" size="1.778" layer="91"/>
-<attribute name="VALUE" x="-105.664" y="195.961" size="1.778" layer="91"/>
+<instance part="C16" gate="G$1" x="-96.52" y="200.66" smashed="yes" rot="R180">
+<attribute name="NAME" x="-95.504" y="200.787" size="1.778" layer="91"/>
+<attribute name="VALUE" x="-99.441" y="191.516" size="1.778" layer="91" rot="R90"/>
 </instance>
 <instance part="C31" gate="G$1" x="-233.68" y="276.86" smashed="yes" rot="R180">
 <attribute name="NAME" x="-232.664" y="276.987" size="1.778" layer="91"/>
@@ -7652,9 +7665,9 @@ ESD Protection Data</text>
 <attribute name="NAME" x="-153.416" y="277.241" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-153.416" y="272.161" size="1.778" layer="96"/>
 </instance>
-<instance part="C50" gate="G$1" x="-99.06" y="200.66" smashed="yes" rot="R180">
-<attribute name="NAME" x="-98.044" y="200.787" size="1.778" layer="91"/>
-<attribute name="VALUE" x="-98.044" y="195.961" size="1.778" layer="91"/>
+<instance part="C50" gate="G$1" x="-81.28" y="200.66" smashed="yes" rot="R180">
+<attribute name="NAME" x="-80.264" y="200.787" size="1.778" layer="91"/>
+<attribute name="VALUE" x="-84.201" y="191.516" size="1.778" layer="91" rot="R90"/>
 </instance>
 <instance part="U$5" gate="G$1" x="-154.94" y="289.56" smashed="yes">
 <attribute name="VALUE" x="-154.94" y="292.354" size="1.778" layer="96" align="bottom-center"/>
@@ -7680,11 +7693,11 @@ ESD Protection Data</text>
 <instance part="GND68" gate="1" x="-193.04" y="152.4" smashed="yes">
 <attribute name="VALUE" x="-195.58" y="149.86" size="1.778" layer="96"/>
 </instance>
-<instance part="U$11" gate="G$1" x="-99.06" y="208.28" smashed="yes">
-<attribute name="VALUE" x="-100.076" y="211.836" size="1.778" layer="96"/>
+<instance part="U$11" gate="G$1" x="-81.28" y="208.28" smashed="yes">
+<attribute name="VALUE" x="-82.296" y="211.836" size="1.778" layer="96"/>
 </instance>
-<instance part="GND69" gate="1" x="-99.06" y="190.5" smashed="yes">
-<attribute name="VALUE" x="-101.6" y="187.96" size="1.778" layer="96"/>
+<instance part="GND69" gate="1" x="-81.28" y="190.5" smashed="yes">
+<attribute name="VALUE" x="-83.82" y="187.96" size="1.778" layer="96"/>
 </instance>
 <instance part="U$12" gate="G$1" x="-114.3" y="208.28" smashed="yes">
 <attribute name="VALUE" x="-115.316" y="211.836" size="1.778" layer="96"/>
@@ -7692,8 +7705,8 @@ ESD Protection Data</text>
 <instance part="GND70" gate="1" x="-114.3" y="190.5" smashed="yes">
 <attribute name="VALUE" x="-116.84" y="187.96" size="1.778" layer="96"/>
 </instance>
-<instance part="GND72" gate="1" x="-106.68" y="190.5" smashed="yes">
-<attribute name="VALUE" x="-109.22" y="187.96" size="1.778" layer="96"/>
+<instance part="GND72" gate="1" x="-96.52" y="190.5" smashed="yes">
+<attribute name="VALUE" x="-99.06" y="187.96" size="1.778" layer="96"/>
 </instance>
 <instance part="U$22" gate="G$1" x="-233.68" y="289.56" smashed="yes">
 <attribute name="VALUE" x="-234.696" y="293.116" size="1.778" layer="96"/>
@@ -7770,7 +7783,7 @@ ESD Protection Data</text>
 </instance>
 <instance part="C66" gate="G$1" x="-109.22" y="251.46" smashed="yes" rot="R180">
 <attribute name="NAME" x="-108.204" y="251.587" size="1.778" layer="91"/>
-<attribute name="VALUE" x="-108.204" y="246.761" size="1.778" layer="91"/>
+<attribute name="VALUE" x="-112.141" y="234.696" size="1.778" layer="91" rot="R90"/>
 </instance>
 <instance part="GND75" gate="1" x="-109.22" y="241.3" smashed="yes">
 <attribute name="VALUE" x="-111.76" y="238.76" size="1.778" layer="96"/>
@@ -7778,8 +7791,8 @@ ESD Protection Data</text>
 <instance part="U$15" gate="G$1" x="-241.3" y="208.28" smashed="yes">
 <attribute name="VALUE" x="-242.316" y="211.836" size="1.778" layer="96"/>
 </instance>
-<instance part="U$41" gate="G$1" x="-106.68" y="208.28" smashed="yes">
-<attribute name="VALUE" x="-107.696" y="211.836" size="1.778" layer="96"/>
+<instance part="U$41" gate="G$1" x="-96.52" y="208.28" smashed="yes">
+<attribute name="VALUE" x="-97.536" y="211.836" size="1.778" layer="96"/>
 </instance>
 <instance part="R38" gate="G$1" x="-177.8" y="276.86" smashed="yes" rot="R270">
 <attribute name="NAME" x="-179.2986" y="280.67" size="1.778" layer="95" rot="R90"/>
@@ -7795,6 +7808,12 @@ ESD Protection Data</text>
 <instance part="JP1" gate="A" x="-345.44" y="350.52" smashed="yes">
 <attribute name="NAME" x="-351.796759375" y="358.783790625" size="1.779890625" layer="95"/>
 <attribute name="VALUE" x="-351.79805" y="340.3471" size="1.780259375" layer="96"/>
+</instance>
+<instance part="GND5" gate="1" x="-182.88" y="-53.34" smashed="yes" rot="R180">
+<attribute name="VALUE" x="-180.34" y="-50.8" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="GND15" gate="1" x="-63.5" y="-35.56" smashed="yes">
+<attribute name="VALUE" x="-66.04" y="-38.1" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -8034,12 +8053,12 @@ ESD Protection Data</text>
 <segment>
 <pinref part="C36" gate="G$1" pin="1"/>
 <pinref part="GND26" gate="1" pin="GND"/>
-<wire x1="-66.04" y1="-25.4" x2="-66.04" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="-25.4" x2="-45.72" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C35" gate="G$1" pin="2"/>
 <pinref part="GND27" gate="1" pin="GND"/>
-<wire x1="-35.56" y1="-25.4" x2="-35.56" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="-25.4" x2="-15.24" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="Q2" gate="G$1" pin="S"/>
@@ -8113,10 +8132,11 @@ ESD Protection Data</text>
 <pinref part="RSENSE" gate="G$1" pin="2"/>
 <pinref part="R59" gate="G$1" pin="1"/>
 <wire x1="-208.28" y1="-68.58" x2="-203.2" y2="-68.58" width="0.1524" layer="91"/>
-<wire x1="-203.2" y1="-68.58" x2="-198.12" y2="-68.58" width="0.1524" layer="91"/>
-<wire x1="-203.2" y1="-68.58" x2="-203.2" y2="-76.2" width="0.1524" layer="91"/>
+<wire x1="-203.2" y1="-68.58" x2="-203.2" y2="-73.66" width="0.1524" layer="91"/>
 <junction x="-203.2" y="-68.58"/>
-<pinref part="GND78" gate="1" pin="GND"/>
+<wire x1="-203.2" y1="-68.58" x2="-182.88" y2="-68.58" width="0.1524" layer="91"/>
+<wire x1="-182.88" y1="-68.58" x2="-182.88" y2="-55.88" width="0.1524" layer="91"/>
+<pinref part="GND5" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND60" gate="1" pin="GND"/>
@@ -8165,18 +8185,20 @@ ESD Protection Data</text>
 <pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="-358.14" y1="40.64" x2="-347.98" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="-347.98" y1="40.64" x2="-342.9" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-342.9" y1="40.64" x2="-330.2" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-330.2" y1="40.64" x2="-330.2" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-342.9" y1="40.64" x2="-327.66" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="GND62" gate="1" pin="GND"/>
 <wire x1="-347.98" y1="38.1" x2="-347.98" y2="40.64" width="0.1524" layer="91"/>
 <junction x="-347.98" y="40.64"/>
-<wire x1="-330.2" y1="40.64" x2="-317.5" y2="40.64" width="0.1524" layer="91"/>
-<junction x="-330.2" y="40.64"/>
 <pinref part="C62" gate="G$1" pin="1"/>
-<wire x1="-317.5" y1="40.64" x2="-317.5" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-327.66" y1="40.64" x2="-317.5" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="DZ1" gate="G$1" pin="A"/>
-<wire x1="-342.9" y1="48.26" x2="-342.9" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-317.5" y1="40.64" x2="-317.5" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-317.5" y1="35.56" x2="-302.26" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-302.26" y1="35.56" x2="-302.26" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="-342.9" y1="50.8" x2="-342.9" y2="40.64" width="0.1524" layer="91"/>
 <junction x="-342.9" y="40.64"/>
+<wire x1="-327.66" y1="50.8" x2="-327.66" y2="40.64" width="0.1524" layer="91"/>
+<junction x="-327.66" y="40.64"/>
 </segment>
 <segment>
 <pinref part="C63" gate="G$1" pin="1"/>
@@ -8229,7 +8251,7 @@ ESD Protection Data</text>
 <segment>
 <pinref part="C60" gate="G$1" pin="1"/>
 <pinref part="GND71" gate="1" pin="GND"/>
-<wire x1="500.38" y1="123.19" x2="500.38" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="500.38" y1="123.19" x2="500.38" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="GND"/>
@@ -8274,7 +8296,7 @@ ESD Protection Data</text>
 <segment>
 <pinref part="C50" gate="G$1" pin="1"/>
 <pinref part="GND69" gate="1" pin="GND"/>
-<wire x1="-99.06" y1="195.58" x2="-99.06" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="-81.28" y1="195.58" x2="-81.28" y2="193.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND70" gate="1" pin="GND"/>
@@ -8284,7 +8306,7 @@ ESD Protection Data</text>
 <segment>
 <pinref part="GND72" gate="1" pin="GND"/>
 <pinref part="C16" gate="G$1" pin="1"/>
-<wire x1="-106.68" y1="193.04" x2="-106.68" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="-96.52" y1="193.04" x2="-96.52" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C31" gate="G$1" pin="1"/>
@@ -8342,6 +8364,12 @@ ESD Protection Data</text>
 <wire x1="-347.98" y1="347.98" x2="-363.22" y2="347.98" width="0.1524" layer="91"/>
 <label x="-360.68" y="347.98" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="-66.04" y1="-27.94" x2="-63.5" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="-27.94" x2="-63.5" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="GND15" gate="1" pin="GND"/>
+<label x="-66.04" y="-27.94" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="N$20" class="0">
 <segment>
@@ -8357,14 +8385,14 @@ ESD Protection Data</text>
 <net name="VCC" class="0">
 <segment>
 <pinref part="P+2" gate="VCC" pin="VCC"/>
-<wire x1="-35.56" y1="-5.08" x2="-35.56" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="-5.08" x2="-15.24" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="C35" gate="G$1" pin="1"/>
-<wire x1="-35.56" y1="-17.78" x2="-35.56" y2="-5.08" width="0.1524" layer="91"/>
-<junction x="-35.56" y="-5.08"/>
+<wire x1="-15.24" y1="-17.78" x2="-15.24" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="-15.24" y="-5.08"/>
 <pinref part="PTC1" gate="G$1" pin="1"/>
-<wire x1="-45.72" y1="-5.08" x2="-35.56" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="-5.08" x2="-27.94" y2="-5.08" width="0.1524" layer="91"/>
-<label x="-27.94" y="-5.08" size="1.778" layer="95" xref="yes"/>
+<wire x1="-25.4" y1="-5.08" x2="-15.24" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="-5.08" x2="-7.62" y2="-5.08" width="0.1524" layer="91"/>
+<label x="-7.62" y="-5.08" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
@@ -8832,9 +8860,9 @@ ESD Protection Data</text>
 </segment>
 <segment>
 <pinref part="U9" gate="A" pin="VCC"/>
-<wire x1="-152.4" y1="-78.74" x2="-157.48" y2="-78.74" width="0.1524" layer="91"/>
-<wire x1="-157.48" y1="-78.74" x2="-157.48" y2="-76.2" width="0.1524" layer="91"/>
 <pinref part="U$33" gate="G$1" pin="VCC-ISO"/>
+<wire x1="-152.4" y1="-83.82" x2="-157.48" y2="-83.82" width="0.1524" layer="91"/>
+<wire x1="-157.48" y1="-83.82" x2="-157.48" y2="-78.74" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C57" gate="G$1" pin="1"/>
@@ -8872,9 +8900,8 @@ ESD Protection Data</text>
 <pinref part="R15" gate="G$1" pin="1"/>
 <wire x1="-358.14" y1="68.58" x2="-358.14" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="-330.2" y1="58.42" x2="-330.2" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="-330.2" y1="73.66" x2="-342.9" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="C52" gate="G$1" pin="2"/>
+<wire x1="-330.2" y1="73.66" x2="-342.9" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-342.9" y1="73.66" x2="-358.14" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-370.84" y1="68.58" x2="-370.84" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-370.84" y1="73.66" x2="-358.14" y2="73.66" width="0.1524" layer="91"/>
@@ -8885,12 +8912,17 @@ ESD Protection Data</text>
 <wire x1="-370.84" y1="73.66" x2="-378.46" y2="73.66" width="0.1524" layer="91"/>
 <junction x="-370.84" y="73.66"/>
 <pinref part="L1" gate="G$1" pin="2"/>
-<wire x1="-330.2" y1="73.66" x2="-317.5" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-330.2" y1="73.66" x2="-327.66" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="C62" gate="G$1" pin="2"/>
-<wire x1="-317.5" y1="73.66" x2="-317.5" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="-327.66" y1="73.66" x2="-317.5" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="DZ1" gate="G$1" pin="K"/>
-<wire x1="-342.9" y1="63.5" x2="-342.9" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-317.5" y1="73.66" x2="-317.5" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-317.5" y1="78.74" x2="-302.26" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-302.26" y1="78.74" x2="-302.26" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="-342.9" y1="58.42" x2="-342.9" y2="73.66" width="0.1524" layer="91"/>
 <junction x="-342.9" y="73.66"/>
+<wire x1="-327.66" y1="58.42" x2="-327.66" y2="73.66" width="0.1524" layer="91"/>
+<junction x="-327.66" y="73.66"/>
 </segment>
 <segment>
 <pinref part="U$18" gate="G$1" pin="VCC-ISO"/>
@@ -8910,12 +8942,12 @@ ESD Protection Data</text>
 <segment>
 <pinref part="U$11" gate="G$1" pin="VCC-ISO"/>
 <pinref part="C50" gate="G$1" pin="2"/>
-<wire x1="-99.06" y1="208.28" x2="-99.06" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="-81.28" y1="208.28" x2="-81.28" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C16" gate="G$1" pin="2"/>
 <pinref part="U$41" gate="G$1" pin="VCC-ISO"/>
-<wire x1="-106.68" y1="203.2" x2="-106.68" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="-96.52" y1="203.2" x2="-96.52" y2="208.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="IOVDD_6"/>
@@ -8957,7 +8989,6 @@ ESD Protection Data</text>
 </segment>
 <segment>
 <pinref part="U$12" gate="G$1" pin="VCC-ISO"/>
-<wire x1="-114.3" y1="203.2" x2="-114.3" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="-114.3" y1="203.2" x2="-114.3" y2="208.28" width="0.1524" layer="91"/>
 </segment>
@@ -9480,14 +9511,14 @@ ESD Protection Data</text>
 <pinref part="R59" gate="G$1" pin="2"/>
 <pinref part="U9" gate="A" pin="IN"/>
 <pinref part="C55" gate="G$1" pin="1"/>
-<wire x1="-187.96" y1="-68.58" x2="-180.34" y2="-68.58" width="0.1524" layer="91"/>
-<wire x1="-180.34" y1="-68.58" x2="-167.64" y2="-68.58" width="0.1524" layer="91"/>
-<wire x1="-167.64" y1="-68.58" x2="-152.4" y2="-68.58" width="0.1524" layer="91"/>
-<wire x1="-167.64" y1="-76.2" x2="-167.64" y2="-68.58" width="0.1524" layer="91"/>
-<junction x="-167.64" y="-68.58"/>
+<wire x1="-193.04" y1="-73.66" x2="-180.34" y2="-73.66" width="0.1524" layer="91"/>
+<wire x1="-180.34" y1="-73.66" x2="-167.64" y2="-73.66" width="0.1524" layer="91"/>
+<wire x1="-167.64" y1="-73.66" x2="-152.4" y2="-73.66" width="0.1524" layer="91"/>
+<wire x1="-167.64" y1="-76.2" x2="-167.64" y2="-73.66" width="0.1524" layer="91"/>
+<junction x="-167.64" y="-73.66"/>
 <pinref part="R34" gate="G$1" pin="2"/>
-<wire x1="-180.34" y1="-76.2" x2="-180.34" y2="-68.58" width="0.1524" layer="91"/>
-<junction x="-180.34" y="-68.58"/>
+<wire x1="-180.34" y1="-76.2" x2="-180.34" y2="-73.66" width="0.1524" layer="91"/>
+<junction x="-180.34" y="-73.66"/>
 </segment>
 </net>
 <net name="GND_IN" class="0">
@@ -9504,18 +9535,15 @@ ESD Protection Data</text>
 </segment>
 <segment>
 <pinref part="RSENSE" gate="G$1" pin="1"/>
-<wire x1="-223.52" y1="-68.58" x2="-223.52" y2="-58.42" width="0.1524" layer="91"/>
-<wire x1="-223.52" y1="-58.42" x2="-236.22" y2="-58.42" width="0.1524" layer="91"/>
 <wire x1="-218.44" y1="-68.58" x2="-223.52" y2="-68.58" width="0.1524" layer="91"/>
 <wire x1="-223.52" y1="-68.58" x2="-223.52" y2="-93.98" width="0.1524" layer="91"/>
 <wire x1="-223.52" y1="-93.98" x2="-180.34" y2="-93.98" width="0.1524" layer="91"/>
 <pinref part="U9" gate="A" pin="GND"/>
 <wire x1="-180.34" y1="-93.98" x2="-167.64" y2="-93.98" width="0.1524" layer="91"/>
 <wire x1="-167.64" y1="-93.98" x2="-152.4" y2="-93.98" width="0.1524" layer="91"/>
-<wire x1="-152.4" y1="-93.98" x2="-152.4" y2="-88.9" width="0.1524" layer="91"/>
 <pinref part="U9" gate="A" pin="GND_2"/>
-<wire x1="-152.4" y1="-86.36" x2="-152.4" y2="-88.9" width="0.1524" layer="91"/>
-<junction x="-152.4" y="-88.9"/>
+<wire x1="-152.4" y1="-91.44" x2="-152.4" y2="-93.98" width="0.1524" layer="91"/>
+<junction x="-152.4" y="-93.98"/>
 <pinref part="C55" gate="G$1" pin="2"/>
 <wire x1="-167.64" y1="-83.82" x2="-167.64" y2="-93.98" width="0.1524" layer="91"/>
 <junction x="-167.64" y="-93.98"/>
@@ -9556,6 +9584,9 @@ ESD Protection Data</text>
 <wire x1="-177.8" y1="-43.18" x2="-177.8" y2="-38.1" width="0.1524" layer="91"/>
 <wire x1="-182.88" y1="-38.1" x2="-182.88" y2="-43.18" width="0.1524" layer="91"/>
 <junction x="-182.88" y="-43.18"/>
+<wire x1="-167.64" y1="-38.1" x2="-167.64" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-167.64" y1="-48.26" x2="-152.4" y2="-48.26" width="0.1524" layer="91"/>
+<label x="-152.4" y="-48.26" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="IN+" class="0">
@@ -9578,23 +9609,26 @@ ESD Protection Data</text>
 <wire x1="-167.64" y1="-20.32" x2="-167.64" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-167.64" y="-20.32"/>
 <wire x1="-167.64" y1="-5.08" x2="-93.98" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="-167.64" y1="2.54" x2="-167.64" y2="-5.08" width="0.1524" layer="91"/>
-<junction x="-167.64" y="-5.08"/>
 <pinref part="R62" gate="G$1" pin="2"/>
 <wire x1="-93.98" y1="-15.24" x2="-93.98" y2="-5.08" width="0.1524" layer="91"/>
 <pinref part="PTC1" gate="G$1" pin="2"/>
 <pinref part="C36" gate="G$1" pin="2"/>
-<wire x1="-66.04" y1="-17.78" x2="-66.04" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="-66.04" y1="-5.08" x2="-55.88" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="-17.78" x2="-45.72" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="-5.08" x2="-35.56" y2="-5.08" width="0.1524" layer="91"/>
 <wire x1="-93.98" y1="-5.08" x2="-66.04" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-93.98" y="-5.08"/>
-<junction x="-66.04" y="-5.08"/>
+<junction x="-45.72" y="-5.08"/>
+<wire x1="-66.04" y1="-5.08" x2="-45.72" y2="-5.08" width="0.1524" layer="91"/>
 <wire x1="-187.96" y1="-20.32" x2="-187.96" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="-187.96" y1="-15.24" x2="-182.88" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="-182.88" y1="-15.24" x2="-177.8" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="-177.8" y1="-15.24" x2="-177.8" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="-182.88" y1="-15.24" x2="-182.88" y2="-17.78" width="0.1524" layer="91"/>
 <junction x="-182.88" y="-15.24"/>
+<label x="-68.58" y="5.08" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="-68.58" y1="5.08" x2="-66.04" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="-66.04" y1="5.08" x2="-66.04" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="-66.04" y="-5.08"/>
 </segment>
 </net>
 <net name="CC1" class="0">
@@ -9634,7 +9668,8 @@ ESD Protection Data</text>
 <segment>
 <pinref part="R48" gate="G$1" pin="1"/>
 <pinref part="U9" gate="A" pin="OUT"/>
-<wire x1="-111.76" y1="-68.58" x2="-116.84" y2="-68.58" width="0.1524" layer="91"/>
+<wire x1="-116.84" y1="-73.66" x2="-111.76" y2="-73.66" width="0.1524" layer="91"/>
+<wire x1="-111.76" y1="-73.66" x2="-111.76" y2="-68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VBUS_SENSE" class="0">
@@ -10314,18 +10349,16 @@ ESD Protection Data</text>
 <label x="-175.26" y="160.02" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
+<net name="N$24" class="0">
+<segment>
+<wire x1="-66.04" y1="17.78" x2="-78.74" y2="17.78" width="0.1524" layer="91" style="shortdash"/>
+<wire x1="-78.74" y1="17.78" x2="-78.74" y2="-45.72" width="0.1524" layer="91" style="shortdash"/>
+<wire x1="-78.74" y1="-45.72" x2="-60.96" y2="-45.72" width="0.1524" layer="91" style="shortdash"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="104,1,276.86,119.38,U4,RS+,VO_TPS,,,"/>
-<approved hash="104,1,38.1,167.64,U6P,VCC,VCC-ISO,,,"/>
-<approved hash="104,1,58.42,167.64,U3P,VCC,VCC-ISO,,,"/>
-<approved hash="113,1,-63.2054,-60.96,S2,,,,,"/>
-<approved hash="113,1,-111.438,11.43,LED1,,,,,"/>
-<approved hash="113,1,320.362,-62.23,LED2,,,,,"/>
-<approved hash="113,1,333.062,-62.23,LED3,,,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>
