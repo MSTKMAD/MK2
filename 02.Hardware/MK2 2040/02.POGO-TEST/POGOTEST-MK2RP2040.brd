@@ -37,21 +37,21 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
-<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
-<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
-<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
-<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="yes" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="yes" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
@@ -183,10 +183,6 @@
 <hole x="121.08" y="78.58" drill="3.09999375"/>
 <hole x="33.08" y="47.58" drill="3.09999375"/>
 <hole x="123.08" y="36.58" drill="3.09999375"/>
-<rectangle x1="103.156" y1="22.98" x2="104.553" y2="25.012" layer="29"/>
-<rectangle x1="103.026" y1="20.45" x2="104.55" y2="22.482" layer="29"/>
-<rectangle x1="92.388" y1="23" x2="93.531" y2="25.032" layer="29"/>
-<rectangle x1="92.408" y1="20.46" x2="93.551" y2="22.492" layer="29"/>
 <circle x="78.379" y="64.79" radius="7.73136875" width="0.3048" layer="22"/>
 <wire x1="110.8" y1="64.8" x2="102.7028" y2="72.7972" width="0.1" layer="48"/>
 <wire x1="102.7028" y1="72.7972" x2="22.6972" y2="72.7972" width="0.1" layer="48"/>
@@ -265,10 +261,6 @@
 <wire x1="40.6" y1="26.7" x2="41.6" y2="25.7" width="0.1" layer="21"/>
 <wire x1="41.6" y1="25.7" x2="52.7" y2="25.7" width="0.1524" layer="21"/>
 <wire x1="52.7" y1="25.7" x2="52.9" y2="25.9" width="0.1524" layer="21"/>
-<rectangle x1="100.75" y1="20.46" x2="104.54" y2="22.47" layer="31"/>
-<rectangle x1="100.73" y1="22.98" x2="104.54" y2="25.01" layer="31"/>
-<rectangle x1="92.41" y1="22.97" x2="95.68" y2="25.03" layer="31"/>
-<rectangle x1="92.41" y1="20.4" x2="95.66" y2="22.51" layer="31"/>
 <circle x="123.09" y="36.59" radius="2.5" width="0.254" layer="41"/>
 <circle x="121.07" y="78.56" radius="2.5" width="0.254" layer="41"/>
 <circle x="35.06" y="78.58" radius="2.5" width="0.254" layer="42"/>
@@ -717,8 +709,8 @@ design rules under a new name.
 <polygon width="0.508" layer="1" isolate="0.254">
 <vertex x="15.1" y="104.4"/>
 <vertex x="21.5" y="104.4"/>
-<vertex x="157.9" y="104.4"/>
-<vertex x="157.9" y="1.6"/>
+<vertex x="159.3" y="104.5"/>
+<vertex x="159.3" y="1.6"/>
 <vertex x="15.1" y="1.8"/>
 </polygon>
 </signal>
@@ -758,8 +750,9 @@ design rules under a new name.
 <contactref element="J1" pad="16"/>
 <wire x1="60.1" y1="32.7" x2="67.62" y2="32.7" width="0.508" layer="16"/>
 <wire x1="67.62" y1="32.7" x2="70.22" y2="30.1" width="0.508" layer="16"/>
-<wire x1="132.88" y1="30.1" x2="143.36" y2="40.58" width="0.508" layer="16"/>
-<wire x1="70.22" y1="30.1" x2="132.88" y2="30.1" width="0.508" layer="16"/>
+<wire x1="141.16" y1="40.58" x2="143.36" y2="40.58" width="0.508" layer="16"/>
+<wire x1="141.16" y1="40.58" x2="130.68" y2="30.1" width="0.508" layer="16"/>
+<wire x1="70.22" y1="30.1" x2="130.68" y2="30.1" width="0.508" layer="16"/>
 </signal>
 <signal name="N$59">
 <contactref element="N$59" pad="2"/>
@@ -816,9 +809,9 @@ design rules under a new name.
 <wire x1="30.8" y1="57.7" x2="30.8" y2="64" width="0.508" layer="16"/>
 <wire x1="30.8" y1="64" x2="35.7" y2="68.9" width="0.508" layer="16"/>
 <wire x1="47.29" y1="68.9" x2="50.39" y2="65.8" width="0.508" layer="16"/>
-<wire x1="37.3" y1="30.8" x2="52.3" y2="15.8" width="0.508" layer="16"/>
-<wire x1="37.3" y1="30.8" x2="37.3" y2="51.2" width="0.508" layer="16"/>
-<wire x1="37.3" y1="51.2" x2="30.8" y2="57.7" width="0.508" layer="16"/>
+<wire x1="37.8" y1="30.3" x2="52.3" y2="15.8" width="0.508" layer="16"/>
+<wire x1="37.8" y1="30.3" x2="37.8" y2="50.7" width="0.508" layer="16"/>
+<wire x1="37.8" y1="50.7" x2="30.8" y2="57.7" width="0.508" layer="16"/>
 <wire x1="35.7" y1="68.9" x2="47.29" y2="68.9" width="0.508" layer="16"/>
 <wire x1="52.3" y1="15.8" x2="138.9" y2="15.8" width="0.508" layer="16"/>
 <wire x1="138.9" y1="15.8" x2="145.9" y2="22.8" width="0.508" layer="16"/>
@@ -859,9 +852,10 @@ design rules under a new name.
 <wire x1="50.88" y1="37.72" x2="58.2" y2="30.4" width="0.508" layer="16"/>
 <contactref element="J1" pad="14"/>
 <wire x1="67.38" y1="30.4" x2="58.2" y2="30.4" width="0.508" layer="16"/>
-<wire x1="143.36" y1="38.04" x2="133.62" y2="28.3" width="0.508" layer="16"/>
+<wire x1="143.36" y1="38.04" x2="142.06" y2="38.04" width="0.508" layer="16"/>
+<wire x1="142.06" y1="38.04" x2="132.32" y2="28.3" width="0.508" layer="16"/>
 <wire x1="69.48" y1="28.3" x2="67.38" y2="30.4" width="0.508" layer="16"/>
-<wire x1="133.62" y1="28.3" x2="69.48" y2="28.3" width="0.508" layer="16"/>
+<wire x1="132.32" y1="28.3" x2="69.48" y2="28.3" width="0.508" layer="16"/>
 </signal>
 <signal name="USB_D+">
 <contactref element="USB_D+" pad="2"/>
@@ -870,9 +864,9 @@ design rules under a new name.
 <contactref element="J1" pad="12"/>
 <wire x1="56.8" y1="28.7" x2="66.54" y2="28.7" width="0.508" layer="16"/>
 <wire x1="66.54" y1="28.7" x2="69.74" y2="25.5" width="0.508" layer="16"/>
-<wire x1="143.36" y1="35.16" x2="143.36" y2="35.5" width="0.508" layer="16"/>
-<wire x1="69.74" y1="25.5" x2="133.7" y2="25.5" width="0.508" layer="16"/>
-<wire x1="133.7" y1="25.5" x2="143.36" y2="35.16" width="0.508" layer="16"/>
+<wire x1="69.74" y1="25.5" x2="132.5" y2="25.5" width="0.508" layer="16"/>
+<wire x1="143.36" y1="35.5" x2="142.5" y2="35.5" width="0.508" layer="16"/>
+<wire x1="142.5" y1="35.5" x2="132.5" y2="25.5" width="0.508" layer="16"/>
 </signal>
 <signal name="SWDIO">
 <contactref element="SWDIO" pad="2"/>
@@ -920,9 +914,8 @@ design rules under a new name.
 <signal name="GND">
 <polygon width="0.508" layer="16" isolate="0.254">
 <vertex x="13.3" y="104.3"/>
-<vertex x="13.3" y="104.3"/>
-<vertex x="157.9" y="104.3"/>
-<vertex x="157.9" y="1.4"/>
+<vertex x="159.4" y="104.3"/>
+<vertex x="159.4" y="1.4"/>
 <vertex x="13.3" y="1.6"/>
 </polygon>
 <contactref element="GND" pad="2"/>
@@ -936,7 +929,6 @@ design rules under a new name.
 <contactref element="J2" pad="8"/>
 <contactref element="J2" pad="6"/>
 <contactref element="J1" pad="10"/>
-<wire x1="143.36" y1="63.34" x2="143.36" y2="32.96" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
