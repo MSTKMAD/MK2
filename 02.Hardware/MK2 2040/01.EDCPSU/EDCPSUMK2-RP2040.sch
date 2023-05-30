@@ -5726,78 +5726,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/RP2040TR7.pdf
 </deviceset>
 </devicesets>
 </library>
-<library name="LM4040C25FTA">
-<description>&lt;Voltage References 0.5% 2.5V Reference&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
-<packages>
-<package name="SOT96P240X110-3N">
-<description>&lt;b&gt;SOT23_ 2022&lt;/b&gt;&lt;br&gt;
-</description>
-<smd name="1" x="-1.05" y="0.96" dx="1.1" dy="0.65" layer="1"/>
-<smd name="2" x="-1.05" y="-0.96" dx="1.1" dy="0.65" layer="1"/>
-<smd name="3" x="1.05" y="0" dx="1.1" dy="0.65" layer="1"/>
-<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-1.85" y1="1.75" x2="1.85" y2="1.75" width="0.05" layer="51"/>
-<wire x1="1.85" y1="1.75" x2="1.85" y2="-1.75" width="0.05" layer="51"/>
-<wire x1="1.85" y1="-1.75" x2="-1.85" y2="-1.75" width="0.05" layer="51"/>
-<wire x1="-1.85" y1="-1.75" x2="-1.85" y2="1.75" width="0.05" layer="51"/>
-<wire x1="-0.65" y1="1.45" x2="0.65" y2="1.45" width="0.1" layer="51"/>
-<wire x1="0.65" y1="1.45" x2="0.65" y2="-1.45" width="0.1" layer="51"/>
-<wire x1="0.65" y1="-1.45" x2="-0.65" y2="-1.45" width="0.1" layer="51"/>
-<wire x1="-0.65" y1="-1.45" x2="-0.65" y2="1.45" width="0.1" layer="51"/>
-<wire x1="-0.65" y1="0.49" x2="0.31" y2="1.45" width="0.1" layer="51"/>
-<wire x1="-0.15" y1="1.45" x2="0.15" y2="1.45" width="0.2" layer="21"/>
-<wire x1="0.15" y1="1.45" x2="0.15" y2="-1.45" width="0.2" layer="21"/>
-<wire x1="0.15" y1="-1.45" x2="-0.15" y2="-1.45" width="0.2" layer="21"/>
-<wire x1="-0.15" y1="-1.45" x2="-0.15" y2="1.45" width="0.2" layer="21"/>
-<wire x1="-1.6" y1="1.535" x2="-0.5" y2="1.535" width="0.2" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="LM4040C25FTA">
-<wire x1="5.08" y1="2.54" x2="30.48" y2="2.54" width="0.254" layer="94"/>
-<wire x1="30.48" y1="-5.08" x2="30.48" y2="2.54" width="0.254" layer="94"/>
-<wire x1="30.48" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
-<text x="31.75" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
-<text x="31.75" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
-<pin name="CATHODE" x="0" y="0" length="middle"/>
-<pin name="ANODE_1" x="0" y="-2.54" length="middle"/>
-<pin name="ANODE_2" x="35.56" y="0" length="middle" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="LM4040C25FTA" prefix="IC">
-<description>&lt;b&gt;Voltage References 0.5% 2.5V Reference&lt;/b&gt;&lt;p&gt;
-Source: &lt;a href="https://www.diodes.com/assets/Datasheets/LM4040.pdf"&gt; Datasheet &lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="LM4040C25FTA" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT96P240X110-3N">
-<connects>
-<connect gate="G$1" pin="ANODE_1" pad="2"/>
-<connect gate="G$1" pin="ANODE_2" pad="3"/>
-<connect gate="G$1" pin="CATHODE" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="ARROW_PART_NUMBER" value="LM4040C25FTA" constant="no"/>
-<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/lm4040c25fta/diodes-incorporated?region=nac" constant="no"/>
-<attribute name="DESCRIPTION" value="Voltage References 0.5% 2.5V Reference" constant="no"/>
-<attribute name="HEIGHT" value="1.1mm" constant="no"/>
-<attribute name="MANUFACTURER_NAME" value="Diodes Inc." constant="no"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="LM4040C25FTA" constant="no"/>
-<attribute name="MOUSER_PART_NUMBER" value="522-LM4040C25FTA" constant="no"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/LM4040C25FTA?qs=xR5F%252B7zL27%2FlODL3MyTOfg%3D%3D" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="AP64501SP-13">
 <description>&lt;Conv DC-DC 3.8V to 40V Synchronous Step Down Single-Out 0.8V to 39V 5A 8-Pin SO EP T/R&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
@@ -5976,6 +5904,19 @@ We've spent an enormous amount of time creating and checking these footprints an
 &lt;br&gt;
 You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
 <packages>
+<package name="SMT-JUMPER_2_NC_TRACE_NO-SILK" urn="urn:adsk.eagle:footprint:39257/1" library_version="1">
+<smd name="1" x="-0.508" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
+<smd name="2" x="0.508" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
+<text x="0" y="1.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-1.143" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+<wire x1="-0.508" y1="0" x2="0.508" y2="0" width="0.254" layer="1"/>
+<polygon width="0.127" layer="29">
+<vertex x="-0.1905" y="0.127"/>
+<vertex x="0.1905" y="0.127"/>
+<vertex x="0.1905" y="-0.127"/>
+<vertex x="-0.1905" y="-0.127"/>
+</polygon>
+</package>
 <package name="SMT-JUMPER_2_NO_NO-SILK" urn="urn:adsk.eagle:footprint:39252/1" library_version="1">
 <text x="0" y="1.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-1.143" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
@@ -6041,8 +5982,34 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </polygon>
 <circle x="0" y="0" radius="1.74625" width="0.2032" layer="21"/>
 </package>
+<package name="SMT-JUMPER_2_NC_TRACE_SILK" urn="urn:adsk.eagle:footprint:39258/1" library_version="1">
+<wire x1="0.762" y1="-1.016" x2="-0.762" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="0.762" y1="1.016" x2="1.2192" y2="0.5588" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-1.2192" y1="0.5588" x2="-0.762" y2="1.016" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-1.2192" y1="-0.5588" x2="-0.762" y2="-1.016" width="0.1524" layer="21" curve="90"/>
+<wire x1="0.762" y1="-1.016" x2="1.2192" y2="-0.5588" width="0.1524" layer="21" curve="90"/>
+<wire x1="1.2192" y1="-0.5588" x2="1.2192" y2="0.5588" width="0.1524" layer="21"/>
+<wire x1="-1.2192" y1="-0.5588" x2="-1.2192" y2="0.5588" width="0.1524" layer="21"/>
+<wire x1="-0.762" y1="1.016" x2="0.762" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-0.508" y1="0" x2="0.508" y2="0" width="0.254" layer="1"/>
+<smd name="1" x="-0.508" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
+<smd name="2" x="0.508" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
+<text x="0" y="1.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-1.143" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+<polygon width="0.127" layer="29">
+<vertex x="-0.1905" y="0.127"/>
+<vertex x="0.1905" y="0.127"/>
+<vertex x="0.1905" y="-0.127"/>
+<vertex x="-0.1905" y="-0.127"/>
+</polygon>
+</package>
 </packages>
 <packages3d>
+<package3d name="SMT-JUMPER_2_NC_TRACE_NO-SILK" urn="urn:adsk.eagle:package:39286/1" type="box" library_version="1">
+<packageinstances>
+<packageinstance name="SMT-JUMPER_2_NC_TRACE_NO-SILK"/>
+</packageinstances>
+</package3d>
 <package3d name="SMT-JUMPER_2_NO_NO-SILK" urn="urn:adsk.eagle:package:39277/1" type="box" library_version="1">
 <packageinstances>
 <packageinstance name="SMT-JUMPER_2_NO_NO-SILK"/>
@@ -6063,8 +6030,25 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <packageinstance name="SMT-JUMPER_2_NO_SILK_ROUND"/>
 </packageinstances>
 </package3d>
+<package3d name="SMT-JUMPER_2_NC_TRACE_SILK" urn="urn:adsk.eagle:package:39281/1" type="box" library_version="1">
+<packageinstances>
+<packageinstance name="SMT-JUMPER_2_NC_TRACE_SILK"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
+<symbol name="SMT-JUMPER_2_NC_TRACE" urn="urn:adsk.eagle:symbol:39256/1" library_version="1">
+<wire x1="0.381" y1="0.635" x2="1.016" y2="0" width="1.27" layer="94" curve="-90" cap="flat"/>
+<wire x1="1.016" y1="0" x2="0.381" y2="-0.635" width="1.27" layer="94" curve="-90" cap="flat"/>
+<wire x1="-0.381" y1="-0.635" x2="-0.381" y2="0.635" width="1.27" layer="94" curve="-180" cap="flat"/>
+<wire x1="2.54" y1="0" x2="1.651" y2="0" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.651" y2="0" width="0.1524" layer="94"/>
+<wire x1="-0.762" y1="0" x2="1.016" y2="0" width="0.254" layer="94"/>
+<text x="-2.54" y="2.54" size="1.778" layer="95" font="vector">&gt;NAME</text>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" font="vector" align="top-left">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
 <symbol name="SMT-JUMPER_2_NO" urn="urn:adsk.eagle:symbol:39251/1" library_version="1">
 <wire x1="0.381" y1="0.635" x2="0.381" y2="-0.635" width="1.27" layer="94" curve="-180" cap="flat"/>
 <wire x1="-0.381" y1="-0.635" x2="-0.381" y2="0.635" width="1.27" layer="94" curve="-180" cap="flat"/>
@@ -6077,6 +6061,45 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </symbol>
 </symbols>
 <devicesets>
+<deviceset name="JUMPER-SMT_2_NC_TRACE" urn="urn:adsk.eagle:component:39295/1" prefix="JP" library_version="1">
+<description>&lt;h3&gt;Normally closed trace jumper&lt;/h3&gt;
+&lt;p&gt;This jumper has a trace between two pads so it's normally closed (NC). Use a razor knife to open the connection. For best results follow the IPC guidelines for cutting traces:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cutout at least 0.063 mm (0.005 in).&lt;/li&gt;
+&lt;li&gt;Remove all loose material to clean up the cut area.&lt;/li&gt;
+&lt;li&gt;Seal the cut with an approved epoxy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Reapply solder to reclose the connection.&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="SMT-JUMPER_2_NC_TRACE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="_NO-SILK" package="SMT-JUMPER_2_NC_TRACE_NO-SILK">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:39286/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_SILK" package="SMT-JUMPER_2_NC_TRACE_SILK">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:39281/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="JUMPER-SMT_2_NO" urn="urn:adsk.eagle:component:39297/1" prefix="JP" library_version="1">
 <description>&lt;h3&gt;Normally open jumper&lt;/h3&gt;
 &lt;p&gt;This jumper has two pads in close proximity to each other. Apply solder to close the connection.&lt;/p&gt;
@@ -6971,6 +6994,78 @@ by exp-lbrs.ulp</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="LM4040C30FTA">
+<description>&lt;Diodes Inc LM4040C30FTA, Shunt Precision Voltage Reference 2.5V, 0.5%, 3-Pin SOT-23&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SOT96P240X120-3N">
+<description>&lt;b&gt;LM4040C30FTA&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.05" y="0.96" dx="1.1" dy="0.65" layer="1"/>
+<smd name="2" x="-1.05" y="-0.96" dx="1.1" dy="0.65" layer="1"/>
+<smd name="3" x="1.05" y="0" dx="1.1" dy="0.65" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-1.85" y1="1.75" x2="1.85" y2="1.75" width="0.05" layer="51"/>
+<wire x1="1.85" y1="1.75" x2="1.85" y2="-1.75" width="0.05" layer="51"/>
+<wire x1="1.85" y1="-1.75" x2="-1.85" y2="-1.75" width="0.05" layer="51"/>
+<wire x1="-1.85" y1="-1.75" x2="-1.85" y2="1.75" width="0.05" layer="51"/>
+<wire x1="-0.65" y1="1.45" x2="0.65" y2="1.45" width="0.1" layer="51"/>
+<wire x1="0.65" y1="1.45" x2="0.65" y2="-1.45" width="0.1" layer="51"/>
+<wire x1="0.65" y1="-1.45" x2="-0.65" y2="-1.45" width="0.1" layer="51"/>
+<wire x1="-0.65" y1="-1.45" x2="-0.65" y2="1.45" width="0.1" layer="51"/>
+<wire x1="-0.65" y1="0.49" x2="0.31" y2="1.45" width="0.1" layer="51"/>
+<wire x1="-0.15" y1="1.45" x2="0.15" y2="1.45" width="0.2" layer="21"/>
+<wire x1="0.15" y1="1.45" x2="0.15" y2="-1.45" width="0.2" layer="21"/>
+<wire x1="0.15" y1="-1.45" x2="-0.15" y2="-1.45" width="0.2" layer="21"/>
+<wire x1="-0.15" y1="-1.45" x2="-0.15" y2="1.45" width="0.2" layer="21"/>
+<wire x1="-1.6" y1="1.535" x2="-0.5" y2="1.535" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="LM4040C30FTA">
+<wire x1="5.08" y1="2.54" x2="30.48" y2="2.54" width="0.254" layer="94"/>
+<wire x1="30.48" y1="-5.08" x2="30.48" y2="2.54" width="0.254" layer="94"/>
+<wire x1="30.48" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<text x="31.75" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="31.75" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="CATHODE" x="0" y="0" length="middle"/>
+<pin name="ANODE_1" x="0" y="-2.54" length="middle"/>
+<pin name="ANODE_2" x="35.56" y="0" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="LM4040C30FTA" prefix="IC">
+<description>&lt;b&gt;Diodes Inc LM4040C30FTA, Shunt Precision Voltage Reference 2.5V, 0.5%, 3-Pin SOT-23&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://www.mouser.com/datasheet/2/115/LM4040-2681.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="LM4040C30FTA" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT96P240X120-3N">
+<connects>
+<connect gate="G$1" pin="ANODE_1" pad="2"/>
+<connect gate="G$1" pin="ANODE_2" pad="3"/>
+<connect gate="G$1" pin="CATHODE" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="LM4040C30FTA" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/lm4040c30fta/diodes-incorporated?region=nac" constant="no"/>
+<attribute name="DESCRIPTION" value="Diodes Inc LM4040C30FTA, Shunt Precision Voltage Reference 2.5V, 0.5%, 3-Pin SOT-23" constant="no"/>
+<attribute name="HEIGHT" value="1.2mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Diodes Inc." constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="LM4040C30FTA" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="621-LM4040C30FTA" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/LM4040C30FTA?qs=oUsD4qhOtFxJawR8QeoshQ%3D%3D" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -6995,8 +7090,8 @@ by exp-lbrs.ulp</description>
 <part name="R8" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="91K"/>
 <part name="R9" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="43K"/>
 <part name="R10" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="22K"/>
-<part name="R11" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="10K"/>
-<part name="R12" library="eagle-ltspice" deviceset="R" device="R2512" value="0.05R / 1W"/>
+<part name="R11" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="15K"/>
+<part name="R12" library="eagle-ltspice" deviceset="R" device="R2512" value="0.025R / 1W"/>
 <part name="GND9" library="SparkFun" deviceset="GND" device=""/>
 <part name="R36" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="27K"/>
 <part name="C13" library="SparkFun-Passives" deviceset="CAP" device="0805" value="1uF 50V X7R"/>
@@ -7059,7 +7154,7 @@ by exp-lbrs.ulp</description>
 <part name="C18" library="SparkFun-Passives" deviceset="CAP" device="1210" value="4.7uF 50V X7R"/>
 <part name="C21" library="SparkFun-Passives" deviceset="CAP" device="1210" value="4.7uF 50V X7R"/>
 <part name="C28" library="SparkFun-Passives" deviceset="CAP" device="0805" value="100n 50v X7R/X5R"/>
-<part name="R43" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="27K"/>
+<part name="R43" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="11K"/>
 <part name="C29" library="SparkFun-Passives" deviceset="CAP" device="0805" value="100n 50v X7R/X5R"/>
 <part name="C30" library="SparkFun-Passives" deviceset="CAP" device="0805" value="33n"/>
 <part name="C37" library="SparkFun-Passives" deviceset="CAP" device="0805" value="10nF"/>
@@ -7159,7 +7254,7 @@ by exp-lbrs.ulp</description>
 <part name="GND14" library="SparkFun" deviceset="GND" device=""/>
 <part name="BZ1" library="buzzer" deviceset="PKMCS0909E4000-R1" device="" value="PKMCS0909E4000-R1"/>
 <part name="Q4" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="2N7002PW" value="2N7002PW"/>
-<part name="R41" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="330K"/>
+<part name="R41" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="150K"/>
 <part name="R42" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="10K"/>
 <part name="P+6" library="microbuilder" deviceset="VCC" device=""/>
 <part name="GND74" library="SparkFun" deviceset="GND" device=""/>
@@ -7195,7 +7290,7 @@ by exp-lbrs.ulp</description>
 <part name="U$16" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
 <part name="GND58" library="SparkFun" deviceset="GND" device=""/>
 <part name="R34" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="N.C"/>
-<part name="D3" library="diode" deviceset="BAV199" device=""/>
+<part name="D3" library="diode" deviceset="BAV199" device="" value="N.C"/>
 <part name="LS1" library="SMT-0540-S-R" deviceset="SMT-0540-S-R" device=""/>
 <part name="U$17" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
 <part name="C51" library="SparkFun-Passives" deviceset="CAP" device="1206" value="10uF 50V X5R/X7R"/>
@@ -7203,7 +7298,7 @@ by exp-lbrs.ulp</description>
 <part name="U11" library="AP63201WU-7" deviceset="AP63201WU-7" device="" value="AP63203"/>
 <part name="GND61" library="SparkFun" deviceset="GND" device=""/>
 <part name="P+1" library="microbuilder" deviceset="VCC" device=""/>
-<part name="R15" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="N.C"/>
+<part name="R15" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="0"/>
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0805" value="22uF 10V X5R"/>
 <part name="R16" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="N.C"/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="0805" value="100n 50v X7R/X5R"/>
@@ -7272,10 +7367,10 @@ by exp-lbrs.ulp</description>
 <part name="C61" library="SparkFun-Passives" deviceset="CAP" device="0805" value="27p"/>
 <part name="R46" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="1K"/>
 <part name="GND76" library="SparkFun" deviceset="GND" device=""/>
-<part name="U8" library="LM4040C25FTA" deviceset="LM4040C25FTA" device=""/>
+<part name="U8" library="LM4040C30FTA" deviceset="LM4040C30FTA" device=""/>
 <part name="GND82" library="SparkFun" deviceset="GND" device=""/>
 <part name="U$38" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
-<part name="R57" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="800R"/>
+<part name="R57" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="1K"/>
 <part name="U12" library="AP64501SP-13" deviceset="AP64501SP-13" device=""/>
 <part name="U$39" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
 <part name="U$40" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
@@ -7285,7 +7380,7 @@ by exp-lbrs.ulp</description>
 <part name="X1" library="ABM3C-12.000MHZ-D4Y-T" deviceset="ABM3C-12.000MHZ-D4Y-T" device=""/>
 <part name="USB_D+" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
 <part name="USB_D-" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
-<part name="FB_ADJ" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NO" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39277/1"/>
+<part name="FB_ADJ" library="SparkFun-Jumpers" library_urn="urn:adsk.eagle:library:528" deviceset="JUMPER-SMT_2_NC_TRACE" device="_NO-SILK" package3d_urn="urn:adsk.eagle:package:39286/1"/>
 <part name="C66" library="SparkFun-Passives" deviceset="CAP" device="0805" value="100n 50v X7R/X5R"/>
 <part name="GND75" library="SparkFun" deviceset="GND" device=""/>
 <part name="U$15" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
@@ -7327,7 +7422,7 @@ by exp-lbrs.ulp</description>
 <text x="-439.42" y="-17.78" size="6.4516" layer="94">SENSING CONDITIONING</text>
 <text x="-444.5" y="386.08" size="6.4516" layer="94">TEST PADS</text>
 <text x="-320.04" y="429.26" size="6.4516" layer="94">MK2-RP2040
-v1-March-2023</text>
+v2-May-2023</text>
 <text x="76.2" y="322.58" size="1.778" layer="94">(DATA/COMMAND)</text>
 <text x="-193.04" y="358.14" size="1.778" layer="91">Overlap buzzer assy concentric</text>
 <text x="238.76" y="144.78" size="5.08" layer="91">ICSP</text>
@@ -8257,8 +8352,8 @@ con zener de 3v6</text>
 <attribute name="VALUE" x="-306.07" y="63.5" size="1.778" layer="96" rot="R270" align="center-left"/>
 </instance>
 <instance part="U5" gate="G$1" x="-200.66" y="73.66" smashed="yes">
-<attribute name="NAME" x="-148.59" y="81.28" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="-148.59" y="78.74" size="1.778" layer="96" align="center-left"/>
+<attribute name="NAME" x="-194.31" y="81.28" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="-194.31" y="78.74" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="C8" gate="G$1" x="-116.84" y="96.52" smashed="yes" rot="R180">
 <attribute name="NAME" x="-115.824" y="96.647" size="1.778" layer="91"/>
@@ -9845,6 +9940,22 @@ con zener de 3v6</text>
 <wire x1="-439.97" y1="337.82" x2="-421.64" y2="337.82" width="0.1524" layer="91"/>
 <label x="-436.88" y="337.82" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U5" gate="G$1" pin="VCC"/>
+<wire x1="-144.78" y1="73.66" x2="-142.24" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-142.24" y1="83.82" x2="-142.24" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="VCC-ISO"/>
+</segment>
+<segment>
+<pinref part="C8" gate="G$1" pin="2"/>
+<wire x1="-116.84" y1="106.68" x2="-116.84" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="C15" gate="G$1" pin="1"/>
+<wire x1="-116.84" y1="106.68" x2="-106.68" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-106.68" y1="106.68" x2="-106.68" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="U$10" gate="G$1" pin="VCC-ISO"/>
+<wire x1="-106.68" y1="106.68" x2="-106.68" y2="111.76" width="0.1524" layer="91"/>
+<junction x="-106.68" y="106.68"/>
+</segment>
 </net>
 <net name="D0" class="0">
 <segment>
@@ -10756,7 +10867,7 @@ con zener de 3v6</text>
 <segment>
 <pinref part="U5" gate="G$1" pin="/CS"/>
 <wire x1="-200.66" y1="73.66" x2="-241.3" y2="73.66" width="0.1524" layer="91"/>
-<label x="-220.98" y="73.66" size="1.778" layer="95"/>
+<label x="-218.44" y="73.66" size="1.778" layer="95"/>
 <pinref part="R40" gate="G$1" pin="1"/>
 <wire x1="-241.3" y1="76.2" x2="-241.3" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-241.3" y1="73.66" x2="-254" y2="73.66" width="0.1524" layer="91"/>
@@ -10771,25 +10882,22 @@ con zener de 3v6</text>
 </net>
 <net name="QSPI_SD1" class="0">
 <segment>
-<pinref part="U5" gate="G$1" pin="DI(IO0)"/>
-<wire x1="-144.78" y1="66.04" x2="-88.9" y2="66.04" width="0.1524" layer="91"/>
-<label x="-139.7" y="66.04" size="1.778" layer="95"/>
-<label x="-88.9" y="66.04" size="1.778" layer="95" xref="yes"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="QSPI_SD1"/>
 <wire x1="-198.12" y1="251.46" x2="-198.12" y2="271.78" width="0.1524" layer="91"/>
 <label x="-198.12" y="254" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="-200.66" y1="71.12" x2="-236.22" y2="71.12" width="0.1524" layer="91"/>
+<label x="-236.22" y="71.12" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="U5" gate="G$1" pin="DO(IO1)"/>
 </segment>
 </net>
 <net name="QSPI_SD2" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="/WP_(IO2)"/>
-<label x="-220.98" y="68.58" size="1.778" layer="95"/>
-<label x="-220.98" y="66.04" size="1.778" layer="95" rot="R180" xref="yes"/>
-<wire x1="-220.98" y1="66.04" x2="-213.36" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="-213.36" y1="66.04" x2="-213.36" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="-213.36" y1="68.58" x2="-200.66" y2="68.58" width="0.1524" layer="91"/>
+<label x="-218.44" y="68.58" size="1.778" layer="95"/>
+<label x="-220.98" y="68.58" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="-220.98" y1="68.58" x2="-200.66" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="QSPI_SD2"/>
@@ -10799,15 +10907,15 @@ con zener de 3v6</text>
 </net>
 <net name="QSPI_SD0" class="0">
 <segment>
-<pinref part="U5" gate="G$1" pin="DO(IO1)"/>
-<wire x1="-200.66" y1="71.12" x2="-226.06" y2="71.12" width="0.1524" layer="91"/>
-<label x="-220.98" y="71.12" size="1.778" layer="95"/>
-<label x="-226.06" y="71.12" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="QSPI_SD0"/>
 <wire x1="-193.04" y1="251.46" x2="-193.04" y2="271.78" width="0.1524" layer="91"/>
 <label x="-193.04" y="254" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="-144.78" y1="66.04" x2="-124.46" y2="66.04" width="0.1524" layer="91"/>
+<label x="-139.7" y="66.04" size="1.778" layer="95"/>
+<label x="-124.46" y="66.04" size="1.778" layer="95" xref="yes"/>
+<pinref part="U5" gate="G$1" pin="DI(IO0)"/>
 </segment>
 </net>
 <net name="QSPI_SCLK" class="0">
@@ -11217,24 +11325,6 @@ con zener de 3v6</text>
 <pinref part="USB_D-" gate="G$1" pin="1"/>
 <pinref part="R63" gate="G$1" pin="1"/>
 <wire x1="-175.26" y1="281.94" x2="-175.26" y2="284.48" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="VCC-ISO" class="0">
-<segment>
-<pinref part="U5" gate="G$1" pin="VCC"/>
-<wire x1="-144.78" y1="73.66" x2="-142.24" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="-142.24" y1="83.82" x2="-142.24" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="VCC-ISO"/>
-</segment>
-<segment>
-<pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="-116.84" y1="106.68" x2="-116.84" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="C15" gate="G$1" pin="1"/>
-<wire x1="-116.84" y1="106.68" x2="-106.68" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="-106.68" y1="106.68" x2="-106.68" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="U$10" gate="G$1" pin="VCC-ISO"/>
-<wire x1="-106.68" y1="106.68" x2="-106.68" y2="111.76" width="0.1524" layer="91"/>
-<junction x="-106.68" y="106.68"/>
 </segment>
 </net>
 <net name="SWO" class="0">
