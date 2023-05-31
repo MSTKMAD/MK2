@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
@@ -1391,31 +1391,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
-<library name="MMSZ5227B-7-F">
-<description>&lt;Diode Zener 3.6V 5% 500mW 2Pin SOD123 Diodes Inc MMSZ5227B-7-F Zener Diode, 3.6V 5% 500 mW SMT 2-Pin SOD-123&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
-<packages>
-<package name="SOD3716X135N">
-<description>&lt;b&gt;SOD123_4&lt;/b&gt;&lt;br&gt;
-</description>
-<smd name="1" x="-1.7" y="0" dx="1.2" dy="0.75" layer="1"/>
-<smd name="2" x="1.7" y="0" dx="1.2" dy="0.75" layer="1"/>
-<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-2.55" y1="1.675" x2="2.55" y2="1.675" width="0.05" layer="51"/>
-<wire x1="2.55" y1="1.675" x2="2.55" y2="-1.675" width="0.05" layer="51"/>
-<wire x1="2.55" y1="-1.675" x2="-2.55" y2="-1.675" width="0.05" layer="51"/>
-<wire x1="-2.55" y1="-1.675" x2="-2.55" y2="1.675" width="0.05" layer="51"/>
-<wire x1="-1.35" y1="0.775" x2="1.35" y2="0.775" width="0.1" layer="51"/>
-<wire x1="1.35" y1="0.775" x2="1.35" y2="-0.775" width="0.1" layer="51"/>
-<wire x1="1.35" y1="-0.775" x2="-1.35" y2="-0.775" width="0.1" layer="51"/>
-<wire x1="-1.35" y1="-0.775" x2="-1.35" y2="0.775" width="0.1" layer="51"/>
-<wire x1="-1.35" y1="0.175" x2="-0.75" y2="0.775" width="0.1" layer="51"/>
-<wire x1="-2.3" y1="0.775" x2="1.35" y2="0.775" width="0.2" layer="21"/>
-<wire x1="-1.35" y1="-0.775" x2="1.35" y2="-0.775" width="0.2" layer="21"/>
-</package>
-</packages>
-</library>
 <library name="W25Q64JVSSIQ">
 <description>&lt;64M-bit Serial Flash Memory with uniform 4KB sectors and Dual/Quad SPI&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
@@ -1912,6 +1887,31 @@ by exp-lbrs.ulp</description>
 <wire x1="0.15" y1="-1.45" x2="-0.15" y2="-1.45" width="0.2" layer="21"/>
 <wire x1="-0.15" y1="-1.45" x2="-0.15" y2="1.45" width="0.2" layer="21"/>
 <wire x1="-1.6" y1="1.535" x2="-0.5" y2="1.535" width="0.2" layer="21"/>
+</package>
+</packages>
+</library>
+<library name="MMSZ5228B-7-F">
+<description>&lt;Diodes Inc MMSZ5228B-7-F Zener Diode, 3.9V 5% 500 mW SMT 2-Pin SOD-123&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SODFL3518X115N">
+<description>&lt;b&gt;SOD-123F&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.5" y="0" dx="1.37" dy="1.12" layer="1" rot="R90"/>
+<smd name="2" x="1.5" y="0" dx="1.37" dy="1.12" layer="1" rot="R90"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.21" y1="1.1" x2="2.21" y2="1.1" width="0.05" layer="51"/>
+<wire x1="2.21" y1="1.1" x2="2.21" y2="-1.1" width="0.05" layer="51"/>
+<wire x1="2.21" y1="-1.1" x2="-2.21" y2="-1.1" width="0.05" layer="51"/>
+<wire x1="-2.21" y1="-1.1" x2="-2.21" y2="1.1" width="0.05" layer="51"/>
+<wire x1="-1.35" y1="0.9" x2="1.35" y2="0.9" width="0.1" layer="51"/>
+<wire x1="1.35" y1="0.9" x2="1.35" y2="-0.9" width="0.1" layer="51"/>
+<wire x1="1.35" y1="-0.9" x2="-1.35" y2="-0.9" width="0.1" layer="51"/>
+<wire x1="-1.35" y1="-0.9" x2="-1.35" y2="0.9" width="0.1" layer="51"/>
+<wire x1="-1.35" y1="0.34" x2="-0.79" y2="0.9" width="0.1" layer="51"/>
+<wire x1="-2.06" y1="0.9" x2="1.35" y2="0.9" width="0.2" layer="21"/>
+<wire x1="-1.35" y1="-0.9" x2="1.35" y2="-0.9" width="0.2" layer="21"/>
 </package>
 </packages>
 </library>
@@ -2687,15 +2687,15 @@ design rules under a new name.
 <element name="C64" library="SparkFun-Passives" package="0805" value="4.7uF 50V X5R" x="88.98" y="62.44" smashed="yes" rot="R270">
 <attribute name="NAME" x="87.6645" y="63.288" size="0.6096" layer="25" font="vector" rot="R90" align="top-right"/>
 </element>
-<element name="DZ1" library="MMSZ5227B-7-F" package="SOD3716X135N" value="MMSZ5227B-7-F" x="90.14" y="69.86" smashed="yes" rot="R90">
-<attribute name="ARROW_PART_NUMBER" value="MMSZ5227B-7-F" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/mmsz5227b-7-f/diodes-incorporated" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="Diode Zener 3.6V 5% 500mW 2Pin SOD123 Diodes Inc MMSZ5227B-7-F Zener Diode, 3.6V 5% 500 mW SMT 2-Pin SOD-123" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="1.35mm" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="DZ1" library="MMSZ5228B-7-F" package="SODFL3518X115N" value="MMSZ5228B-7-F" x="90.14" y="69.86" smashed="yes" rot="R90">
+<attribute name="ARROW_PART_NUMBER" value="" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="ARROW_PRICE-STOCK" value="" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="Diodes Inc MMSZ5228B-7-F Zener Diode, 3.9V 5% 500 mW SMT 2-Pin SOD-123" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="1.15mm" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="Diodes Inc." x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="MMSZ5227B-7-F" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="621-MMSZ5227B-F" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=621-MMSZ5227B-F" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="MMSZ5228B-7-F" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="" x="90.14" y="69.86" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="92.6" y="70.24" size="0.6096" layer="25" font="vector" rot="R270" align="top-right"/>
 </element>
 <element name="U5" library="W25Q64JVSSIQ" package="SOIC127P790X216-8N" value="W25Q64JVSSIQ" x="96.35" y="67.02" smashed="yes" rot="R90">
@@ -3470,8 +3470,8 @@ design rules under a new name.
 <via x="88.99" y="71.83" extent="1-16" drill="0.3048"/>
 <via x="91.21" y="71.79" extent="1-16" drill="0.3048"/>
 <wire x1="88.99" y1="71.83" x2="89.26" y2="71.56" width="0.3048" layer="1"/>
-<wire x1="89.26" y1="71.56" x2="90.14" y2="71.56" width="0.3048" layer="1"/>
-<wire x1="90.14" y1="71.56" x2="90.98" y2="71.56" width="0.3048" layer="1"/>
+<wire x1="89.26" y1="71.56" x2="90.14" y2="71.36" width="0.3048" layer="1"/>
+<wire x1="90.14" y1="71.36" x2="90.98" y2="71.56" width="0.3048" layer="1"/>
 <wire x1="90.98" y1="71.56" x2="91.21" y2="71.79" width="0.3048" layer="1"/>
 <wire x1="98.35" y1="69.55" x2="98.35" y2="71.05" width="0.3048" layer="16"/>
 <wire x1="98.35" y1="71.05" x2="98.32" y2="71.08" width="0.3048" layer="16"/>

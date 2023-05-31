@@ -4936,78 +4936,6 @@ Source: &lt;a href="https://datasheet.datasheetarchive.com/originals/distributor
 </deviceset>
 </devicesets>
 </library>
-<library name="MMSZ5227B-7-F">
-<description>&lt;Diode Zener 3.6V 5% 500mW 2Pin SOD123 Diodes Inc MMSZ5227B-7-F Zener Diode, 3.6V 5% 500 mW SMT 2-Pin SOD-123&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
-<packages>
-<package name="SOD3716X135N">
-<description>&lt;b&gt;SOD123_4&lt;/b&gt;&lt;br&gt;
-</description>
-<smd name="1" x="-1.7" y="0" dx="1.2" dy="0.75" layer="1"/>
-<smd name="2" x="1.7" y="0" dx="1.2" dy="0.75" layer="1"/>
-<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-2.55" y1="1.675" x2="2.55" y2="1.675" width="0.05" layer="51"/>
-<wire x1="2.55" y1="1.675" x2="2.55" y2="-1.675" width="0.05" layer="51"/>
-<wire x1="2.55" y1="-1.675" x2="-2.55" y2="-1.675" width="0.05" layer="51"/>
-<wire x1="-2.55" y1="-1.675" x2="-2.55" y2="1.675" width="0.05" layer="51"/>
-<wire x1="-1.35" y1="0.775" x2="1.35" y2="0.775" width="0.1" layer="51"/>
-<wire x1="1.35" y1="0.775" x2="1.35" y2="-0.775" width="0.1" layer="51"/>
-<wire x1="1.35" y1="-0.775" x2="-1.35" y2="-0.775" width="0.1" layer="51"/>
-<wire x1="-1.35" y1="-0.775" x2="-1.35" y2="0.775" width="0.1" layer="51"/>
-<wire x1="-1.35" y1="0.175" x2="-0.75" y2="0.775" width="0.1" layer="51"/>
-<wire x1="-2.3" y1="0.775" x2="1.35" y2="0.775" width="0.2" layer="21"/>
-<wire x1="-1.35" y1="-0.775" x2="1.35" y2="-0.775" width="0.2" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="MMSZ5227B-7-F">
-<wire x1="5.08" y1="2.032" x2="5.08" y2="-2.032" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.032" x2="6.096" y2="2.54" width="0.254" layer="94"/>
-<wire x1="4.064" y1="-2.54" x2="5.08" y2="-2.032" width="0.254" layer="94"/>
-<wire x1="2.54" y1="0" x2="5.08" y2="0" width="0.254" layer="94"/>
-<wire x1="12.7" y1="0" x2="10.16" y2="0" width="0.254" layer="94"/>
-<text x="10.16" y="8.89" size="1.778" layer="95" align="center-left">&gt;NAME</text>
-<text x="10.16" y="6.35" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
-<pin name="K" x="0" y="0" visible="pad" length="short"/>
-<pin name="A" x="15.24" y="0" visible="pad" length="short" rot="R180"/>
-<polygon width="0.254" layer="94">
-<vertex x="5.08" y="0"/>
-<vertex x="10.16" y="2.54"/>
-<vertex x="10.16" y="-2.54"/>
-</polygon>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="MMSZ5227B-7-F" prefix="Z">
-<description>&lt;b&gt;Diode Zener 3.6V 5% 500mW 2Pin SOD123 Diodes Inc MMSZ5227B-7-F Zener Diode, 3.6V 5% 500 mW SMT 2-Pin SOD-123&lt;/b&gt;&lt;p&gt;
-Source: &lt;a href="https://www.diodes.com/assets/Datasheets/ds18010.pdf"&gt; Datasheet &lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="MMSZ5227B-7-F" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOD3716X135N">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="ARROW_PART_NUMBER" value="MMSZ5227B-7-F" constant="no"/>
-<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/mmsz5227b-7-f/diodes-incorporated" constant="no"/>
-<attribute name="DESCRIPTION" value="Diode Zener 3.6V 5% 500mW 2Pin SOD123 Diodes Inc MMSZ5227B-7-F Zener Diode, 3.6V 5% 500 mW SMT 2-Pin SOD-123" constant="no"/>
-<attribute name="HEIGHT" value="1.35mm" constant="no"/>
-<attribute name="MANUFACTURER_NAME" value="Diodes Inc." constant="no"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="MMSZ5227B-7-F" constant="no"/>
-<attribute name="MOUSER_PART_NUMBER" value="621-MMSZ5227B-F" constant="no"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=621-MMSZ5227B-F" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="W25Q64JVSSIQ">
 <description>&lt;64M-bit Serial Flash Memory with uniform 4KB sectors and Dual/Quad SPI&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
@@ -7066,6 +6994,76 @@ Source: &lt;a href="https://www.mouser.com/datasheet/2/115/LM4040-2681.pdf"&gt; 
 </deviceset>
 </devicesets>
 </library>
+<library name="MMSZ5228B-7-F">
+<description>&lt;Diodes Inc MMSZ5228B-7-F Zener Diode, 3.9V 5% 500 mW SMT 2-Pin SOD-123&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SODFL3518X115N">
+<description>&lt;b&gt;SOD-123F&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.5" y="0" dx="1.37" dy="1.12" layer="1" rot="R90"/>
+<smd name="2" x="1.5" y="0" dx="1.37" dy="1.12" layer="1" rot="R90"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.21" y1="1.1" x2="2.21" y2="1.1" width="0.05" layer="51"/>
+<wire x1="2.21" y1="1.1" x2="2.21" y2="-1.1" width="0.05" layer="51"/>
+<wire x1="2.21" y1="-1.1" x2="-2.21" y2="-1.1" width="0.05" layer="51"/>
+<wire x1="-2.21" y1="-1.1" x2="-2.21" y2="1.1" width="0.05" layer="51"/>
+<wire x1="-1.35" y1="0.9" x2="1.35" y2="0.9" width="0.1" layer="51"/>
+<wire x1="1.35" y1="0.9" x2="1.35" y2="-0.9" width="0.1" layer="51"/>
+<wire x1="1.35" y1="-0.9" x2="-1.35" y2="-0.9" width="0.1" layer="51"/>
+<wire x1="-1.35" y1="-0.9" x2="-1.35" y2="0.9" width="0.1" layer="51"/>
+<wire x1="-1.35" y1="0.34" x2="-0.79" y2="0.9" width="0.1" layer="51"/>
+<wire x1="-2.06" y1="0.9" x2="1.35" y2="0.9" width="0.2" layer="21"/>
+<wire x1="-1.35" y1="-0.9" x2="1.35" y2="-0.9" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="MMSZ5228B-7-F">
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="10.16" y1="0" x2="12.7" y2="0" width="0.254" layer="94"/>
+<text x="11.43" y="5.08" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="11.43" y="2.54" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="K" x="0" y="0" visible="pad" length="short"/>
+<pin name="A" x="15.24" y="0" visible="pad" length="short" rot="R180"/>
+<polygon width="0.254" layer="94">
+<vertex x="5.08" y="0"/>
+<vertex x="10.16" y="2.54"/>
+<vertex x="10.16" y="-2.54"/>
+</polygon>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MMSZ5228B-7-F" prefix="D">
+<description>&lt;b&gt;Diodes Inc MMSZ5228B-7-F Zener Diode, 3.9V 5% 500 mW SMT 2-Pin SOD-123&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://au.rs-online.com/web/p/products/8231502P"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="MMSZ5228B-7-F" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SODFL3518X115N">
+<connects>
+<connect gate="G$1" pin="A" pad="2"/>
+<connect gate="G$1" pin="K" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="" constant="no"/>
+<attribute name="DESCRIPTION" value="Diodes Inc MMSZ5228B-7-F Zener Diode, 3.9V 5% 500 mW SMT 2-Pin SOD-123" constant="no"/>
+<attribute name="HEIGHT" value="1.15mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Diodes Inc." constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="MMSZ5228B-7-F" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -7311,7 +7309,7 @@ Source: &lt;a href="https://www.mouser.com/datasheet/2/115/LM4040-2681.pdf"&gt; 
 <part name="GND66" library="SparkFun" deviceset="GND" device=""/>
 <part name="C64" library="SparkFun-Passives" deviceset="CAP" device="0805" value="4.7uF 50V X5R"/>
 <part name="GND67" library="SparkFun" deviceset="GND" device=""/>
-<part name="DZ1" library="MMSZ5227B-7-F" deviceset="MMSZ5227B-7-F" device=""/>
+<part name="DZ1" library="MMSZ5228B-7-F" deviceset="MMSZ5228B-7-F" device=""/>
 <part name="U5" library="W25Q64JVSSIQ" deviceset="W25Q64JVSSIQ" device=""/>
 <part name="C8" library="SparkFun-Passives" deviceset="CAP" device="0805" value="100n 50v X7R/X5R"/>
 <part name="C15" library="SparkFun-Passives" deviceset="CAP" device="0805" value="1uF 50V X7R"/>
@@ -7468,8 +7466,9 @@ dispara el comparador que corta el
 ENABLE del DCDC.
 U9 esta referenciado a GND_IN para
 poder sensar la caida en RSENSE.</text>
-<text x="-297.18" y="53.34" size="1.778" layer="91">proteccion del bus de 3v3
-con zener de 3v6</text>
+<text x="-297.18" y="53.34" size="1.778" layer="91">
+proteccion del bus de 3v3
+con zener de 3v9</text>
 <text x="-71.12" y="20.32" size="1.778" layer="91">Linea de corte en PCB</text>
 <text x="-337.82" y="-58.42" size="1.778" layer="91">3V @ Vi=20V</text>
 </plain>
