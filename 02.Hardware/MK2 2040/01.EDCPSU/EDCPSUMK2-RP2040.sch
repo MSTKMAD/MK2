@@ -7298,7 +7298,7 @@ Source: &lt;a href="https://www.mouser.com/datasheet/2/115/LM4040-2681.pdf"&gt; 
 <part name="U11" library="AP63201WU-7" deviceset="AP63201WU-7" device="" value="AP63203"/>
 <part name="GND61" library="SparkFun" deviceset="GND" device=""/>
 <part name="P+1" library="microbuilder" deviceset="VCC" device=""/>
-<part name="R15" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="0"/>
+<part name="R15" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="0R"/>
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0805" value="22uF 10V X5R"/>
 <part name="R16" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="N.C"/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="0805" value="100n 50v X7R/X5R"/>
@@ -7370,7 +7370,7 @@ Source: &lt;a href="https://www.mouser.com/datasheet/2/115/LM4040-2681.pdf"&gt; 
 <part name="U8" library="LM4040C30FTA" deviceset="LM4040C30FTA" device=""/>
 <part name="GND82" library="SparkFun" deviceset="GND" device=""/>
 <part name="U$38" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
-<part name="R57" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="1K"/>
+<part name="R57" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="330R"/>
 <part name="U12" library="AP64501SP-13" deviceset="AP64501SP-13" device=""/>
 <part name="U$39" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
 <part name="U$40" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3MCU"/>
@@ -7453,11 +7453,7 @@ es el AP63203 !!</text>
 <text x="-266.7" y="297.18" size="6.4516" layer="94">MCU </text>
 <text x="464.82" y="259.08" size="1.778" layer="91">Indicar esta referencia en el part number
 TLRP3A30CR050FTE</text>
-<text x="-78.74" y="274.32" size="1.778" layer="91">Calculado para
-un consumo de
-1mA
-</text>
-<text x="-104.14" y="266.7" size="1.778" layer="91">3v3-2v5 = 0.8 /1mA = 800R</text>
+<text x="-106.68" y="269.24" size="1.778" layer="91">3v3-3v = 0.3 /330R = 900uA</text>
 <text x="-233.68" y="7.62" size="1.778" layer="91">TVS
 ESD Protection Data</text>
 <text x="-223.52" y="-127" size="1.778" layer="91">GND_IN es la masa original de entrada
@@ -8300,8 +8296,8 @@ con zener de 3v6</text>
 <attribute name="VALUE" x="-458.724" y="94.996" size="1.27" layer="96"/>
 </instance>
 <instance part="R15" gate="G$1" x="-358.14" y="63.5" smashed="yes" rot="R270">
-<attribute name="NAME" x="-356.6414" y="67.31" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="-361.442" y="67.31" size="1.778" layer="96" rot="R270"/>
+<attribute name="NAME" x="-356.6414" y="64.77" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="-361.442" y="64.77" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="C3" gate="G$1" x="-342.9" y="55.88" smashed="yes" rot="R180">
 <attribute name="NAME" x="-341.884" y="56.007" size="1.778" layer="91"/>
@@ -11253,7 +11249,7 @@ con zener de 3v6</text>
 <wire x1="-154.94" y1="279.4" x2="-154.94" y2="289.56" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="2V5_REF" class="0">
+<net name="3V_REF" class="0">
 <segment>
 <pinref part="U8" gate="G$1" pin="CATHODE"/>
 <pinref part="R57" gate="G$1" pin="1"/>
