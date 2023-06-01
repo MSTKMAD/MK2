@@ -5165,76 +5165,6 @@ Source: &lt;a href="https://assets.nexperia.com/documents/data-sheet/PESD5V0U2BT
 </deviceset>
 </devicesets>
 </library>
-<library name="SMAJ24CA">
-<description>&lt;ESD Suppressors / TVS Diodes 24volts 5uA 10.3 Amps Bi-Dir&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
-<packages>
-<package name="DIONM5127X229N">
-<description>&lt;b&gt;SMA (DO-214AC)-1&lt;/b&gt;&lt;br&gt;
-</description>
-<smd name="1" x="-2.05" y="0" dx="2.2" dy="1.55" layer="1"/>
-<smd name="2" x="2.05" y="0" dx="2.2" dy="1.55" layer="1"/>
-<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-3.4" y1="1.645" x2="3.4" y2="1.645" width="0.05" layer="51"/>
-<wire x1="3.4" y1="1.645" x2="3.4" y2="-1.645" width="0.05" layer="51"/>
-<wire x1="3.4" y1="-1.645" x2="-3.4" y2="-1.645" width="0.05" layer="51"/>
-<wire x1="-3.4" y1="-1.645" x2="-3.4" y2="1.645" width="0.05" layer="51"/>
-<wire x1="-2.552" y1="1.332" x2="2.552" y2="1.332" width="0.1" layer="51"/>
-<wire x1="2.552" y1="1.332" x2="2.552" y2="-1.332" width="0.1" layer="51"/>
-<wire x1="2.552" y1="-1.332" x2="-2.552" y2="-1.332" width="0.1" layer="51"/>
-<wire x1="-2.552" y1="-1.332" x2="-2.552" y2="1.332" width="0.1" layer="51"/>
-<wire x1="2.552" y1="1.332" x2="-2.552" y2="1.332" width="0.2" layer="21"/>
-<wire x1="-2.552" y1="-1.332" x2="2.552" y2="-1.332" width="0.2" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="SMAJ24CA">
-<wire x1="10.16" y1="0" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="10.16" y2="0" width="0.254" layer="94"/>
-<wire x1="10.16" y1="0" x2="15.24" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="15.24" y1="2.54" x2="15.24" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="15.24" y1="2.54" x2="10.16" y2="0" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-2.032" x2="10.16" y2="2.032" width="0.254" layer="94"/>
-<wire x1="9.144" y1="2.54" x2="10.16" y2="2.032" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-2.032" x2="11.176" y2="-2.54" width="0.254" layer="94"/>
-<text x="12.7" y="8.89" size="1.778" layer="95">&gt;NAME</text>
-<text x="12.7" y="6.35" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="0" y="0" visible="pad" length="middle"/>
-<pin name="2" x="20.32" y="0" visible="pad" length="middle" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="SMAJ24CA" prefix="D">
-<description>&lt;b&gt;ESD Suppressors / TVS Diodes 24volts 5uA 10.3 Amps Bi-Dir&lt;/b&gt;&lt;p&gt;
-Source: &lt;a href="https://www.bourns.com/docs/Product-Datasheets/SMAJ.pdf"&gt; Datasheet &lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="SMAJ24CA" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="DIONM5127X229N">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="ARROW_PART_NUMBER" value="SMAJ24CA" constant="no"/>
-<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/smaj24ca/bourns?region=nac" constant="no"/>
-<attribute name="DESCRIPTION" value="ESD Suppressors / TVS Diodes 24volts 5uA 10.3 Amps Bi-Dir" constant="no"/>
-<attribute name="HEIGHT" value="2.29mm" constant="no"/>
-<attribute name="MANUFACTURER_NAME" value="Bourns" constant="no"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="SMAJ24CA" constant="no"/>
-<attribute name="MOUSER_PART_NUMBER" value="652-SMAJ24CA" constant="no"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Bourns/SMAJ24CA?qs=A3H9pljuJ8RsSQb8zLkILA%3D%3D" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-PowerSymbols" urn="urn:adsk.eagle:library:530">
 <description>&lt;h3&gt;SparkFun Power Symbols&lt;/h3&gt;
 This library contains power, ground, and voltage-supply symbols.
@@ -7064,6 +6994,76 @@ Source: &lt;a href="http://au.rs-online.com/web/p/products/8231502P"&gt; Datashe
 </deviceset>
 </devicesets>
 </library>
+<library name="3SMAJ5934B">
+<packages>
+<package name="DIOM4325X244N">
+<wire x1="-2.1875" y1="1.2925" x2="-2.1875" y2="-1.2925" width="0.127" layer="51"/>
+<wire x1="-2.1875" y1="-1.2925" x2="2.1875" y2="-1.2925" width="0.127" layer="51"/>
+<wire x1="2.1875" y1="-1.2925" x2="2.1875" y2="1.2925" width="0.127" layer="51"/>
+<wire x1="2.1875" y1="1.2925" x2="-2.1875" y2="1.2925" width="0.127" layer="51"/>
+<wire x1="-2.1875" y1="1.2925" x2="-2.1875" y2="1.095" width="0.127" layer="21"/>
+<wire x1="-2.1875" y1="-1.2925" x2="-2.1875" y2="-1.095" width="0.127" layer="21"/>
+<wire x1="2.1875" y1="1.095" x2="2.1875" y2="1.2925" width="0.127" layer="21"/>
+<wire x1="2.1875" y1="-1.2925" x2="2.1875" y2="-1.095" width="0.127" layer="21"/>
+<wire x1="-2.1875" y1="-1.2925" x2="2.1875" y2="-1.2925" width="0.127" layer="21"/>
+<wire x1="2.1875" y1="1.2925" x2="-2.1875" y2="1.2925" width="0.127" layer="21"/>
+<wire x1="-3.55" y1="1.5425" x2="-3.55" y2="-1.5425" width="0.05" layer="39"/>
+<wire x1="-3.55" y1="-1.5425" x2="3.55" y2="-1.5425" width="0.05" layer="39"/>
+<wire x1="3.55" y1="-1.5425" x2="3.55" y2="1.5425" width="0.05" layer="39"/>
+<wire x1="3.55" y1="1.5425" x2="-3.55" y2="1.5425" width="0.05" layer="39"/>
+<circle x="-4.05" y="0" radius="0.1" width="0.2" layer="21"/>
+<circle x="-4.05" y="0" radius="0.1" width="0.2" layer="51"/>
+<text x="-3.55" y="2.0425" size="1" layer="25">&gt;NAME</text>
+<text x="-3.55" y="-2.0425" size="1" layer="27" align="top-left">&gt;VALUE</text>
+<smd name="C" x="-2.135" y="0" dx="2.33" dy="1.55" layer="1"/>
+<smd name="A" x="2.135" y="0" dx="2.33" dy="1.55" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="3SMAJ5934B">
+<text x="-5.08" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="-5.08" y="-3.81" size="1.778" layer="96">&gt;VALUE</text>
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-0.635" x2="1.905" y2="-1.27" width="0.254" layer="94"/>
+<pin name="K" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<pin name="A" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="3SMAJ5934B" prefix="D">
+<description> &lt;a href="https://pricing.snapeda.com/parts/3SMAJ5934B/Micro%20Commercial%20Components/view-part?ref=eda"&gt;Check availability&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="3SMAJ5934B" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DIOM4325X244N">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="K" pad="C"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="Not in stock"/>
+<attribute name="DESCRIPTION" value=" Zener Diode Single 24V 5% 19Ohm 3000mW 2-Pin SMA T/R "/>
+<attribute name="MF" value="Micro Commercial Components"/>
+<attribute name="MP" value="3SMAJ5934B"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -7322,7 +7322,6 @@ Source: &lt;a href="http://au.rs-online.com/web/p/products/8231502P"&gt; Datashe
 <part name="D5" library="3SMAJ5923B-TP" deviceset="3SMAJ5923B-TP" device=""/>
 <part name="P+3" library="microbuilder" deviceset="VCC" device=""/>
 <part name="D4" library="PESD5V0U2BT_215" deviceset="PESD5V0U2BT,215" device=""/>
-<part name="D1" library="SMAJ24CA" deviceset="SMAJ24CA" device=""/>
 <part name="R30" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="N.C"/>
 <part name="R45" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="N.C"/>
 <part name="GND6" library="SparkFun" deviceset="GND" device=""/>
@@ -7412,6 +7411,7 @@ Source: &lt;a href="http://au.rs-online.com/web/p/products/8231502P"&gt; Datashe
 <part name="SCL" library="BeagleBone_Blue_R3" deviceset="TESTPAD_TPSQ" device="B1,27"/>
 <part name="SDA" library="BeagleBone_Blue_R3" deviceset="TESTPAD_TPSQ" device="B1,27"/>
 <part name="SEL" library="BeagleBone_Blue_R3" deviceset="TESTPAD_TPSQ" device="B1,27"/>
+<part name="D1" library="3SMAJ5934B" deviceset="3SMAJ5934B" device="" value="SMAJ24A"/>
 </parts>
 <sheets>
 <sheet>
@@ -8388,10 +8388,6 @@ con zener de 3v9</text>
 <attribute name="NAME" x="-201.93" y="10.16" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="-201.93" y="7.62" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D1" gate="G$1" x="-182.88" y="-38.1" smashed="yes" rot="R90">
-<attribute name="NAME" x="-189.23" y="-35.56" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="-186.69" y="-35.56" size="1.778" layer="96" rot="R90"/>
-</instance>
 <instance part="R30" gate="G$1" x="447.04" y="180.34" smashed="yes" rot="R180">
 <attribute name="NAME" x="448.31" y="183.9214" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="448.31" y="178.562" size="1.778" layer="96" rot="R180"/>
@@ -8687,6 +8683,10 @@ con zener de 3v9</text>
 </instance>
 <instance part="SEL" gate="G$1" x="-353.61" y="358.1388" smashed="yes" rot="R270">
 <attribute name="TP_SIGNAL_NAME" x="-354.88" y="355.5988" size="1.778" layer="97" rot="R270"/>
+</instance>
+<instance part="D1" gate="G$1" x="-175.26" y="-27.94" smashed="yes" rot="R90">
+<attribute name="NAME" x="-177.8" y="-25.4" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-177.8" y="-29.21" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -10514,15 +10514,14 @@ con zener de 3v9</text>
 <label x="-193.04" y="2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="D1" gate="G$1" pin="1"/>
-<label x="-170.18" y="-35.56" size="1.778" layer="95" rot="R180"/>
+<label x="-185.42" y="-35.56" size="1.778" layer="95" rot="R180"/>
 <pinref part="J1" gate="G$1" pin="SHIELD"/>
 <wire x1="-198.12" y1="-35.56" x2="-195.58" y2="-35.56" width="0.1524" layer="91"/>
 <pinref part="J1" gate="G$1" pin="GND"/>
 <wire x1="-198.12" y1="-38.1" x2="-195.58" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="C56" gate="G$1" pin="2"/>
-<wire x1="-195.58" y1="-38.1" x2="-187.96" y2="-38.1" width="0.1524" layer="91"/>
-<wire x1="-177.8" y1="-38.1" x2="-167.64" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-195.58" y1="-38.1" x2="-175.26" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-175.26" y1="-38.1" x2="-167.64" y2="-38.1" width="0.1524" layer="91"/>
 <wire x1="-167.64" y1="-33.02" x2="-167.64" y2="-38.1" width="0.1524" layer="91"/>
 <junction x="-167.64" y="-38.1"/>
 <pinref part="U10" gate="G$1" pin="GND"/>
@@ -10532,15 +10531,12 @@ con zener de 3v9</text>
 <wire x1="-152.4" y1="-38.1" x2="-152.4" y2="-27.94" width="0.1524" layer="91"/>
 <wire x1="-195.58" y1="-35.56" x2="-195.58" y2="-38.1" width="0.1524" layer="91"/>
 <junction x="-195.58" y="-38.1"/>
-<wire x1="-187.96" y1="-38.1" x2="-187.96" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="-187.96" y1="-43.18" x2="-182.88" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="-182.88" y1="-43.18" x2="-177.8" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="-177.8" y1="-43.18" x2="-177.8" y2="-38.1" width="0.1524" layer="91"/>
-<wire x1="-182.88" y1="-38.1" x2="-182.88" y2="-43.18" width="0.1524" layer="91"/>
-<junction x="-182.88" y="-43.18"/>
+<junction x="-175.26" y="-38.1"/>
 <wire x1="-167.64" y1="-38.1" x2="-167.64" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-167.64" y1="-48.26" x2="-152.4" y2="-48.26" width="0.1524" layer="91"/>
 <label x="-152.4" y="-48.26" size="1.778" layer="95" xref="yes"/>
+<pinref part="D1" gate="G$1" pin="A"/>
+<wire x1="-175.26" y1="-33.02" x2="-175.26" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND_IN" gate="G$1" pin="TP"/>
@@ -10556,12 +10552,11 @@ con zener de 3v9</text>
 <wire x1="-467.36" y1="-48.26" x2="-477.52" y2="-48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="D1" gate="G$1" pin="2"/>
 <pinref part="J1" gate="G$1" pin="VBUS"/>
-<wire x1="-198.12" y1="-20.32" x2="-187.96" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-198.12" y1="-20.32" x2="-175.26" y2="-20.32" width="0.1524" layer="91"/>
 <label x="-195.58" y="-20.32" size="1.778" layer="95"/>
 <pinref part="C56" gate="G$1" pin="1"/>
-<wire x1="-177.8" y1="-20.32" x2="-167.64" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-175.26" y1="-20.32" x2="-167.64" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="-167.64" y1="-25.4" x2="-167.64" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="-167.64" y="-20.32"/>
 <pinref part="R47" gate="G$1" pin="1"/>
@@ -10579,16 +10574,13 @@ con zener de 3v9</text>
 <junction x="-93.98" y="-5.08"/>
 <junction x="-45.72" y="-5.08"/>
 <wire x1="-66.04" y1="-5.08" x2="-45.72" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="-187.96" y1="-20.32" x2="-187.96" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-187.96" y1="-15.24" x2="-182.88" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-182.88" y1="-15.24" x2="-177.8" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-177.8" y1="-15.24" x2="-177.8" y2="-20.32" width="0.1524" layer="91"/>
-<wire x1="-182.88" y1="-15.24" x2="-182.88" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="-182.88" y="-15.24"/>
+<junction x="-175.26" y="-20.32"/>
 <label x="-68.58" y="5.08" size="1.778" layer="95" rot="R180" xref="yes"/>
 <wire x1="-68.58" y1="5.08" x2="-66.04" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="5.08" x2="-66.04" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-66.04" y="-5.08"/>
+<pinref part="D1" gate="G$1" pin="K"/>
+<wire x1="-175.26" y1="-22.86" x2="-175.26" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IN+" gate="G$1" pin="TP"/>
