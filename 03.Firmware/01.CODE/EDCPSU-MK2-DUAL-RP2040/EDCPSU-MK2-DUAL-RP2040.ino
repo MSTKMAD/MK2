@@ -602,7 +602,7 @@ void setup()
   EEPROM.begin(512);
   display.begin(SSD1306_SWITCHCAPVCC);
   // si.i2c_init();
-
+  analogReadResolution(12);
   // ------ VAR INITIALIZATION ------
 
   RunMode = RUNMODE_NORMAL;
@@ -645,15 +645,17 @@ void setup()
   delay(2000);
 
   int32_t vbus = 0;
+  int32_t vbus_raw = 0;
   for (int i = 0; i < 8; i++)
   {
-    vbus += analogRead(VBUS_SENSE);
+    vbus_raw += analogRead(VBUS_SENSE);
   }
-  vbus = vbus >> 3;
+  vbus_raw = vbus_raw >> 3;
+  vbus = (vbus_raw * 2500 / 4095) * 300 / 30;
+  Serial.printf("%d - %d \n", vbus_raw, vbus);
+  delay(1000);
 
-  vbus = (vbus * 5000 / 1023) * 5;
-
-  /*if (vbus < 17500)
+  if (vbus < 17500)
   {
     display.clearDisplay();
     display.setTextSize(2);
@@ -668,7 +670,7 @@ void setup()
 
     while (1)
       ;
-  }*/
+  }
 
   //  StartupFrontLEDs();
   //  digitalWrite(LED_FRONT, HIGH);
@@ -1533,9 +1535,9 @@ void loop()
   if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
   {
     Time = millis();
-    IoutSense = Read_Analog(ISEN);
-    VoutSense = Read_Analog(VOSEN);
-    // Serial.println(VoutSense);
+    IoutSense = Read_Analog(ISEN) / 4;
+    VoutSense = Read_Analog(VOSEN) / 4;
+    Serial.println(VoutSense);
   }
 
   //------UNDERVOLTAGE LIMIT----------
@@ -1548,8 +1550,8 @@ void loop()
       boolean OVCerror = true;
       while ((OVCerror == true) && ((Time - OVCsenseTime) < OVC_UVOLT_MAX_TIME))
       {
-        // Serial.print('.');
-        VoutSense = Read_Analog(VOSEN);
+        Serial.print('.');
+        VoutSense = Read_Analog(VOSEN) / 4;
         if ((VoutTarget - VoutSense) < UNDERVOLT_1V5)
         {
           OVCerror = false;
@@ -1558,7 +1560,7 @@ void loop()
       }
       if (OVCerror == true)
       {
-        // Serial.println("UNDERVOLTAGE");
+        Serial.println("UNDERVOLTAGE");
         OVCerrorsConsecutive++;
         Mitigate_OVChazard(&OVCerrorsConsecutive);
         PedalNow = PEDAL_OFF; // After mitigate_ovcHazard the pedal is OFF. It is updated to prevent the following
@@ -1585,7 +1587,7 @@ void loop()
       while ((OVCerror == true) && ((Time - OVCsenseTime) < OVC_SENSE_MAX_TIME))
       {
         // Serial.print('-');
-        IoutSense = Read_Analog(ISEN);
+        IoutSense = Read_Analog(ISEN) >> 2;
         if (IoutSense < OVC_SENSE_LIMIT_INF)
         {
           OVCerror = false;
