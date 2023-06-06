@@ -170,13 +170,13 @@ const int ISEN = A1;
 const int VOSEN = A2;
 const int PUSHBUTTON_IP = 3; // HIGH = OFF; LOW = ON
 const int ROTPUSH_IP = 6;    // HIGH = OFF; LOW = ON
-const int ROTA = 20;
+const int ROTA = 24;
 const int OVC_ALARM = 9; // New in r8.0 (before pin 2)
 const int ROTB = 12;
 const int BUZZ = 21;
 const int PEDAL_IP = 8;     // New in r8.0 (before pin 5)
 const int VBUS_SENSE = A0;  // New in r8.0 (before LED)
-const int CHANNEL_SEL = 22; // Previous HW version this pin was CHG_POL
+const int CHANNEL_SEL = 25; // Previous HW version this pin was CHG_POL
 // const int ENA_OUT = 1;       // TXo-- caution! this digital line overlaps with TXo, so Serial has to be disabled
 
 //-------------------------- PROGMEM DEFINITION -----------------------------------------------------------------
