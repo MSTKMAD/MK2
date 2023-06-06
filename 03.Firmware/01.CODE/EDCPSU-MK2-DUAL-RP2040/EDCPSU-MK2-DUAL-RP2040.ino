@@ -599,6 +599,7 @@ void setup()
 
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   Wire.begin();
+  EEPROM.begin(512);
   display.begin(SSD1306_SWITCHCAPVCC);
   // si.i2c_init();
 
@@ -835,8 +836,12 @@ void setup()
 
   //------------ EEPROM RECORDED?? --------
   EEPROMaux = EEPROM[EEPROM_RECORD_STAT];
+  Serial.println(EEPROMaux);
   if (EEPROMaux != EEPROM_RECORDED_DONE)
   {
+
+    Serial.println("HI, NON RECORDED");
+
     EEPROM[(MACHINE1_OFFSET + MACHINE_EEPROM_POS0)] = 10; // RECORDS the 1st position of Machine1 memory with default value
     EEPROM[(MACHINE1_OFFSET + MACHINE_EEPROM_POS1)] = 20; // RECORDS the 2nd position of Machine1 memory with default value
     EEPROM[(MACHINE1_OFFSET + MACHINE_EEPROM_POS2)] = 40; // RECORDS the 3rd position of Machine1 memory with default value
@@ -856,8 +861,9 @@ void setup()
     EEPROM[EEPROM_NITRO_STATUS_CH_2] = NITRO_CFG_NO;   // NITRO configuration
     EEPROM[EEPROM_POLARITY_STATUS] = POL_NORMAL;       // Polarity set to normal by default (relay in resting mode)
     EEPROM[EEPROM_RECORD_STAT] = EEPROM_RECORDED_DONE; // Now signature is set to indicate that EEPROM is recorded
+    EEPROM.commit();
   }
-
+  Serial.println("HI, DUMPED");
   //------- DUMP EEPROM VALUES INTO RAM ARRAY -------
 
   MachinesMemory[0] = EEPROM[(MACHINE1_OFFSET + MACHINE_EEPROM_POS0)];
@@ -980,6 +986,7 @@ void loop()
       MachinesMemory[(MachineOffset + MachineMemPos)] = encoderPos;
       EEPROMaux = MachineMemPos + MACHINE1_OFFSET;
       EEPROM[EEPROMaux] = (byte)encoderPos;
+      EEPROM.commit();
       RotaryChangedFlag = FLAG_OFF;
       DisplayMessage(RunMode, WRITE_MESSG, "REC", INFO_MESSG, DisplayValue);
       delay(300);
@@ -1217,6 +1224,7 @@ void loop()
         updateMenuDisplayFLAG = FLAG_OFF; // Disable the Menu display view
         EEPROM[EEPROM_NITRO_STATUS_CH_1] = NitroStartGradeCh1;
         EEPROM[EEPROM_NITRO_STATUS_CH_2] = NitroStartGradeCh2;
+        EEPROM.commit();
       }
 
       else if (RunMode == RUNMODE_MENU_TIMER)
@@ -1233,6 +1241,7 @@ void loop()
         updateMenuDisplayFLAG = FLAG_OFF; // Disable the Menu display view
         EEPROM[EEPROM_NITRO_STATUS_CH_1] = NitroStartGradeCh1;
         EEPROM[EEPROM_NITRO_STATUS_CH_2] = NitroStartGradeCh2;
+        EEPROM.commit();
       }
 
       else if (RunMode == RUNMODE_CHANGE_POL)
