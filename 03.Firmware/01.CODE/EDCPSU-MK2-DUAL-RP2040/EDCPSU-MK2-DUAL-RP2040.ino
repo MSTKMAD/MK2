@@ -660,7 +660,7 @@ void setup()
     vbus_raw += analogRead(VBUS_SENSE);
   }
   vbus_raw = vbus_raw >> 3;
-  vbus = (vbus_raw * 2500 / 4095) * 300 / 30;
+  vbus = (vbus_raw * 3000 / 4095) * 446 / 56;
   Serial.printf("%d - %d \n", vbus_raw, vbus);
   delay(1000);
 
