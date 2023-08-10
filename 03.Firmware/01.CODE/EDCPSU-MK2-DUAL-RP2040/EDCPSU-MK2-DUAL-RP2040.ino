@@ -178,13 +178,15 @@ const int VOSEN = A2;
 const int PUSHBUTTON_IP = 3; // HIGH = OFF; LOW = ON
 const int ROTPUSH_IP = 6;    // HIGH = OFF; LOW = ON
 const int ROTA = 24;
+// const int ROTA = 20; // Pico
 const int OVC_ALARM = 9; // New in r8.0 (before pin 2)
 const int ROTB = 12;
 const int BUZZ = 21;
 const int PEDAL_IP = 8;     // New in r8.0 (before pin 5)
 const int VBUS_SENSE = A0;  // New in r8.0 (before LED)
 const int CHANNEL_SEL = 25; // Previous HW version this pin was CHG_POL
-// const int ENA_OUT = 1;       // TXo-- caution! this digital line overlaps with TXo, so Serial has to be disabled
+// const int CHANNEL_SEL = 22; // Pico
+//  const int ENA_OUT = 1;       // TXo-- caution! this digital line overlaps with TXo, so Serial has to be disabled
 
 //-------------------------- PROGMEM DEFINITION -----------------------------------------------------------------
 
@@ -957,14 +959,14 @@ void loop()
 
   //----- DCDC ADJUSTMENT TO ENCODER POSITION -----
   // This section of code does not execute while on MENU CONFIGURATION mode
-
   if (updateDisplayVoltsFLAG == FLAG_ON)
   {
     updateDisplayVoltsFLAG = FLAG_OFF;
 
     TPICvalue = pgm_read_byte_near(TPICLookupTable + encoderPos);
+
     Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
-    Serial.println(TPICvalue);
+    // Serial.println(TPICvalue);
 
     DisplayValue = pgm_read_byte_near(DisplayValues + encoderPos);
     VoutTarget = int(DisplayValue * DISP_TO_VTARGET_CONV);
@@ -1134,14 +1136,12 @@ void loop()
 
       if (continuousMode == true) // Continuous Mode with toggle function in order to completely avoid the pedal if needed
       {
-        //        digitalWrite(ENA_OUT, LOW);
         continuousMode = false;
         OutLatchState = false;
         ShowLongpressInfo = LONGPRESS_INFO_NO_CONT;
       }
       else
       {
-        //        digitalWrite(ENA_OUT, HIGH);
         continuousMode = true;
         OutLatchState = true; // output is latched by default to ON state
         ShowLongpressInfo = LONGPRESS_INFO_CONT;
@@ -2274,9 +2274,6 @@ void Mitigate_OVChazard(byte *OVCerrorsConsecutive)
 
   // DISPLAY ERROR MESSAGE "OVERCURRENT!!) "STOP YOUR PEDAL NOW"
   // DisplayMessage(RunMode, WRITE_MESSG, "STOP PEDAL!",   INFO_MESSG, DisplayValue);
-  display.clearDisplay(); // clears the screen and buffer
-  display.drawBitmap(0, 0, OverCurrentLogo, 124, 63, WHITE);
-  display.display();
 
   BuzzerClick(HIGH_PITCH, 100);
   delay(50);
@@ -2294,7 +2291,6 @@ void Mitigate_OVChazard(byte *OVCerrorsConsecutive)
       *OVCerrorsConsecutive = 0;
       OutLatchState = false;  // Just in case continuousMode is ON, the output latch is stopped.
       continuousMode = false; // And the continuous mode is stopped
-                              //      digitalWrite(ENA_OUT, LOW);
     }
   }
 
