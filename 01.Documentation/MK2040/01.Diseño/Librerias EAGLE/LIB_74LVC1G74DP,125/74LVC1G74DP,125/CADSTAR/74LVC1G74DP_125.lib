@@ -1,0 +1,18 @@
+.74LVC1G74DP_125 :1 ;74LVC1G74 - Single D-type flip-flop with set and reset; positive edge trigger@en-us
+SOP65P400X110-8N
+*STM IC
+*NGS
+*PLB 1="CP" 2="D" 3="'Q'" 4="GND" 5="Q" 6="'RD'" 7="'SD'" 8="VCC"
+*MXP 8
+*DFN 74LVC1G74DP_125
+~!Manufacturer_Name (Nexperia)
+~!Manufacturer_Part_Number (74LVC1G74DP,125)
+~!Mouser Part Number (771-LVC1GDP125)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Nexperia/74LVC1G74DP125?qs=me8TqzrmIYWtKZiCsFqsMg%3D%3D)
+~!Arrow Part Number (74LVC1G74DP,125)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/74lvc1g74dp125/nexperia?region=europe)
+~!Link Datasheet (https://assets.nexperia.com/documents/data-sheet/74LVC1G74.pdf)
+~!Height (1.1mm)
+~!3D_Model (74LVC1G74DP,125)
+"74LVC1G74DP_125"
+1.1!U 2.1!U 3.1!U 4.1!U 8.1!U 7.1!U 6.1!U 5.1!U 

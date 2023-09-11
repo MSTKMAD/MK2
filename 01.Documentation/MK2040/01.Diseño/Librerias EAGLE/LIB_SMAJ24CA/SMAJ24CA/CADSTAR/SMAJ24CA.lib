@@ -1,0 +1,18 @@
+.SMAJ24CA :1 ;ESD Suppressors / TVS Diodes 24volts 5uA 10.3 Amps Bi-Dir
+DIONM5127X229N
+*STM D
+*NGS
+*PLB 1="1" 2="2"
+*MXP 2
+*DFN SMAJ24CA
+~!Manufacturer_Name (Bourns)
+~!Manufacturer_Part_Number (SMAJ24CA)
+~!Mouser Part Number (652-SMAJ24CA)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Bourns/SMAJ24CA?qs=A3H9pljuJ8RsSQb8zLkILA%3D%3D)
+~!Arrow Part Number (SMAJ24CA)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/smaj24ca/bourns?region=nac)
+~!Link Datasheet (https://www.bourns.com/docs/Product-Datasheets/SMAJ.pdf)
+~!Height (2.29mm)
+~!3D_Model (SMAJ24CA)
+SMAJ24CA
+1.1!U 2.1!U 
