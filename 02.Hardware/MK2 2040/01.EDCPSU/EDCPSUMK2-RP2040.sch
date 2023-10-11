@@ -7436,7 +7436,7 @@ v2-May-2023</text>
 <text x="-480.06" y="340.36" size="1.778" layer="95">FIDUCIALS</text>
 <text x="469.9" y="177.8" size="1.778" layer="91">OJO!!
 Es el de G=25 (TEUK version)</text>
-<text x="469.9" y="172.72" size="1.778" layer="91">ISENSE = Iout * 0.05 * 25 = Iout * 1.25</text>
+<text x="469.9" y="172.72" size="1.778" layer="91">ISENSE = Iout * 0.025 * 25 = Iout *0.625</text>
 <text x="-447.04" y="284.48" size="6.4516" layer="94">FLEX Connectors</text>
 <text x="-431.8" y="-60.96" size="1.778" layer="91">3V @ Vi=25V</text>
 <text x="-477.52" y="-60.96" size="1.778" layer="91">LOW PASS FILTER
