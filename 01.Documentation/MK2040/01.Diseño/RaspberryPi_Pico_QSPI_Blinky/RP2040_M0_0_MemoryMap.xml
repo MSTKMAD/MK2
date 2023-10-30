@@ -1,6 +1,0 @@
-<!DOCTYPE Board_Memory_Definition_File>
-<root name="RP2040_M0_0">
-  <MemorySegment name="CACHE_RAM1" start="0x15000000" size="0x00004000" access="Read/Write" />
-  <MemorySegment name="RAM1" start="0x20000000" size="0x00040000" access="Read/Write" />
-  <MemorySegment name="USB_RAM1" start="0x50100000" size="0x00001000" access="Read/Write" />
-</root>

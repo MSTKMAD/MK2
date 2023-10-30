@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'MMBD1503A'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "onsemi", "MMBD1503A" (!) = "", "SOT95P240X120-3N", "SOT23 (3-Pin)", "512-MMBD1503A", "https://www.mouser.co.uk/ProductDetail/ON-Semiconductor-Fairchild/MMBD1503A?qs=7oZ3HZRjbRmGCcKCTuDPOA%3D%3D", "MMBD1503A", "https://www.arrow.com/en/products/mmbd1503a/on-semiconductor", "High Conductance Low Leakage Diode", "http://www.onsemi.com/pub/Collateral/MMBD1501-D.pdf", "1.2 mm"
+END_PART
+
+END.

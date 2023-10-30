@@ -1,0 +1,18 @@
+.PESD5V0U2BT_215 :1 ;PESD5V0U2BT - Ultra low capacitance bidirectional double ESD protection diode
+SOT95P230X110-3N
+*STM D
+*NGS
+*PLB 1="CATHODE 1" 2="CATHODE 2" 3="COMMON CATHODE"
+*MXP 3
+*DFN PESD5V0U2BT_215
+~!Manufacturer_Name (Nexperia)
+~!Manufacturer_Part_Number (PESD5V0U2BT,215)
+~!Mouser Part Number (771-PESD5V0U2BTT/R)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Nexperia/PESD5V0U2BT215?qs=LOCUfHb8d9uKnndgcTorSw%3D%3D)
+~!Arrow Part Number (PESD5V0U2BT,215)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/pesd5v0u2bt215/nexperia?region=nac)
+~!Link Datasheet (https://assets.nexperia.com/documents/data-sheet/PESD5V0U2BT.pdf)
+~!Height (1.1mm)
+~!3D_Model (PESD5V0U2BT,215)
+PESD5V0U2BT_215
+1.1!U 2.1!U 3.1!U 

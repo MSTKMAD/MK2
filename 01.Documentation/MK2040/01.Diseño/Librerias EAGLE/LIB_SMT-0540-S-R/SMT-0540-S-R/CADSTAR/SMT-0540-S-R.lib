@@ -1,0 +1,18 @@
+.SMT-0540-S-R :1 ;Speakers & Transducers SMD TRANSDUCER 3VP-P 100MA
+SMT0540SR
+*STM LS
+*NGS
+*PLB 1="+" 2="-" 3="DUMMY"
+*MXP 3
+*DFN SMT-0540-S-R
+~!Manufacturer_Name (PUI Audio)
+~!Manufacturer_Part_Number (SMT-0540-S-R)
+~!Mouser Part Number (665-SMT0540SR)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/PUI-Audio/SMT-0540-S-R?qs=e16JbV5WBEu5VaDVzQP23Q%3D%3D)
+~!Arrow Part Number (-)
+~!Arrow Price/Stock (-)
+~!Link Datasheet (http://www.puiaudio.com/pdf/SMT-0540-S-R.pdf)
+~!Height (2mm)
+~!3D_Model (SMT-0540-S-R)
+SMT-0540-S-R
+1.1!U 2.1!U 3.1!U 

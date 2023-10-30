@@ -1,0 +1,116 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "SMAJ24CA"
+   (description "ESD Suppressors / TVS Diodes 24volts 5uA 10.3 Amps Bi-Dir")
+   (family "DIO")
+   (package "DIONM5127X229N")
+   (attribute "Datasheet Link" "https://www.bourns.com/docs/Product-Datasheets/SMAJ.pdf")
+   (attribute "Geometry.Height" "2.29mm")
+   (attribute "Manufacturer_Name" "Bourns")
+   (attribute "Manufacturer_Part_Number" "SMAJ24CA")
+   (attribute "Mouser Part Number" "652-SMAJ24CA")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/SMAJ24CA?qs=A3H9pljuJ8RsSQb8zLkILA%3D%3D")
+   (attribute "Arrow Part Number" "SMAJ24CA")
+   (attribute "Arrow Price/Stock" "https://www.arrow.com/en/products/smaj24ca/bourns?region=nac")
+   (gate
+    (symbol "SMAJ24CA")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+   )
+  )
+  (symbol "SMAJ24CA"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 400 0) (pt 200 -100) (pt 200 100) (pt 400 0) (closed))
+   )
+   (graphic
+    (stroke 10)
+    (path (pt 400 0) (pt 600 -100) (pt 600 100) (pt 400 0) (closed))
+   )
+   (graphic
+    (stroke 10)
+    (path (pt 400 -80) (pt 400 80))
+   )
+   (graphic
+    (stroke 10)
+    (path (pt 360 100) (pt 400 80))
+   )
+   (graphic
+    (stroke 10)
+    (path (pt 400 -80) (pt 440 -100))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 0 -20) (rot 0) (just TOP LEFT) (visible false))
+    (number (pt 0 20) (rot 0) (just BOTTOM LEFT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 800 0) (rot 0) (mir X) (visible true))
+    (name (pt 0 -20) (rot 0) (just TOP LEFT) (visible false))
+    (number (pt 0 20) (rot 0) (just BOTTOM LEFT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "DIONM5127X229N"
+   (units MM)
+   (layer OCCA
+    (graphic
+     (stroke 0.05)
+     (path
+      (closed true)
+      (pt -3.4 1.645)
+      (pt 3.4 1.645)
+      (pt 3.4 -1.645)
+      (pt -3.4 -1.645)
+      (pt -3.4 1.645))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -2.552 1.332)
+      (pt 2.552 1.332)
+      (pt 2.552 -1.332)
+      (pt -2.552 -1.332)
+      (pt -2.552 1.332))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt 2.552 1.332)
+      (pt -2.552 1.332))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -2.552 -1.332)
+      (pt 2.552 -1.332))))
+   (leg 1 (pt -2.05 0) (padstack 0))
+   (leg 2 (pt 2.05 0) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 1.55 2.2 0 0 0))
+   )
+   (model "SMAJ24CA.stp"
+    (euler 90 0 0)
+    (offset 0 0 1.309999942779541)
+   )
+  )
+ )
+)

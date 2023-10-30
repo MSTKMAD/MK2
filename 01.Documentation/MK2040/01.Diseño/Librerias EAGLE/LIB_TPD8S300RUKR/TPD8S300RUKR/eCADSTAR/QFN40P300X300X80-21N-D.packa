@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "TPD8S300RUKR"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2018-06-06-11:10:45)
+    (mountForm default
+        (footprintRef "QFN40P300X300X80-21N-D")
+        (spec "System")
+    )
+)

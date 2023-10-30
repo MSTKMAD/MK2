@@ -1,0 +1,18 @@
+.MMBD1503A :1 ;High Conductance Low Leakage Diode
+SOT95P240X120-3N
+*STM D
+*NGS
+*PLB 1="ANODE" 2="CATHODE" 3="ANODE / CATHODE"
+*MXP 3
+*DFN MMBD1503A
+~!Manufacturer_Name (onsemi)
+~!Manufacturer_Part_Number (MMBD1503A)
+~!Mouser Part Number (512-MMBD1503A)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/ON-Semiconductor-Fairchild/MMBD1503A?qs=7oZ3HZRjbRmGCcKCTuDPOA%3D%3D)
+~!Arrow Part Number (MMBD1503A)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/mmbd1503a/on-semiconductor)
+~!Link Datasheet (http://www.onsemi.com/pub/Collateral/MMBD1501-D.pdf)
+~!Height (1.2mm)
+~!3D_Model (MMBD1503A)
+MMBD1503A
+1.1!U 2.1!U 3.1!U 

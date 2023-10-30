@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPD8S300RUKR
+D USB Type-C Port Protector: Short-to-VBUS Overvoltage and IEC ESD Protection 
+K
+F http://www.ti.com/lit/gpn/tpd8s300
+$ENDCMP
+#
+#End Doc Library

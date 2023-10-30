@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MMBD1503A
+D High Conductance Low Leakage Diode
+K
+F http://www.onsemi.com/pub/Collateral/MMBD1501-D.pdf
+$ENDCMP
+#
+#End Doc Library

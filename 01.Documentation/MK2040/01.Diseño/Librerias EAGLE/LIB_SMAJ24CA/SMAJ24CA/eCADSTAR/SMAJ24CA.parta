@@ -1,0 +1,68 @@
+(Japanese_coding: sjis)
+(function "ECS_661403"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-11-16-09:28:40)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "SMAJ24CA")
+)
+
+
+(pinAssign "ECS_661403"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-11-16-09:28:40)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_661403")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "SMAJ24CA")
+)
+
+
+(part "SMAJ24CA"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-11-16-09:28:40)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "SMAJ24CA")
+    (pinAssignRef "ECS_661403")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "D")
+    (property "description" "ESD Suppressors / TVS Diodes 24volts 5uA 10.3 Amps Bi-Dir")
+    (property "Manufacturer_Name" "Bourns")
+    (property "Manufacturer_Part_Number" "SMAJ24CA")
+    (property "Mouser_Part_Number" "652-SMAJ24CA")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/SMAJ24CA?qs=A3H9pljuJ8RsSQb8zLkILA%3D%3D")
+    (property "Arrow_Part_Number" "SMAJ24CA")
+    (property "Arrow_Price/Stock" "https://www.arrow.com/en/products/smaj24ca/bourns?region=nac")
+    (property "Datasheet_Link" "https://www.bourns.com/docs/Product-Datasheets/SMAJ.pdf")
+    (property "compAreaTopHeight" 2.29)
+)
+
+
