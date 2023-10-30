@@ -883,13 +883,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 <text x="0" y="-0.254" size="1.778" layer="96" align="top-center">&gt;VALUE</text>
 </symbol>
-<symbol name="VCC" urn="urn:adsk.eagle:symbol:39418/1" library_version="1">
-<description>&lt;h3&gt;VCC Voltage Supply&lt;/h3&gt;</description>
-<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
-<pin name="VCC" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
-<text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" urn="urn:adsk.eagle:component:39439/1" prefix="GND" library_version="1">
@@ -897,20 +890,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 &lt;p&gt;Generic signal ground supply symbol.&lt;/p&gt;</description>
 <gates>
 <gate name="1" symbol="DGND" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="VCC" urn="urn:adsk.eagle:component:39449/1" prefix="SUPPLY" library_version="1">
-<description>&lt;h3&gt;VCC Voltage Supply&lt;/h3&gt;
-&lt;p&gt;Positive voltage supply (traditionally for a BJT device, C=collector).&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="VCC" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -4518,7 +4497,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="R22" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="33"/>
 <part name="R24" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="33"/>
 <part name="R29" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="33"/>
-<part name="SUPPLY21" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VCC" device=""/>
 <part name="S1" library="SparkFun-Switches" library_urn="urn:adsk.eagle:library:535" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2MM" package3d_urn="urn:adsk.eagle:package:40167/1"/>
 <part name="R25" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="RESISTOR" device="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="2k2"/>
 <part name="GND27" library="SparkFun" deviceset="GND" device=""/>
@@ -4541,6 +4519,7 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="U$4" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3"/>
 <part name="U$5" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3"/>
 <part name="U$6" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3"/>
+<part name="U$7" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3"/>
 </parts>
 <sheets>
 <sheet>
@@ -4831,9 +4810,6 @@ CONNECTORS</text>
 <attribute name="NAME" x="-119.38" y="48.4886" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-119.38" y="43.688" size="1.778" layer="96"/>
 </instance>
-<instance part="SUPPLY21" gate="G$1" x="-115.57" y="36.83" smashed="yes">
-<attribute name="VALUE" x="-115.57" y="39.624" size="1.778" layer="96" align="bottom-center"/>
-</instance>
 <instance part="S1" gate="G$1" x="-261.62" y="71.12" smashed="yes" rot="R90">
 <attribute name="NAME" x="-263.144" y="71.12" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 </instance>
@@ -4908,6 +4884,9 @@ CONNECTORS</text>
 </instance>
 <instance part="U$6" gate="G$1" x="-101.6" y="81.28" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="-100.584" y="84.836" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="U$7" gate="G$1" x="-116.84" y="38.1" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-115.824" y="41.656" size="1.778" layer="96" rot="MR0"/>
 </instance>
 </instances>
 <busses>
@@ -5129,6 +5108,11 @@ CONNECTORS</text>
 <label x="-264.16" y="149.86" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="7"/>
 </segment>
+<segment>
+<pinref part="X1" gate="G$1" pin="GP10"/>
+<wire x1="-147.32" y1="139.7" x2="-154.94" y2="139.7" width="0.1524" layer="91"/>
+<label x="-154.94" y="139.7" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="EN_TPS54531" class="0">
 <segment>
@@ -5197,6 +5181,11 @@ CONNECTORS</text>
 <pinref part="J1" gate="G$1" pin="19"/>
 <wire x1="-243.84" y1="134.62" x2="-264.16" y2="134.62" width="0.1524" layer="91"/>
 <label x="-261.62" y="134.62" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="NO3"/>
+<wire x1="-147.32" y1="208.28" x2="-165.1" y2="208.28" width="0.1524" layer="91"/>
+<label x="-165.1" y="208.28" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="VOUT" class="0">
@@ -5391,19 +5380,19 @@ CONNECTORS</text>
 <pinref part="DISPLAY" gate="A" pin="VCC"/>
 <wire x1="-92.71" y1="72.39" x2="-101.6" y2="72.39" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U$7" gate="G$1" pin="VCC-ISO"/>
+<wire x1="-116.84" y1="38.1" x2="-116.84" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="-116.84" y1="33.02" x2="-102.87" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="R66" gate="G$1" pin="1"/>
+<wire x1="-102.87" y1="33.02" x2="-102.87" y2="34.29" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$35" class="0">
 <segment>
 <pinref part="X1" gate="G$1" pin="GP9"/>
 <wire x1="-147.32" y1="144.78" x2="-154.94" y2="144.78" width="0.1524" layer="91"/>
 <label x="-154.94" y="144.78" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$37" class="0">
-<segment>
-<pinref part="X1" gate="G$1" pin="GP10"/>
-<wire x1="-147.32" y1="139.7" x2="-154.94" y2="139.7" width="0.1524" layer="91"/>
-<label x="-154.94" y="139.7" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$38" class="0">
@@ -5694,12 +5683,6 @@ CONNECTORS</text>
 <label x="-154.94" y="132.08" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$53" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="NO3"/>
-<wire x1="-147.32" y1="208.28" x2="-165.1" y2="208.28" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="MUXSEL1" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="A1"/>
@@ -5716,14 +5699,6 @@ CONNECTORS</text>
 <segment>
 <pinref part="IC1" gate="G$1" pin="NO4"/>
 <wire x1="-121.92" y1="208.28" x2="-104.14" y2="208.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="VCC" class="0">
-<segment>
-<wire x1="-102.87" y1="34.29" x2="-115.57" y2="34.29" width="0.1524" layer="91"/>
-<wire x1="-115.57" y1="34.29" x2="-115.57" y2="36.83" width="0.1524" layer="91"/>
-<pinref part="R66" gate="G$1" pin="1"/>
-<pinref part="SUPPLY21" gate="G$1" pin="VCC"/>
 </segment>
 </net>
 <net name="SS" class="0">
@@ -5926,7 +5901,33 @@ CONNECTORS</text>
 </sheet>
 </sheets>
 <errors>
+<approved hash="102,1,129.54,248.92,VCC-ISO,3V3,,,,"/>
+<approved hash="102,1,10.16,124.46,VCC-ISO,3V3,,,,"/>
+<approved hash="102,1,-170.18,81.28,VCC-ISO,3V3,,,,"/>
+<approved hash="102,1,-213.36,81.28,VCC-ISO,3V3,,,,"/>
+<approved hash="102,1,-261.62,81.28,VCC-ISO,3V3,,,,"/>
+<approved hash="102,1,-101.6,81.28,VCC-ISO,3V3,,,,"/>
+<approved hash="102,1,-116.84,38.1,VCC-ISO,3V3,,,,"/>
 <approved hash="106,1,-243.84,147.32,GND_IN,,,,,"/>
+<approved hash="106,1,-220.98,134.62,N$20,,,,,"/>
+<approved hash="106,1,-147.32,144.78,N$35,,,,,"/>
+<approved hash="106,1,-147.32,137.16,N$38,,,,,"/>
+<approved hash="106,1,-147.32,134.62,N$39,,,,,"/>
+<approved hash="106,1,-243.84,137.16,N$41,,,,,"/>
+<approved hash="106,1,-129.54,116.84,N$45,,,,,"/>
+<approved hash="106,1,-127,116.84,N$46,,,,,"/>
+<approved hash="106,1,-124.46,116.84,N$47,,,,,"/>
+<approved hash="106,1,-121.92,208.28,N$58,,,,,"/>
+<approved hash="106,1,-243.84,142.24,RUN,,,,,"/>
+<approved hash="113,1,-127,146.355,X1,,,,,"/>
+<approved hash="113,1,23.5373,64.6379,J3,,,,,"/>
+<approved hash="113,1,47.5827,67.4421,J4,,,,,"/>
+<approved hash="113,1,-212.683,255.138,J5,,,,,"/>
+<approved hash="113,1,129.862,224.79,LED1,,,,,"/>
+<approved hash="113,1,8.29733,247.518,J6,,,,,"/>
+<approved hash="113,1,32.3427,250.322,J7,,,,,"/>
+<approved hash="113,1,8.29733,201.798,J8,,,,,"/>
+<approved hash="113,1,32.3427,204.602,J9,,,,,"/>
 </errors>
 </schematic>
 </drawing>
