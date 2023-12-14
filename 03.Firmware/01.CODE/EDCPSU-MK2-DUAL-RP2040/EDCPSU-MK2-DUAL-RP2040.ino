@@ -569,13 +569,13 @@ int PUSHB_Longpress_1st_Action = true;    // If true then it is 1st action. THis
 int ROTPUSHB_Longpress_1st_Action = true; // If true then it is 1st action. THis avoids continuous entering in the LONGPRESS action
 int NitroForContinuousMode;               // This varible enables the "RISE event" of the continuous mode and therefore facilitates the Nitro
 unsigned long PartialRuntimer = 0;        // Runtimer counter that accounts for the current segment of time being added up to the total counter.
-// Each time that it is around 1 minute accumulated, it is transferred to the TotalRuntimer and the PartialRuntimer is cleared.
-unsigned long TotalRuntimer = 0; // Accounts for the total run time of this session
-byte RuntimerEnable = true;      // Variable used for getting noticed for Runtimer to run.
-int runningHours;                // Used by Runtimer
-int runningMinutes;              // Used by Runtimer
-byte ResetRunTimer = false;      // Indicates if the TotalRuntimer has to be reset
-byte NextRunMode;                // Used on the Top configuration menu to learn about the next selected menu
+                                          // Each time that it is around 1 minute accumulated, it is transferred to the TotalRuntimer and the PartialRuntimer is cleared.
+unsigned long TotalRuntimer = 0;          // Accounts for the total run time of this session
+byte RuntimerEnable = true;               // Variable used for getting noticed for Runtimer to run.
+int runningHours;                         // Used by Runtimer
+int runningMinutes;                       // Used by Runtimer
+byte ResetRunTimer = false;               // Indicates if the TotalRuntimer has to be reset
+byte NextRunMode;                         // Used on the Top configuration menu to learn about the next selected menu
 
 int PolarityStatus;            // Holds the current polarity status. At the start up is initializated with the EEPROM_POLARITY_STATUS value
 int ChangePol = false;         // Managed in the configuration Menu to indicate if a polarity change is needed
@@ -586,8 +586,8 @@ unsigned long Show_Mem_Timer;  // Accounts for the total run time of this sessio
 byte toggleTimer = false;
 unsigned long ShowLongPressTimer;           // Timer to control the longpress information shown on display (Milliseconds)
 byte ShowLongpressInfo = NO_LONGPRESS_INFO; // ATTENTION: Global var! Determines if Longpress info has to be shown. Used on other display
-// functions to enable or not the display info.
-byte OVCerrorsConsecutive = 0; // Number of consecutive OVC errors. After reached a limit, it is requiered that pedal is released by user in order to continue
+                                            // functions to enable or not the display info.
+byte OVCerrorsConsecutive = 0;              // Number of consecutive OVC errors. After reached a limit, it is requiered that pedal is released by user in order to continue
 
 byte RxBuffer;                  // Number of bytes received at Serial
 unsigned long TimedataInBuffer; // Timer for Serial reception in Test Mode
@@ -598,13 +598,14 @@ byte ReportFlags;               // Collection of flags that reports the status i
 
 void setup()
 {
-  //  digitalWrite(LED_FRONT, LOW);
-  //  pinMode(LED_FRONT, OUTPUT);
+  // digitalWrite(LED_FRONT, LOW);
+  // pinMode(LED_FRONT, OUTPUT);
+
   // pinMode(LIFE_CHECK, OUTPUT);
 
-  Serial.begin(9600);
-  Serial.print("Initializing version: ");
-  Serial.println(VERSION);
+  // Serial.begin(9600);
+  // Serial.print("Initializing version: ");
+  // Serial.println(VERSION);
 
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   Wire.begin();
@@ -616,9 +617,9 @@ void setup()
 
   RunMode = RUNMODE_NORMAL;
 
-  //  digitalWrite(LED_FRONT, LOW);
-  //  pinMode(LED_FRONT, OUTPUT);
-  //  pinMode(LIFE_CHECK, OUTPUT);
+  // digitalWrite(LED_FRONT, LOW);
+  // pinMode(LED_FRONT, OUTPUT);
+  // pinMode(LIFE_CHECK, OUTPUT);
   pinMode(VBUS_SENSE, INPUT);
   pinMode(PUSHBUTTON_IP, INPUT);
   pinMode(ROTPUSH_IP, INPUT);
@@ -959,6 +960,7 @@ void loop()
 
   //----- DCDC ADJUSTMENT TO ENCODER POSITION -----
   // This section of code does not execute while on MENU CONFIGURATION mode
+
   if (updateDisplayVoltsFLAG == FLAG_ON)
   {
     updateDisplayVoltsFLAG = FLAG_OFF;
@@ -1087,7 +1089,8 @@ void loop()
     {
       RotaryChangedFlag = FLAG_OFF; // RESET the rotary change action to avoid memory update after the button is pressed
 
-      StandbyGlobalTimer = Time;                               // Reset the standby timer
+      StandbyGlobalTimer = Time; // Reset the standby timer
+
       if ((OutLatchState == false) && (PedalNow == PEDAL_OFF)) // Only change MEMORY SETUP if Output is OFF
       {
         MachineMemPos = (MachineMemPos + 1) % NUM_MEMORY;
@@ -1456,12 +1459,10 @@ void loop()
       if (OutLatchState == true)
       {
         OutLatchState = false;
-        //        digitalWrite(ENA_OUT, LOW);
       }
       else
       {
         OutLatchState = true;
-        //        digitalWrite(ENA_OUT, HIGH);
         NitroForContinuousMode = true; // This is to enable the Nitro action during the continuous mode
       }
     }
@@ -1544,11 +1545,7 @@ void loop()
     Time = millis();
     IoutSense = Read_Analog(ISEN) / 4;
     VoutSense = Read_Analog(VOSEN) / 4;
-    // Serial.println(VoutSense);
-    //  Serial.print(" / ");
-    //  Serial.println(IoutSense);
   }
-
   //------SHORTCIRCUIT LIMIT----------
   if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
   {
@@ -1902,15 +1899,17 @@ void NitroStart(byte NGrade, int encoderPosition)
     {
       TPICvalue = pgm_read_byte_near(NitroLookupTable + n); // Program the DCDC with the value in the nitrolookuptable
       Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+      delay(5);
     }
     TPICvalue = pgm_read_byte_near(TPICLookupTable + encoderPos);
     Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
 
+    */
     //------------ DELETE THE NITRO TEXT ------------------------
-    if (encoderPosition < HIGH_THRESHOLD_NITRO)
-    {
-      DisplayMessage(RunMode, DELETE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
-    }
+    // if (encoderPosition < HIGH_THRESHOLD_NITRO)
+    //{
+    // DisplayMessage(RunMode, DELETE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
+    //}
   }
   else
   {
