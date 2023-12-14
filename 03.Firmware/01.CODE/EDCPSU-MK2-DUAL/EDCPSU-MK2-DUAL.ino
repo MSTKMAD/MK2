@@ -135,14 +135,23 @@ const unsigned long OVC_ALARM_TIMER = 2000;  // Milliseconds
 const unsigned long MEM_DISPLAY_TIME = 2000; // Milliseconds
 const int LenNITROLookupTable = 11;
 
-const int OVC_SENSE_MAX_TIME = 2000;          // Maximum time that can last the overcurrent with SENSE method (in Milliseconds)
-const int OVC_UVOLT_MAX_TIME = 1000;          // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
-const unsigned int OVC_SENSE_LIMIT_INF = 760; // Current limit above which it is still considered an overcurrent sense situation 2.6A
-const unsigned int OVC_SENSE_LIMIT_SUP = 800; // Current limit above which it is Triggered the overcurrent sense situation 2.7A real (in theory this value should trigger at 3.1A but Rsense is contaminated by a trace track to the amplifier)
+const int OVC_SENSE_MAX_TIME = 2000; // Maximum time that can last the overcurrent with SENSE method (in Milliseconds)
+const int OVC_UVOLT_MAX_TIME = 500;  // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
+const int OVC_UVOLT_MIN_TIME = 200;  // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
+const int OVC_UVOLT_DELAY = 5;
+const int OVC_SHTC_DELAY = 5;
+const int OVC_SHTC_MAX_TIME = 50;
+const int OVC_SHTC_MIN_TIME = 15;
+
+const unsigned int OVC_SENSE_LIMIT_INF = 800; // Current limit above which it is still considered an overcurrent sense situation 2.6A
+const unsigned int OVC_SENSE_LIMIT_SUP = 850; // Current limit above which it is Triggered the overcurrent sense situation 2.7A real (in theory this value should trigger at 3.1A but Rsense is contaminated by a trace track to the amplifier)
 const byte MAX_OVC_ERRORS = 5;                // Max number of OVC errors per session in order to request the release of the PEDAL to the user
 const int UNDERVOLT_1V5 = 100;                // Sensed voltage corresponding to 2V for undervoltage sensing
 const int UNDERVOLT_1V8 = 121;                // Sensed voltage corresponding to 1.8V for undervoltage sensing
 
+const int SHORTCIRCUIT_UVLO_INF = 100;  // Sensed voltage corresponding to 1.8V for undervoltage sensing
+const int SHORTCIRCUIT_UVLO_SUPP = 104; // Sensed voltage corresponding to 1.8V for undervoltage sensing
+const float DISP_TO_VTARGET_CONV = 5.2; // Conversion factor to get display values into same scale as VoutSense values (1/19.6)*1023 = 52.2 --> to DISP 52/10=5.2
 const byte DISPLAY_MEM = 1;
 const byte NO_DISPLAY_MEM = 2;
 const byte CLEAR_DISPLAY_MEM = 3;
@@ -1525,42 +1534,51 @@ void loop()
     VoutSense = Read_Analog(VOSEN);
     // Serial.println(VoutSense);
   }
-
-  //------UNDERVOLTAGE LIMIT----------
-  if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
-  {
-    if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
+ 
+    //------UNDERVOLTAGE LIMIT----------
+    if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
     {
-      OVCsenseTime = Time;
-
-      boolean OVCerror = true;
-      while ((OVCerror == true) && ((Time - OVCsenseTime) < OVC_UVOLT_MAX_TIME))
+      if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
       {
-        //Serial.print('.');
-        VoutSense = Read_Analog(VOSEN);
-        if ((VoutTarget - VoutSense) < UNDERVOLT_1V5)
+        OVCsenseTime = Time;
+
+        boolean OVCerror = true;
+        int undervoltage_count = 0;
+        for (int i = 0; i < (OVC_UVOLT_MAX_TIME / OVC_UVOLT_DELAY); i++)
+        {
+          delay(OVC_UVOLT_DELAY);
+          VoutSense = Read_Analog(VOSEN);
+          if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
+          {
+            undervoltage_count++;
+          }
+        }
+        if (undervoltage_count < ((OVC_UVOLT_MIN_TIME / OVC_UVOLT_DELAY) + 1))
         {
           OVCerror = false;
+          Serial.println("------------------------------------------------");
         }
         Time = millis();
-      }
-      if (OVCerror == true)
-      {
-        //Serial.println("UNDERVOLTAGE");
-        OVCerrorsConsecutive++;
-        Mitigate_OVChazard(&OVCerrorsConsecutive);
-        PedalNow = PEDAL_OFF; // After mitigate_ovcHazard the pedal is OFF. It is updated to prevent the following
-        // over current test to trigger double
 
-        continuousMode = false; // To prevent re-entering continuously (same as PEDAL_OFF above)
-        NitroForContinuousMode = false;
-        OutLatchState = false;
-        //        digitalWrite(ENA_OUT, LOW);
+        if (OVCerror == true)
+        {
+          Serial.println("UNDERVOLTAGE");
+          OVCerrorsConsecutive++;
+          display.clearDisplay(); // clears the screen and buffer
+          display.drawBitmap(0, 0, OverCurrentLogo, 124, 63, WHITE);
+          display.display();
+          Mitigate_OVChazard(&OVCerrorsConsecutive);
+          PedalNow = PEDAL_OFF; // After mitigate_ovcHazard the pedal is OFF. It is updated to prevent the following
+          // over current test to trigger double
 
-        updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
+          continuousMode = false; // To prevent re-entering continuously (same as PEDAL_OFF above)
+          NitroForContinuousMode = false;
+          OutLatchState = false;
+
+          updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
+        }
       }
     }
-  }
 
   //-------- OVER CURRENT LIMIT --------
   if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
