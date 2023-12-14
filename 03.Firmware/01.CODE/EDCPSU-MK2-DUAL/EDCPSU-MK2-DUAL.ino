@@ -133,7 +133,7 @@ const int PUSHBUTTON_LONGPRESS = 3;
 const unsigned long LONG_PRESS_TIME = 300;   // Milliseconds
 const unsigned long OVC_ALARM_TIMER = 2000;  // Milliseconds
 const unsigned long MEM_DISPLAY_TIME = 2000; // Milliseconds
-const int LenNITROLookupTable = 20;
+const int LenNITROLookupTable = 11;
 
 const int OVC_SENSE_MAX_TIME = 2000;          // Maximum time that can last the overcurrent with SENSE method (in Milliseconds)
 const int OVC_UVOLT_MAX_TIME = 1000;          // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
@@ -1818,6 +1818,7 @@ void NitroStart(byte NGrade, int encoderPosition)
     {
       TPICvalue = pgm_read_byte_near(NitroLookupTable + n); // Program the DCDC with the value in the nitrolookuptable
       Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+      delay(15);
     }
     TPICvalue = pgm_read_byte_near(TPICLookupTable + encoderPos);
     Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
