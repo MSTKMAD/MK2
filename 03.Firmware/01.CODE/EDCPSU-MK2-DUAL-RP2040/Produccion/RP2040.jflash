@@ -3,7 +3,7 @@
 [GENERAL]
   aATEModuleSel[24] = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
   ConnectMode = 0
-  CurrentFile = "C:\Users\javie\Team Dropbox\JRODRIGUEZ\Repositorios\07.MK2\03.Firmware\01.CODE\EDCPSU-MK2-DUAL-RP2040\build\rp2040.rp2040.generic\EDCPSU-MK2-DUAL-RP2040.ino.bin"
+  CurrentFile = "C:\Users\javie\Team Dropbox\JRODRIGUEZ\Repositorios\11.MK1\03.Firmware\MK1-RP2040\740\EDCPSU-TATTOO\build\rp2040.rp2040.rpipico\EDCPSU-TATTOO.ino.bin"
   DataFileSAddr = 0x10000000
   GUIMode = 0
   HostName = ""
@@ -53,7 +53,7 @@
   AutoPerformsVerify = 1
   EnableFixedVTref = 0
   EnableTargetPower = 0
-  EraseType = 1
+  EraseType = 3
   FixedVTref = 0x00000CE4
   MonitorVTref = 0
   MonitorVTrefMax = 0x0000157C

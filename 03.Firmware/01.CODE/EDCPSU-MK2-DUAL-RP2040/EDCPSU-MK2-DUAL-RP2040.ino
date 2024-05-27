@@ -132,7 +132,7 @@ const int PUSHBUTTON_LONGPRESS = 3;
 const unsigned long LONG_PRESS_TIME = 300;   // Milliseconds
 const unsigned long OVC_ALARM_TIMER = 2000;  // Milliseconds
 const unsigned long MEM_DISPLAY_TIME = 2000; // Milliseconds
-const int LenNITROLookupTable = 20;
+const int LenNITROLookupTable = 11;
 
 const int OVC_SENSE_MAX_TIME = 2000; // Maximum time that can last the overcurrent with SENSE method (in Milliseconds)
 const int OVC_UVOLT_MAX_TIME = 500;  // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
@@ -919,6 +919,30 @@ void setup()
   StandbyGlobalTimer = Time; // Reset the standby timer
 
   // Serial.print("Initialization done");
+
+  // Check Test Version
+
+  int timer_0;
+  timer_0 = millis();
+  while ((!digitalRead(ROTPUSH_IP)) && (!digitalRead(PUSHBUTTON_IP)))
+  {
+    if (millis() - timer_0 >= 5000)
+    {
+      display.clearDisplay(); // clears the screen and buffer
+      display.setTextSize(3);
+      display.setTextColor(WHITE);
+      // display.drawRoundRect(0, 0, 128, 64, 10, WHITE);
+      display.setCursor(0, 8);
+      display.print("Version");
+      display.setCursor(35, 35);
+      display.print(VERSION);
+      display.display();
+    }
+  }
+  if ((!digitalRead(ROTPUSH_IP)) || (!digitalRead(PUSHBUTTON_IP)))
+  {
+    delay(2000);
+  }
 }
 
 void loop()
@@ -954,7 +978,7 @@ void loop()
         display.display();
       }
     } // RuntimerEnable == STOP
-  }   // RunMode == RUNMODE_NORMAL
+  } // RunMode == RUNMODE_NORMAL
 
   Standby_Handler(&StandbyGlobalTimer); // Checks if go to STANDBY
 
@@ -1285,7 +1309,7 @@ void loop()
         // Error
       }
     } //--ShowLongpressInfo == NO_LONGPRESS_INFO
-  }   //-------------RotPushEvent == PUSHBUTTON_ON_EDGE
+  } //-------------RotPushEvent == PUSHBUTTON_ON_EDGE
 
   if (RotPushEvent == PUSHBUTTON_LONGPRESS)
   {
@@ -1593,53 +1617,53 @@ void loop()
       }
     }
   }
-  else
-    //------UNDERVOLTAGE LIMIT----------
-    if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
+  //------UNDERVOLTAGE LIMIT----------
+  if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
+  {
+    if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
     {
-      if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
+      OVCsenseTime = Time;
+
+      boolean OVCerror = true;
+      int undervoltage_count = 0;
+      for (int i = 0; i < (OVC_UVOLT_MAX_TIME / OVC_UVOLT_DELAY); i++)
       {
-        OVCsenseTime = Time;
-
-        boolean OVCerror = true;
-        int undervoltage_count = 0;
-        for (int i = 0; i < (OVC_UVOLT_MAX_TIME / OVC_UVOLT_DELAY); i++)
+        delay(OVC_UVOLT_DELAY);
+        VoutSense = Read_Analog(VOSEN) / 4;
+        Serial.print("+");
+        Serial.println(VoutSense);
+        if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
         {
-          delay(OVC_UVOLT_DELAY);
-          VoutSense = Read_Analog(VOSEN) / 4;
-          Serial.print("+");
-          Serial.println(VoutSense);
-          if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
-          {
-            undervoltage_count++;
-          }
-        }
-        if (undervoltage_count < ((OVC_UVOLT_MIN_TIME / OVC_UVOLT_DELAY) + 1))
-        {
-          OVCerror = false;
-          Serial.println("------------------------------------------------");
-        }
-        Time = millis();
-
-        if (OVCerror == true)
-        {
-          Serial.println("UNDERVOLTAGE");
-          OVCerrorsConsecutive++;
-          display.clearDisplay(); // clears the screen and buffer
-          display.drawBitmap(0, 0, OverCurrentLogo, 124, 63, WHITE);
-          display.display();
-          Mitigate_OVChazard(&OVCerrorsConsecutive);
-          PedalNow = PEDAL_OFF; // After mitigate_ovcHazard the pedal is OFF. It is updated to prevent the following
-          // over current test to trigger double
-
-          continuousMode = false; // To prevent re-entering continuously (same as PEDAL_OFF above)
-          NitroForContinuousMode = false;
-          OutLatchState = false;
-
-          updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
+          undervoltage_count++;
         }
       }
+      if (undervoltage_count < ((OVC_UVOLT_MIN_TIME / OVC_UVOLT_DELAY) + 1))
+      {
+        OVCerror = false;
+        Serial.println("------------------------------------------------");
+      }
+      Time = millis();
+
+      if (OVCerror == true)
+      {
+        Serial.println("UNDERVOLTAGE");
+        OVCerrorsConsecutive++;
+        display.clearDisplay(); // clears the screen and buffer
+        display.drawBitmap(0, 0, OverCurrentLogo, 124, 63, WHITE);
+        display.display();
+        Mitigate_OVChazard(&OVCerrorsConsecutive);
+        PedalNow = PEDAL_OFF; // After mitigate_ovcHazard the pedal is OFF. It is updated to prevent the following
+        // over current test to trigger double
+
+        continuousMode = false; // To prevent re-entering continuously (same as PEDAL_OFF above)
+        NitroForContinuousMode = false;
+        OutLatchState = false;
+
+        updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
+      }
     }
+  }
+
   //-------- OVER CURRENT LIMIT --------
   if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
   {
@@ -1887,6 +1911,47 @@ void NitroStart(byte NGrade, int encoderPosition)
     {
       DisplayMessage(RunMode, WRITE_MESSG, "NITRO", NITRO_MESSG, DisplayValue);
     }
+
+    int encoder_5v = 30;   // Encoder pos for 5v.
+    int encoder_12v = 100; // Encoder pos for 5v.
+
+    // set voltage 5v
+    TPICvalue = pgm_read_byte_near(TPICLookupTable + encoder_5v);
+    Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+    digitalWrite(DCDC_EN, DCDC_ENABLED);
+    delay(50);
+    int tiempo_arrancado = 200; // ms
+    int tiempo_bajada = 60;     // ms
+    int steps_subida = 10;
+    int steps_bajada = 10;
+    int volt_step = 0;
+
+    // Rampa de subida
+    for (int i = 0; i < steps_subida; i++)
+    {
+      volt_step = (120 - 50) * i / steps_subida;
+      TPICvalue = pgm_read_byte_near(TPICLookupTable + encoder_5v + volt_step);
+      Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+      delay(tiempo_arrancado / steps_subida);
+    }
+
+    // Rampa de bajada
+    if (encoderPosition < encoder_12v)
+    {
+      for (int i = steps_bajada; i >= 0; i--)
+      {
+        volt_step = (encoder_12v - encoderPosition) / steps_subida * i;
+        TPICvalue = pgm_read_byte_near(TPICLookupTable + encoder_5v + volt_step);
+        Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+        delay(tiempo_bajada / steps_bajada);
+      }
+    }
+
+    // Voltaje Objetivo
+    TPICvalue = pgm_read_byte_near(TPICLookupTable + encoderPosition);
+    Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+
+    /*
 
     //----(TD)=65ms------
     TPICvalue = 172; // const _4VOLTS =172; // Lowest value of output corresponds to just the start of the TPICLookupTable

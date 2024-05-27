@@ -265,7 +265,7 @@ Created 2014-10-08, Karrer Zheng&lt;br&gt;
 <description>INPUT</description>
 <plain>
 <text x="187.96" y="302.26" size="6.4516" layer="94">FLEX_MK2
-v1-Jun22</text>
+v2-Nov22</text>
 <text x="271.78" y="317.5" size="2.54" layer="94">EDCPSU &lt;--&gt; CONECTOREs</text>
 </plain>
 <instances>
