@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'NRS4018T4R7MDGJ'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "TAIYO YUDEN", "NRS4018T4R7MDGJ" (!) = "", "NRS4018T100MDGJ", "Other", "963-NRS4018T4R7MDGJ", "https://www.mouser.co.uk/ProductDetail/Taiyo-Yuden/NRS4018T4R7MDGJ?qs=PzICbMaShUfBUWy4ytltsA%3D%3D", "NRS4018T4R7MDGJ", "https://www.arrow.com/en/products/nrs4018t4r7mdgj/taiyo-yuden", "Inductor SMD wirewound 4.7uH", "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DGA11/2190982.pdf", "1 mm"
+END_PART
+
+END.

@@ -11,7 +11,7 @@ This version is an evolution of the 730 (M1 dual)
 IDE Version: 1.8.13
 VERSION: see above
 
-CAMBIOS : En esta version se cierra el Issue #1 de Github. 
+CAMBIOS : En esta version se cierra el Issue #1 de Github.
 *********************************************************************/
 
 //----------------------------------------------  INCLUDE SECTION --------------------------------------------
@@ -84,24 +84,25 @@ const int NUM_MEMORY = 2;
 const int SAVE_MEM_TIMER = 2000;       // Milliseconds
 const int EEPROM_RECORDED_DONE = 0xDA; // THis signature indicates if the EEPROM is recorded or if it is brand new and not recorded
 const int EEPROM_POLARITY_STATUS = 0x19;
-;                                          //Initial value for the polarity
+;                                          // Initial value for the polarity
 const int EEPROM_NITRO_STATUS_CH_1 = 0X20; // Position of EEPROM NITRO STATUS  --> INDICATES if NITRO is active or not
 const int EEPROM_NITRO_STATUS_CH_2 = 0X25; // Position of EEPROM NITRO STATUS  --> INDICATES if NITRO is active or not
 const int EEPROM_RECORD_STAT = 0x21;       // Position of EEPROM RECORDED FLAG --> INDICATES if EEPROM is recorded (when value = EEPROM_RECORDED_DONE)
 const int EEPROM_MNF_YEAR = 0xF0;          // Position of EEPROM MANUFACTURED YEAR (Binary)
-const int EEPROM_MNF_MONTH = 0xF1;         // Position of EEPROM MANUFACTURED YEAR (Binary)
-const int EEPROM_SERIAL_NO = 0xF2;         // Position of EEPROM MANUFACTURED YEAR (Binary)
-const byte NITRO_CFG_NO = 1;               // Nitro Signature configured as NOT (menu selection 1)
-const byte NITRO_CFG_YES = 2;              // Nitro Signature configured as YES (menu selection 2)
-const int MACHINE_EEPROM_POS0 = 0;         // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
-const int MACHINE_EEPROM_POS1 = 1;         // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
-const int MACHINE_EEPROM_POS2 = 2;         // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
-const int MACHINE_EEPROM_POS3 = 3;         // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
-const int MACHINE1_OFFSET = 0;             // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_1 WorkingPoint Memories
-const int MACHINE2_OFFSET = 4;             // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_2 WorkingPoint Memories
-const int MACHINE3_OFFSET = 8;             // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_3 WorkingPoint Memories
-const byte NITRO_SETUP_OFF = 0;            // If Nitro setup is taking place
-const byte NITRO_SETUP_ON = 0xAA;          // If No Nitro setup is taking place
+
+const int EEPROM_MNF_MONTH = 0xF1; // Position of EEPROM MANUFACTURED YEAR (Binary)
+const int EEPROM_SERIAL_NO = 0xF2; // Position of EEPROM MANUFACTURED YEAR (Binary)
+const byte NITRO_CFG_NO = 1;       // Nitro Signature configured as NOT (menu selection 1)
+const byte NITRO_CFG_YES = 2;      // Nitro Signature configured as YES (menu selection 2)
+const int MACHINE_EEPROM_POS0 = 0; // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
+const int MACHINE_EEPROM_POS1 = 1; // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
+const int MACHINE_EEPROM_POS2 = 2; // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
+const int MACHINE_EEPROM_POS3 = 3; // Position 1 of EEPROM --> Stores the position 0 of Machine 1 memory
+const int MACHINE1_OFFSET = 0;     // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_1 WorkingPoint Memories
+const int MACHINE2_OFFSET = 4;     // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_2 WorkingPoint Memories
+const int MACHINE3_OFFSET = 8;     // Offset for both MachinesMemory[] array and EEPROM corresponding to MACHINE_3 WorkingPoint Memories
+const byte NITRO_SETUP_OFF = 0;    // If Nitro setup is taking place
+const byte NITRO_SETUP_ON = 0xAA;  // If No Nitro setup is taking place
 const byte BEEP_IS_TRUE = true;
 const byte BEEP_IS_FALSE = false;
 const byte WRITE_MESSG = 1;
@@ -132,16 +133,25 @@ const int PUSHBUTTON_LONGPRESS = 3;
 const unsigned long LONG_PRESS_TIME = 300;   // Milliseconds
 const unsigned long OVC_ALARM_TIMER = 2000;  // Milliseconds
 const unsigned long MEM_DISPLAY_TIME = 2000; // Milliseconds
-const int LenNITROLookupTable = 20;
+const int LenNITROLookupTable = 11;
 
-const int OVC_SENSE_MAX_TIME = 2000;          // Maximum time that can last the overcurrent with SENSE method (in Milliseconds)
-const int OVC_UVOLT_MAX_TIME = 1000;          // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
-const unsigned int OVC_SENSE_LIMIT_INF = 760; // Current limit above which it is still considered an overcurrent sense situation 2.6A
-const unsigned int OVC_SENSE_LIMIT_SUP = 800; // Current limit above which it is Triggered the overcurrent sense situation 2.7A real (in theory this value should trigger at 3.1A but Rsense is contaminated by a trace track to the amplifier)
+const int OVC_SENSE_MAX_TIME = 2000; // Maximum time that can last the overcurrent with SENSE method (in Milliseconds)
+const int OVC_UVOLT_MAX_TIME = 500;  // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
+const int OVC_UVOLT_MIN_TIME = 200;  // Maximum time that can last the overcurrent with the UNDERVOLTAGE method (Milliseconds)
+const int OVC_UVOLT_DELAY = 5;
+const int OVC_SHTC_DELAY = 5;
+const int OVC_SHTC_MAX_TIME = 50;
+const int OVC_SHTC_MIN_TIME = 15;
+
+const unsigned int OVC_SENSE_LIMIT_INF = 800; // Current limit above which it is still considered an overcurrent sense situation 2.6A
+const unsigned int OVC_SENSE_LIMIT_SUP = 850; // Current limit above which it is Triggered the overcurrent sense situation 2.7A real (in theory this value should trigger at 3.1A but Rsense is contaminated by a trace track to the amplifier)
 const byte MAX_OVC_ERRORS = 5;                // Max number of OVC errors per session in order to request the release of the PEDAL to the user
 const int UNDERVOLT_1V5 = 100;                // Sensed voltage corresponding to 2V for undervoltage sensing
 const int UNDERVOLT_1V8 = 121;                // Sensed voltage corresponding to 1.8V for undervoltage sensing
-const float DISP_TO_VTARGET_CONV = 5.2;       // Conversion factor to get display values into same scale as VoutSense values (1/19.6)*1023 = 52.2 --> to DISP 52/10=5.2
+
+const int SHORTCIRCUIT_UVLO_INF = 100;  // Sensed voltage corresponding to 1.8V for undervoltage sensing
+const int SHORTCIRCUIT_UVLO_SUPP = 104; // Sensed voltage corresponding to 1.8V for undervoltage sensing
+const float DISP_TO_VTARGET_CONV = 5.2; // Conversion factor to get display values into same scale as VoutSense values (1/19.6)*1023 = 52.2 --> to DISP 52/10=5.2
 const byte DISPLAY_MEM = 1;
 const byte NO_DISPLAY_MEM = 2;
 const byte CLEAR_DISPLAY_MEM = 3;
@@ -160,7 +170,7 @@ const byte ALARM_FLAG = 0; // Flag to report that OVC_ALARM sensor is activated.
 const byte PEDAL_FLAG = 1; // Flag to report that PEDAL input is activated. This is set in ReportFlags report byte in the Test Mode
 // ------------------------------------------------- PIN DEFINITION r7,r6 -------------------------------------------
 const int DCDC_EN = A1; //
-//const int LED_FRONT = 9; // Arduino 7 (pin 11 in ATMEGA368)
+// const int LED_FRONT = 9; // Arduino 7 (pin 11 in ATMEGA368)
 const int LIFE_CHECK = 9; // SPARE2 Pin used for testing
 
 const int ISEN = A7;
@@ -176,7 +186,7 @@ const int VBUS_SENSE = A0; // New in r8.0 (before LED)
 const int CHANNEL_SEL = 7; // Previous HW version this pin was CHG_POL
 const int CHANNEL_1 = 1;   // Channel 1
 const int CHANNEL_2 = 2;   // Channel 2
-//const int ENA_OUT = 1;       // TXo-- caution! this digital line overlaps with TXo, so Serial has to be disabled
+// const int ENA_OUT = 1;       // TXo-- caution! this digital line overlaps with TXo, so Serial has to be disabled
 
 //-------------------------- PROGMEM DEFINITION -----------------------------------------------------------------
 
@@ -466,7 +476,7 @@ PROGMEM const byte TPICLookupTable[LenDCDCLookupTable] = {
     130, 194, 34, 98, 226, 146, 82, 50, 178, 242, 10, 74, 202, 170, 106, 26, 154, 218, 58, 122, 250, 134, 70, 38, 166, 230, 22, 86, 214,
     182, 118, 14, 142, 206, 46, 110, 238, 158, 94, 62, 190, 254, 129, 65, 193, 161, 97, 17, 145, 209, 49, 113, 241, 137, 73, 41, 169,
     233, 25, 89, 217, 185, 121, 5, 133, 197, 37, 101, 229, 149, 85, 53, 181, 245, 13, 77, 205, 173, 109, 29, 157, 221, 61, 125, 253,
-    131, 67, 35, 163, 227, 19, 147, 83, 211, 51, 179, 115, 243, 139, 75, 203, 43, 171, 107, 235, 155, 91, 219, 123, 251, 7, 135, 199}; //OVERDRIVE version (+0.4v)
+    131, 67, 35, 163, 227, 19, 147, 83, 211, 51, 179, 115, 243, 139, 75, 203, 43, 171, 107, 235, 155, 91, 219, 123, 251, 7, 135, 199}; // OVERDRIVE version (+0.4v)
 
 PROGMEM const byte DisplayValues[LenDCDCLookupTable] = {
     20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
@@ -477,8 +487,8 @@ PROGMEM const byte DisplayValues[LenDCDCLookupTable] = {
     158, 159, 160};
 
 PROGMEM const byte NitroLookupTable[LenNITROLookupTable] = {
-    130, 170, 166, 46, 129, 209, 41, 217, 197, 149, 181}; //These are the I2C values for the TPIC (Thesee are NOT index positions in the tpiclookuptable)
-                                                          // Vpeak NITRO = 12.3V (Below the 12.5 of Cheyenne limit)
+    130, 170, 166, 46, 129, 209, 41, 217, 197, 149, 181}; // These are the I2C values for the TPIC (Thesee are NOT index positions in the tpiclookuptable)
+                                                          //  Vpeak NITRO = 12.3V (Below the 12.5 of Cheyenne limit)
 
 // ------------------------------------------ FUNCTIONS --------------------------------------
 void Write_TPIC2810(byte address, byte data);
@@ -494,8 +504,8 @@ void DisplayTimer(int Hours, int Minutes);
 void DisplayMem(int MachinePosition);
 void RunTimer(unsigned long val, int *hours, int *minutes);
 void Handle_ConfigMenus(byte RunMode, int index, byte *NextRunMode, byte *NitroStartGrade, byte *ResetRunTimer, int *ChangePol, byte *RuntimerEnable);
-//void StartupFrontLEDs();
-// ------------------------------------------ VARIABLES -----------------------------------------
+// void StartupFrontLEDs();
+//  ------------------------------------------ VARIABLES -----------------------------------------
 byte MachinesMemory[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // Holds the 3 working points for each of the 3 Machines (9 values in total)
 int MachineOffset = MACHINE1_OFFSET;                          // Holds the actual value of the offset needed for indexing the MachinesMemory[]
 int i;
@@ -559,13 +569,13 @@ int PUSHB_Longpress_1st_Action = true;    // If true then it is 1st action. THis
 int ROTPUSHB_Longpress_1st_Action = true; // If true then it is 1st action. THis avoids continuous entering in the LONGPRESS action
 int NitroForContinuousMode;               // This varible enables the "RISE event" of the continuous mode and therefore facilitates the Nitro
 unsigned long PartialRuntimer = 0;        // Runtimer counter that accounts for the current segment of time being added up to the total counter.
-// Each time that it is around 1 minute accumulated, it is transferred to the TotalRuntimer and the PartialRuntimer is cleared.
-unsigned long TotalRuntimer = 0; // Accounts for the total run time of this session
-byte RuntimerEnable = true;      // Variable used for getting noticed for Runtimer to run.
-int runningHours;                // Used by Runtimer
-int runningMinutes;              // Used by Runtimer
-byte ResetRunTimer = false;      // Indicates if the TotalRuntimer has to be reset
-byte NextRunMode;                // Used on the Top configuration menu to learn about the next selected menu
+                                          // Each time that it is around 1 minute accumulated, it is transferred to the TotalRuntimer and the PartialRuntimer is cleared.
+unsigned long TotalRuntimer = 0;          // Accounts for the total run time of this session
+byte RuntimerEnable = true;               // Variable used for getting noticed for Runtimer to run.
+int runningHours;                         // Used by Runtimer
+int runningMinutes;                       // Used by Runtimer
+byte ResetRunTimer = false;               // Indicates if the TotalRuntimer has to be reset
+byte NextRunMode;                         // Used on the Top configuration menu to learn about the next selected menu
 
 int PolarityStatus;            // Holds the current polarity status. At the start up is initializated with the EEPROM_POLARITY_STATUS value
 int ChangePol = false;         // Managed in the configuration Menu to indicate if a polarity change is needed
@@ -576,8 +586,8 @@ unsigned long Show_Mem_Timer;  // Accounts for the total run time of this sessio
 byte toggleTimer = false;
 unsigned long ShowLongPressTimer;           // Timer to control the longpress information shown on display (Milliseconds)
 byte ShowLongpressInfo = NO_LONGPRESS_INFO; // ATTENTION: Global var! Determines if Longpress info has to be shown. Used on other display
-// functions to enable or not the display info.
-byte OVCerrorsConsecutive = 0; // Number of consecutive OVC errors. After reached a limit, it is requiered that pedal is released by user in order to continue
+                                            // functions to enable or not the display info.
+byte OVCerrorsConsecutive = 0;              // Number of consecutive OVC errors. After reached a limit, it is requiered that pedal is released by user in order to continue
 
 byte RxBuffer;                  // Number of bytes received at Serial
 unsigned long TimedataInBuffer; // Timer for Serial reception in Test Mode
@@ -592,13 +602,13 @@ void setup()
   //  pinMode(LED_FRONT, OUTPUT);
   pinMode(LIFE_CHECK, OUTPUT);
 
-  //Serial.begin(9600);
-  //Serial.print("Initializing version: ");
-  //Serial.println(VERSION);
+  // Serial.begin(9600);
+  // Serial.print("Initializing version: ");
+  // Serial.println(VERSION);
 
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   display.begin(SSD1306_SWITCHCAPVCC);
-  //Wire.begin();
+  // Wire.begin();
   i2c_init();
 
   // ------ VAR INITIALIZATION ------
@@ -636,7 +646,7 @@ void setup()
   //  digitalWrite(ROTB,    HIGH);  // Pullup
 
   display.clearDisplay();
-  //display.drawRect(29, 0, 71, 64, WHITE);
+  // display.drawRect(29, 0, 71, 64, WHITE);
   display.drawBitmap(29, 10, MusotokuLogo, 70, 48, WHITE);
   display.display();
 
@@ -899,7 +909,7 @@ void setup()
 
   StandbyGlobalTimer = Time; // Reset the standby timer
 
-  //Serial.print("Initialization done");
+  // Serial.print("Initialization done");
 }
 
 void loop()
@@ -909,7 +919,7 @@ void loop()
   if (RunMode == RUNMODE_NORMAL) // Only display if NOT in any configuration menu
   {
 
-    if (RuntimerEnable == true) //PLAY
+    if (RuntimerEnable == true) // PLAY
     {
       if ((Time - PartialRuntimer) > 10000)
       {
@@ -935,18 +945,18 @@ void loop()
         display.display();
       }
     } // RuntimerEnable == STOP
-  }   //RunMode == RUNMODE_NORMAL
+  }   // RunMode == RUNMODE_NORMAL
 
   Standby_Handler(&StandbyGlobalTimer); // Checks if go to STANDBY
 
   //----- DCDC ADJUSTMENT TO ENCODER POSITION -----
   // This section of code does not execute while on MENU CONFIGURATION mode
-
   if (updateDisplayVoltsFLAG == FLAG_ON)
   {
     updateDisplayVoltsFLAG = FLAG_OFF;
 
     TPICvalue = pgm_read_byte_near(TPICLookupTable + encoderPos);
+
     Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
 
     DisplayValue = pgm_read_byte_near(DisplayValues + encoderPos);
@@ -1025,7 +1035,7 @@ void loop()
     {
       display.setCursor(26, 5);
       display.print("START");
-      //THE TIMER
+      // THE TIMER
       char arr_HHMM[8] = "01:44";
       sprintf(arr_HHMM, "%01d:%02d", runningHours, runningMinutes);
       display.setCursor(28, 35);
@@ -1035,7 +1045,7 @@ void loop()
     {
       display.setCursor(28, 5);
       display.print("STOP");
-      //THE TIMER
+      // THE TIMER
       char arr_HHMM[8] = "01:44";
       sprintf(arr_HHMM, "%01d:%02d", runningHours, runningMinutes);
       display.setTextSize(3);
@@ -1049,17 +1059,17 @@ void loop()
     if ((Time - ShowLongPressTimer) > SHOW_LONGPRESS_TIME)
     {
       ShowLongpressInfo = NO_LONGPRESS_INFO;
-      //Serial.println("timer");
+      // Serial.println("timer");
       updateDisplayVoltsFLAG = FLAG_ON; // To refresh the display with the output value
     }
   }
-  else //NO_LONGPRESS_INFO
+  else // NO_LONGPRESS_INFO
   {
     ShowLongPressTimer = Time;
   }
 
   //---------------- PUSHBUTTON ACTION EXECUTION ----------------------
-  if ((PushbuttonAction == PUSHBUTTON_FALL) && (ShowLongpressInfo == NO_LONGPRESS_INFO)) //No  pushbutton available while longpress info is shown
+  if ((PushbuttonAction == PUSHBUTTON_FALL) && (ShowLongpressInfo == NO_LONGPRESS_INFO)) // No  pushbutton available while longpress info is shown
   {
     PushbuttonAction = PUSHBUTTON_IDLE;
 
@@ -1073,13 +1083,13 @@ void loop()
         MachineMemPos = (MachineMemPos + 1) % NUM_MEMORY;
         if (MachineMemPos == 0)
         {
-          //MEMORY = 0 --> MACHINE OUTPUT 1
+          // MEMORY = 0 --> MACHINE OUTPUT 1
           digitalWrite(CHANNEL_SEL, LOW);
           ActualChannel = CHANNEL_1;
         }
         else
         {
-          //MEMORY = 1 --> MACHINE OUTPUT 2
+          // MEMORY = 1 --> MACHINE OUTPUT 2
           digitalWrite(CHANNEL_SEL, HIGH);
           ActualChannel = CHANNEL_2;
         }
@@ -1091,9 +1101,9 @@ void loop()
       else
       {
         BuzzerClick(LOW_PITCH, 210);
-        //do nothing
-        //While the output is ON (OUTLATCHSTATE = TRUE) it won't
-        //change the memory
+        // do nothing
+        // While the output is ON (OUTLATCHSTATE = TRUE) it won't
+        // change the memory
       }
     }
     else
@@ -1116,14 +1126,12 @@ void loop()
 
       if (continuousMode == true) // Continuous Mode with toggle function in order to completely avoid the pedal if needed
       {
-        //        digitalWrite(ENA_OUT, LOW);
         continuousMode = false;
         OutLatchState = false;
         ShowLongpressInfo = LONGPRESS_INFO_NO_CONT;
       }
       else
       {
-        //        digitalWrite(ENA_OUT, HIGH);
         continuousMode = true;
         OutLatchState = true; // output is latched by default to ON state
         ShowLongpressInfo = LONGPRESS_INFO_CONT;
@@ -1137,7 +1145,7 @@ void loop()
   }
 
   //--------------- ROTPUSH ACTION EXECUTION ------------------
-  if (RotPushEvent == PUSHBUTTON_FALL) //Important while in longpress action FALL event should not be attended
+  if (RotPushEvent == PUSHBUTTON_FALL) // Important while in longpress action FALL event should not be attended
   {
     RotPushEvent = PUSHBUTTON_IDLE;
 
@@ -1156,7 +1164,7 @@ void loop()
       {
         switch (NextRunMode)
         {
-        case RUNMODE_CONFIG_NITRO: //NITRO SELECTION
+        case RUNMODE_CONFIG_NITRO: // NITRO SELECTION
           RunMode = RUNMODE_CONFIG_NITRO;
           updateMenuDisplayFLAG = FLAG_ON;   // Enable the MENU display view
           updateDisplayVoltsFLAG = FLAG_OFF; // Disable the Normal display view
@@ -1186,21 +1194,21 @@ void loop()
           }
           break;
 
-        case RUNMODE_MENU_TIMER: //TIMER SELECTION
+        case RUNMODE_MENU_TIMER: // TIMER SELECTION
           RunMode = RUNMODE_MENU_TIMER;
           updateMenuDisplayFLAG = FLAG_ON;   // Enable the MENU display view
           updateDisplayVoltsFLAG = FLAG_OFF; // Disable the Normal display view
           MenuSelection = 1;                 // Forces the Config Menu to start indexing the 1st selected element
           break;
 
-        case RUNMODE_CHANGE_POL: //CHANGE POLARITY SELECTION
+        case RUNMODE_CHANGE_POL: // CHANGE POLARITY SELECTION
           RunMode = RUNMODE_CHANGE_POL;
           updateMenuDisplayFLAG = FLAG_ON;   // Enable the MENU display view
           updateDisplayVoltsFLAG = FLAG_OFF; // Disable the Normal display view
           MenuSelection = 1;                 // Forces the Config Menu to start indexing the 1st selected element
           break;
 
-        case RUNMODE_NORMAL: //EXIT SELECTION
+        case RUNMODE_NORMAL: // EXIT SELECTION
           RunMode = RUNMODE_NORMAL;
           updateMenuDisplayFLAG = FLAG_OFF; // Enable the MENU display view
           updateDisplayVoltsFLAG = FLAG_ON; // Disable the Normal display view
@@ -1224,7 +1232,7 @@ void loop()
         {
           ResetRunTimer = false;
           TotalRuntimer = 0;
-          RunTimer(TotalRuntimer, &runningHours, &runningMinutes); //Now updates the timer display to show 00:00
+          RunTimer(TotalRuntimer, &runningHours, &runningMinutes); // Now updates the timer display to show 00:00
           DisplayTimer(runningHours, runningMinutes);
         }
         updateDisplayVoltsFLAG = FLAG_ON; // For refreshing the Normal display view
@@ -1259,7 +1267,7 @@ void loop()
       }
       else
       {
-        //Error
+        // Error
       }
     } //--ShowLongpressInfo == NO_LONGPRESS_INFO
   }   //-------------RotPushEvent == PUSHBUTTON_ON_EDGE
@@ -1359,14 +1367,14 @@ void loop()
         BuzzerClick(LOW_PITCH, 2);
         updateMenuDisplayFLAG = FLAG_ON;
         MenuSelection = MenuSelection + EncoderChange;
-        MenuSelection = constrain(MenuSelection, 1, 3); //1.TIMER - 2.NITRO - 3.EXIT
+        MenuSelection = constrain(MenuSelection, 1, 3); // 1.TIMER - 2.NITRO - 3.EXIT
       }
       else if (RunMode == RUNMODE_CONFIG_NITRO)
       {
         BuzzerClick(LOW_PITCH, 2);
         updateMenuDisplayFLAG = FLAG_ON;
         MenuSelection = MenuSelection + EncoderChange;
-        MenuSelection = constrain(MenuSelection, 1, 2); //1.YES - 2.NO
+        MenuSelection = constrain(MenuSelection, 1, 2); // 1.YES - 2.NO
       }
 
       else if (RunMode == RUNMODE_MENU_TIMER)
@@ -1374,7 +1382,7 @@ void loop()
         BuzzerClick(LOW_PITCH, 2);
         updateMenuDisplayFLAG = FLAG_ON;
         MenuSelection = MenuSelection + EncoderChange;
-        MenuSelection = constrain(MenuSelection, 1, 3); //1.START - 2.STOP - 3.RESET
+        MenuSelection = constrain(MenuSelection, 1, 3); // 1.START - 2.STOP - 3.RESET
       }
 
       else if (RunMode == RUNMODE_CHANGE_POL)
@@ -1382,7 +1390,7 @@ void loop()
         BuzzerClick(LOW_PITCH, 2);
         updateMenuDisplayFLAG = FLAG_ON;
         MenuSelection = MenuSelection + EncoderChange;
-        MenuSelection = constrain(MenuSelection, 1, 2); //1.YES - 2.NO
+        MenuSelection = constrain(MenuSelection, 1, 2); // 1.YES - 2.NO
       }
       else
       {
@@ -1428,8 +1436,8 @@ void loop()
         NitroStart(NitroStartGradeCh2, encoderPos);
       }
       digitalWrite(DCDC_EN, DCDC_ENABLED);
-      //updateDisplayVoltsFLAG = FLAG_ON;          // NOTE: ELIMINATED TO AVOID LOSS OF DISPLAY WHILE IN CONFIG MENU AND PEDAL IS PUSHED (On test...)
-      // Second Note: this line was initially added on version 24.
+      // updateDisplayVoltsFLAG = FLAG_ON;          // NOTE: ELIMINATED TO AVOID LOSS OF DISPLAY WHILE IN CONFIG MENU AND PEDAL IS PUSHED (On test...)
+      //  Second Note: this line was initially added on version 24.
     }
     else // (continuousMode==true)-->Pedal toggles latch output state
     {
@@ -1524,44 +1532,53 @@ void loop()
     Time = millis();
     IoutSense = Read_Analog(ISEN);
     VoutSense = Read_Analog(VOSEN);
-    //Serial.println(VoutSense);
+    // Serial.println(VoutSense);
   }
-
-  //------UNDERVOLTAGE LIMIT----------
-  if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
-  {
-    if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
+ 
+    //------UNDERVOLTAGE LIMIT----------
+    if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
     {
-      OVCsenseTime = Time;
-
-      boolean OVCerror = true;
-      while ((OVCerror == true) && ((Time - OVCsenseTime) < OVC_UVOLT_MAX_TIME))
+      if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
       {
-        //Serial.print('.');
-        VoutSense = Read_Analog(VOSEN);
-        if ((VoutTarget - VoutSense) < UNDERVOLT_1V5)
+        OVCsenseTime = Time;
+
+        boolean OVCerror = true;
+        int undervoltage_count = 0;
+        for (int i = 0; i < (OVC_UVOLT_MAX_TIME / OVC_UVOLT_DELAY); i++)
+        {
+          delay(OVC_UVOLT_DELAY);
+          VoutSense = Read_Analog(VOSEN);
+          if ((VoutTarget - VoutSense) >= UNDERVOLT_1V8)
+          {
+            undervoltage_count++;
+          }
+        }
+        if (undervoltage_count < ((OVC_UVOLT_MIN_TIME / OVC_UVOLT_DELAY) + 1))
         {
           OVCerror = false;
+          Serial.println("------------------------------------------------");
         }
         Time = millis();
-      }
-      if (OVCerror == true)
-      {
-        //Serial.println("UNDERVOLTAGE");
-        OVCerrorsConsecutive++;
-        Mitigate_OVChazard(&OVCerrorsConsecutive);
-        PedalNow = PEDAL_OFF; // After mitigate_ovcHazard the pedal is OFF. It is updated to prevent the following
-        // over current test to trigger double
 
-        continuousMode = false; // To prevent re-entering continuously (same as PEDAL_OFF above)
-        NitroForContinuousMode = false;
-        OutLatchState = false;
-        //        digitalWrite(ENA_OUT, LOW);
+        if (OVCerror == true)
+        {
+          Serial.println("UNDERVOLTAGE");
+          OVCerrorsConsecutive++;
+          display.clearDisplay(); // clears the screen and buffer
+          display.drawBitmap(0, 0, OverCurrentLogo, 124, 63, WHITE);
+          display.display();
+          Mitigate_OVChazard(&OVCerrorsConsecutive);
+          PedalNow = PEDAL_OFF; // After mitigate_ovcHazard the pedal is OFF. It is updated to prevent the following
+          // over current test to trigger double
 
-        updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
+          continuousMode = false; // To prevent re-entering continuously (same as PEDAL_OFF above)
+          NitroForContinuousMode = false;
+          OutLatchState = false;
+
+          updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
+        }
       }
     }
-  }
 
   //-------- OVER CURRENT LIMIT --------
   if ((PedalNow == PEDAL_ON) || (OutLatchState == true))
@@ -1573,7 +1590,7 @@ void loop()
       boolean OVCerror = true;
       while ((OVCerror == true) && ((Time - OVCsenseTime) < OVC_SENSE_MAX_TIME))
       {
-        //Serial.print('-');
+        // Serial.print('-');
         IoutSense = Read_Analog(ISEN);
         if (IoutSense < OVC_SENSE_LIMIT_INF)
         {
@@ -1583,7 +1600,7 @@ void loop()
       }
       if (OVCerror == true)
       {
-        //Serial.println("OVC SENSE");
+        // Serial.println("OVC SENSE");
         OVCerrorsConsecutive++;
         Mitigate_OVChazard(&OVCerrorsConsecutive);
         updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
@@ -1626,19 +1643,19 @@ void Write_TPIC2810(byte address, byte data)
 
     if (!i2c_start(192 | I2C_WRITE))
     {
-      //Serial.print("I2Cerr_1");
+      // Serial.print("I2Cerr_1");
       result = 0;
       danger = 0;
     }
     if (!i2c_write(68))
     {
-      //Serial.print("I2Cerr_2");
+      // Serial.print("I2Cerr_2");
       result = 0;
       danger = 0;
     }
     if (!i2c_write(data))
     {
-      //Serial.println("I2Cerr_3");
+      // Serial.println("I2Cerr_3");
       result = 0;
     }
     i2c_stop();
@@ -1647,7 +1664,7 @@ void Write_TPIC2810(byte address, byte data)
 
   if (danger == 0)
   {
-    //Serial.println("Retry I2C");
+    // Serial.println("Retry I2C");
 
     result = 0;
     loops = 0;
@@ -1659,19 +1676,19 @@ void Write_TPIC2810(byte address, byte data)
 
       if (!i2c_start(192 | I2C_WRITE))
       {
-        //Serial.print("I2Cerr_1+");
+        // Serial.print("I2Cerr_1+");
         result = 0;
         danger = 0;
       }
       if (!i2c_write(68))
       {
-        //Serial.print("I2Cerr_2+");
+        // Serial.print("I2Cerr_2+");
         result = 0;
         danger = 0;
       }
       if (!i2c_write(data))
       {
-        //Serial.println("I2Cerr_3+");
+        // Serial.println("I2Cerr_3+");
         result = 0;
       }
       i2c_stop();
@@ -1680,16 +1697,16 @@ void Write_TPIC2810(byte address, byte data)
   }
   else
   {
-    //Serial.println("------");
+    // Serial.println("------");
   }
 }
-//void Write_TPIC2810(byte address, byte data)
+// void Write_TPIC2810(byte address, byte data)
 //{
-//  Wire.beginTransmission(byte(96)); // transmit command to device TPIC2810
-//  Wire.write(byte(68));             // Command to transfer next value to output register
-//  Wire.write(byte(data));
-//  Wire.endTransmission();     // stop transmitting
-//}
+//   Wire.beginTransmission(byte(96)); // transmit command to device TPIC2810
+//   Wire.write(byte(68));             // Command to transfer next value to output register
+//   Wire.write(byte(data));
+//   Wire.endTransmission();     // stop transmitting
+// }
 
 void ShowDisplayValue(int value)
 {
@@ -1707,13 +1724,13 @@ void ShowDisplayValue(int value)
 
   if (value >= 100)
   {
-    //fracPart = value - 100;
+    // fracPart = value - 100;
     display.fillCircle(83, 55, 4, WHITE); // Decimal point 2
     cursor = 89;
   }
   else
   {
-    //fracPart = value - 10*intPart;
+    // fracPart = value - 10*intPart;
     display.fillCircle(41, 55, 4, WHITE); // Decimal point 1
     cursor = 53;
   }
@@ -1763,8 +1780,8 @@ void DisplayMessage(byte RunMode, byte WriteORdelete, char Message[25], byte Typ
     case NITRO_MESSG:
       display.setTextSize(1);
       display.setCursor(2, 57);
-      //display.setCursor(95, 2);//<---------------------------------------------
-      //display.drawRect(91,0,33,11,WHITE);
+      // display.setCursor(95, 2);//<---------------------------------------------
+      // display.drawRect(91,0,33,11,WHITE);
       break;
     }
 
@@ -1783,9 +1800,9 @@ void DisplayMessage(byte RunMode, byte WriteORdelete, char Message[25], byte Typ
     }
     else
     {
-      //error
+      // error
     }
-  } //RunMode != CONFIG_MODE
+  } // RunMode != CONFIG_MODE
 }
 
 // ==============================================  NitroStart ======================================================
@@ -1819,6 +1836,7 @@ void NitroStart(byte NGrade, int encoderPosition)
     {
       TPICvalue = pgm_read_byte_near(NitroLookupTable + n); // Program the DCDC with the value in the nitrolookuptable
       Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+      delay(15);
     }
     TPICvalue = pgm_read_byte_near(TPICLookupTable + encoderPos);
     Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
@@ -1912,7 +1930,7 @@ void Handle_ConfigMenus(byte RunMode, int index, byte *NextRunMode, byte *NitroS
     display.setCursor(35, 26);
     display.print("NITRO");
     display.setCursor(35, 47);
-    //display.print("FW/BW");
+    // display.print("FW/BW");
     display.print("EXIT");
 
     switch (index)
@@ -1983,26 +2001,26 @@ void Handle_ConfigMenus(byte RunMode, int index, byte *NextRunMode, byte *NitroS
 
     switch (index)
     {
-    case 1: //START
+    case 1: // START
       *ResetRunTimer = false;
       *RuntimerEnable = true;
       display.drawRoundRect(43, 40, 24, 23, 5, WHITE);
       break;
 
-    case 2: //STOP
+    case 2: // STOP
       *ResetRunTimer = false;
       *RuntimerEnable = false;
       display.drawRoundRect(65, 40, 25, 23, 5, WHITE);
       break;
 
-    case 3: //RESET
+    case 3: // RESET
       *ResetRunTimer = true;
       *RuntimerEnable = true;
       display.drawRoundRect(90, 40, 37, 23, 5, WHITE);
       break;
     }
 
-    //THE TIMER
+    // THE TIMER
     char arr_HHMM[8] = "01:44";
     sprintf(arr_HHMM, "%01d:%02d", runningHours, runningMinutes);
     display.setTextSize(3);
@@ -2128,7 +2146,7 @@ void Standby_Handler(unsigned long *StandbyTimer)
         wakeup = true;
       }
 
-    } //While_standby
+    } // While_standby
 
     //------WAKE UP ROUTINE------
     display.clearDisplay();
@@ -2174,9 +2192,9 @@ void Standby_Handler(unsigned long *StandbyTimer)
     *StandbyTimer = Time;             // Reset the timer before coming back to active
     updateDisplayVoltsFLAG = FLAG_ON; // To bring the normal display ON again
 
-  } //Standby_Mode
+  } // Standby_Mode
 
-} //END Standby_Handler
+} // END Standby_Handler
 
 //===============================================Mitigate_OVChazard=======================================================
 // Display OVERCURRENT message
@@ -2211,7 +2229,6 @@ void Mitigate_OVChazard(byte *OVCerrorsConsecutive)
       *OVCerrorsConsecutive = 0;
       OutLatchState = false;  // Just in case continuousMode is ON, the output latch is stopped.
       continuousMode = false; // And the continuous mode is stopped
-                              //      digitalWrite(ENA_OUT, LOW);
     }
   }
 
@@ -2309,27 +2326,27 @@ void RunTimer(unsigned long val, int *hours, int *minutes)
 //
 //===============================================================================================================
 
-//void StartupFrontLEDs()
+// void StartupFrontLEDs()
 //{
-//  byte i, j, k, m, n;
-//  i = 1;
-//  j = 20;
-//  m = 0;
-//  n = 10;
+//   byte i, j, k, m, n;
+//   i = 1;
+//   j = 20;
+//   m = 0;
+//   n = 10;
 //
-//  while (m < 19)
-//  {
-//    for (k = 0; k < n; k++)
-//    {
-//      digitalWrite(LED_FRONT, HIGH);
-//      delay(i);
-//      digitalWrite(LED_FRONT, LOW);
-//      delay(j);
-//    }
-//    i++;
-//    j--;
-//    m++;
-//    n--;
-//    n = constrain(n, 5, 10);
-//  }
-//}
+//   while (m < 19)
+//   {
+//     for (k = 0; k < n; k++)
+//     {
+//       digitalWrite(LED_FRONT, HIGH);
+//       delay(i);
+//       digitalWrite(LED_FRONT, LOW);
+//       delay(j);
+//     }
+//     i++;
+//     j--;
+//     m++;
+//     n--;
+//     n = constrain(n, 5, 10);
+//   }
+// }

@@ -1,0 +1,18 @@
+.AP64501SP-13 :1 ;Conv DC-DC 3.8V to 40V Synchronous Step Down Single-Out 0.8V to 39V 5A 8-Pin SO EP T/R
+SOIC127P600X163-9N
+*STM IC
+*NGS
+*PLB 1="BST" 2="VIN" 3="EN" 4="SS" 5="FB" 6="COMP" 7="GND" 8="SW" 9="EP"
+*MXP 9
+*DFN AP64501SP-13
+~!Manufacturer_Name (Diodes Inc.)
+~!Manufacturer_Part_Number (AP64501SP-13)
+~!Mouser Part Number (621-AP64501SP-13)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP64501SP-13?qs=P1JMDcb91o7FS0GU%252BW7TIQ%3D%3D)
+~!Arrow Part Number (AP64501SP-13)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/ap64501sp-13/diodes-incorporated?region=nac)
+~!Link Datasheet (https://www.arrow.com/en/products/ap64501sp-13/diodes-incorporated)
+~!Height (1.63mm)
+~!3D_Model (AP64501SP-13)
+AP64501SP-13
+1.1!U 2.1!U 3.1!U 4.1!U 9.1!U 8.1!U 7.1!U 6.1!U 5.1!U 

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '74LVC1G74DP_125'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Nexperia", "74LVC1G74DP,125" (!) = "", "SOP65P400X110-8N", "Small Outline Packages", "771-LVC1GDP125", "https://www.mouser.co.uk/ProductDetail/Nexperia/74LVC1G74DP125?qs=me8TqzrmIYWtKZiCsFqsMg%3D%3D", "74LVC1G74DP,125", "https://www.arrow.com/en/products/74lvc1g74dp125/nexperia?region=europe", "74LVC1G74 - Single D-type flip-flop with set and reset; positive edge trigger@en-us", "https://assets.nexperia.com/documents/data-sheet/74LVC1G74.pdf", "1.1 mm"
+END_PART
+
+END.

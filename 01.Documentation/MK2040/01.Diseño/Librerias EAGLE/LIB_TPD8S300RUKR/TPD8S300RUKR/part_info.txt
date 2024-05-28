@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=TPD8S300RUKR
+PartCategory=Integrated Circuit
+PackageCategory=Quad Flat No-Lead
+PinCount=21
+Version=1.1
+Released=2018-09-24 08:32:07
+Downloaded=2023-03-13 15:35:01
+3D=Y

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'SMAJ24CA'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Bourns", "SMAJ24CA" (!) = "", "DIONM5127X229N", "Diodes Moulded Non Polarised", "652-SMAJ24CA", "https://www.mouser.co.uk/ProductDetail/Bourns/SMAJ24CA?qs=A3H9pljuJ8RsSQb8zLkILA%3D%3D", "SMAJ24CA", "https://www.arrow.com/en/products/smaj24ca/bourns?region=nac", "ESD Suppressors / TVS Diodes 24volts 5uA 10.3 Amps Bi-Dir", "https://www.bourns.com/docs/Product-Datasheets/SMAJ.pdf", "2.29 mm"
+END_PART
+
+END.

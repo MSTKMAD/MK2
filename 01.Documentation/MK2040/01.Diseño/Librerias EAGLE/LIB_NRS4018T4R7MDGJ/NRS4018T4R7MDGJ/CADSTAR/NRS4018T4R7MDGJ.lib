@@ -1,0 +1,18 @@
+.NRS4018T4R7MDGJ :1 ;Inductor SMD wirewound 4.7uH
+NRS4018T100MDGJ
+*STM L
+*NGS
+*PLB 1="1" 2="2"
+*MXP 2
+*DFN NRS4018T4R7MDGJ
+~!Manufacturer_Name (TAIYO YUDEN)
+~!Manufacturer_Part_Number (NRS4018T4R7MDGJ)
+~!Mouser Part Number (963-NRS4018T4R7MDGJ)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Taiyo-Yuden/NRS4018T4R7MDGJ?qs=PzICbMaShUfBUWy4ytltsA%3D%3D)
+~!Arrow Part Number (NRS4018T4R7MDGJ)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/nrs4018t4r7mdgj/taiyo-yuden)
+~!Link Datasheet (https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DGA11/2190982.pdf)
+~!Height (1mm)
+~!3D_Model (NRS4018T4R7MDGJ)
+NRS4018T4R7MDGJ
+1.1!U 2.1!U 

@@ -1,0 +1,9 @@
+Manufacturer=Nexperia
+PartNumber=PESD5V0U2BT,215
+PartCategory=Diode
+PackageCategory=SOT23 (3-Pin)
+PinCount=3
+Version=2.1
+Released=2017-09-20 13:47:20
+Downloaded=2023-03-14 12:24:48
+3D=Y

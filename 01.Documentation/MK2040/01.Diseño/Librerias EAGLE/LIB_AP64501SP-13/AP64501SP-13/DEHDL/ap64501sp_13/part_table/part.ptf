@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'AP64501SP_13'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Diodes Inc.", "AP64501SP-13" (!) = "", "SOIC127P600X163-9N", "Small Outline Packages", "621-AP64501SP-13", "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP64501SP-13?qs=P1JMDcb91o7FS0GU%252BW7TIQ%3D%3D", "AP64501SP-13", "https://www.arrow.com/en/products/ap64501sp-13/diodes-incorporated?region=nac", "Conv DC-DC 3.8V to 40V Synchronous Step Down Single-Out 0.8V to 39V 5A 8-Pin SO EP T/R", "https://www.arrow.com/en/products/ap64501sp-13/diodes-incorporated", "1.63 mm"
+END_PART
+
+END.

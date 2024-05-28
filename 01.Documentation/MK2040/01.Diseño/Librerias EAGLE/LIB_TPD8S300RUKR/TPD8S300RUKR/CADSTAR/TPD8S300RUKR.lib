@@ -1,0 +1,18 @@
+.TPD8S300RUKR :1 ;USB Type-C Port Protector: Short-to-VBUS Overvoltage and IEC ESD Protection 
+QFN40P300X300X80-21N-D
+*STM IC
+*NGS
+*PLB 1="C_SBU1" 2="C_SBU2" 3="VBIAS" 4="C_CC1" 5="C_CC2" 6="RPD_G2" 7="RPD_G1" 8="GND_1" 9="'FLT'" 10="VPWR" 11="CC2" 12="CC1" 13="GND_2" 14="SBU2" 15="SBU1" 16="D4" 17="D3" 18="GND_3" 19="D2" 20="D1" 21="GND_4"
+*MXP 21
+*DFN TPD8S300RUKR
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (TPD8S300RUKR)
+~!Mouser Part Number (595-TPD8S300RUKR)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPD8S300RUKR?qs=KuuZdrM3jLxuJ5q64YSnFw%3D%3D)
+~!Arrow Part Number (TPD8S300RUKR)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/tpd8s300rukr/texas-instruments)
+~!Link Datasheet (http://www.ti.com/lit/gpn/tpd8s300)
+~!Height (0.8mm)
+~!3D_Model (TPD8S300RUKR)
+TPD8S300RUKR
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 7.1!U 8.1!U 9.1!U 10.1!U 15.1!U 14.1!U 13.1!U 12.1!U 11.1!U 21.1!U 20.1!U 19.1!U 18.1!U 17.1!U 16.1!U 

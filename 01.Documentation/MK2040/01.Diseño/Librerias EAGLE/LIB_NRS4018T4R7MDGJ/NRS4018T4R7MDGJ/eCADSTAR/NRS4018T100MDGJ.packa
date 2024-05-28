@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "NRS4018T4R7MDGJ"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2020-12-02-14:17:03)
+    (mountForm default
+        (footprintRef "NRS4018T100MDGJ")
+        (spec "System")
+    )
+)
