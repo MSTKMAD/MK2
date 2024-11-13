@@ -2,7 +2,7 @@
 //******************************
 //   VERSION M2-805
 //*****************************
-#define VERSION 805
+#define VERSION 806
 /**************************************************
 *******************
 EDCPSU Tattoo edition HW USB-C M2
@@ -21,6 +21,7 @@ CAMBIOS : En esta version se cierra el Issue #1 de Github.
 #include <avr/pgmspace.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <MilliTimer.h>
 
 //----------------------------------------------  MACROS DEFINITION --------------------------------------------
 // macros from DateTime.h
@@ -84,6 +85,8 @@ const int NUM_MEMORY = 2;
 const int SAVE_MEM_TIMER = 2000;       // Milliseconds
 const int EEPROM_RECORDED_DONE = 0xDA; // THis signature indicates if the EEPROM is recorded or if it is brand new and not recorded
 const int EEPROM_POLARITY_STATUS = 0x19;
+
+const int EEPROM_HOURS = 0X28; // Position of EEPROM NITRO STATUS  --> INDICATES if NITRO is active or not
 
 const int EEPROM_NITRO_STATUS_CH_1 = 0X20; // Position of EEPROM NITRO STATUS  --> INDICATES if NITRO is active or not
 const int EEPROM_NITRO_STATUS_CH_2 = 0X25; // Position of EEPROM NITRO STATUS  --> INDICATES if NITRO is active or not
@@ -160,6 +163,10 @@ const byte LONGPRESS_INFO_TIMER_ON = 3;
 const byte LONGPRESS_INFO_TIMER_OFF = 4;
 const unsigned long SHOW_LONGPRESS_TIME = 900; // Time that the longpress information is shown on display (Milliseconds)
 
+const int16_t C_TIMER_ARMED = 0; // Identificador de un Timer como armado y contando.
+const int16_t C_TIMER_IDLE = 1;  // Identifiador de un Timer esperando a ser iniciado.
+const int16_t C_TIMER_DONE = 2;  // Identificador de un Timer que ha finalizado la cuenta
+
 const unsigned long RX_CHAR_TIMEOUT = 10; // (ms) time allowed for an orphan char received via Serial
 const byte TLG_RX_BYTES = 3;              // Bytes compounding a Serial telegram of the Test mode
 
@@ -187,6 +194,14 @@ const int VBUS_SENSE = A0;  // New in r8.0 (before LED)
 const int CHANNEL_SEL = 25; // Previous HW version this pin was CHG_POL
 // const int CHANNEL_SEL = 22; // Pico
 //  const int ENA_OUT = 1;       // TXo-- caution! this digital line overlaps with TXo, so Serial has to be disabled
+//-------------------------- ERROR DEFINITION -----------------------------------------------------------------
+const int ERROR_10 = 10;
+const int ERROR_11 = 11;
+const int ERROR_20 = 20;
+const int ERROR_21 = 21;
+const int ERROR_22 = 22;
+const int ERROR_30 = 30;
+const int ERROR_31 = 31;
 
 //-------------------------- PROGMEM DEFINITION -----------------------------------------------------------------
 
@@ -525,6 +540,24 @@ int PushbuttonNow = PUSHBUTTON_OFF;
 int PedalNow = PEDAL_OFF;
 int RotPushNow = PUSHBUTTON_OFF;
 
+bool test_mode = false;
+int flag_timer_test_mode = C_TIMER_IDLE;
+int flag_waiting_test_mode = true;
+int hours = 0;
+
+int Iout_Test_1_Error = 0;
+int Vout_Test_1_Error = 0;
+int Internal_Error = 0;
+int Cord_Error = 0;
+int Iout_Test_2_Error = 0;
+int Vout_Test_2_Error = 0;
+int Iout_Test_3_Error = 0;
+int Vout_Test_3_Error = 0;
+
+MilliTimer timer_test_mode;
+MilliTimer timer_waiting_test_mode;
+MilliTimer timer_test;
+
 int PushbuttonAction = PUSHBUTTON_IDLE;
 int PedalEvent = PUSHBUTTON_IDLE;
 int RotPushEvent = PUSHBUTTON_IDLE;
@@ -559,6 +592,7 @@ unsigned int VoutBuffer[LEN_VOUT_BUFFER] = {0, 0, 0, 0};
 
 unsigned long OVCrecoveryTimer; // Timer to count the recovery time needed for the pedal to be off prior to turn on the voltage again
 unsigned long StandbyGlobalTimer = 0;
+unsigned long HourTimer = 0;
 
 int OVC_AlarmDetected = false;
 unsigned long OVC_AlarmTimer;
@@ -680,6 +714,436 @@ void setup()
 
     while (1)
       ;
+  }
+  //------------- TEST MODE -------
+  timer_waiting_test_mode.set(1000);
+  while (flag_waiting_test_mode == true)
+  {
+    if ((digitalRead(ROTPUSH_IP) == LOW))
+    {
+      if (flag_timer_test_mode == false) // Configuracio NO activada
+      {
+        if (flag_timer_test_mode == C_TIMER_IDLE) // Timer No iniciado
+        {
+          timer_test_mode.set(3000);
+          flag_timer_test_mode = C_TIMER_ARMED;
+        }
+        else if (flag_timer_test_mode == C_TIMER_ARMED) // Timer Armado
+        {
+          if (timer_test_mode.poll() != C_TIMER_NOT_EXPIRED) // Timer cumplido
+          {
+            flag_timer_test_mode = true; // Inicio de la configuracion del naming.
+            flag_timer_test_mode = C_TIMER_IDLE;
+          }
+        }
+      }
+      else
+      {
+        display.clearDisplay(); // clears the screen and buffer
+        display.setTextSize(2);
+        display.setTextColor(WHITE);
+        display.setCursor(35, 10);
+        display.print("LOG");
+        display.setCursor(35, 41);
+        display.print("TEST");
+        display.drawRect(29, 6, 70, 21, WHITE);
+        display.display();
+        delay(1000);
+
+        // ------------------------ MENU ----------------------//
+        int menu_on = true;
+        while (menu_on)
+        {
+          Time = millis();
+          encoderA = digitalRead(ROTA);
+
+          if ((encoderALast == HIGH) && (encoderA == LOW))
+          {
+            //--Detect Spin direction--
+            if (digitalRead(ROTB) == LOW)
+            {
+              EncoderChange = -1;
+            }
+            else
+            {
+              EncoderChange = 1;
+            }
+
+            //--Debounding the spin--
+            if (EncoderChange != EncoderChangePrev)
+            {
+              if ((Time - debouncerRotaryTime) >= DEBOUNCE_ROTARY_TIME)
+              {
+                RotaryDebounced = true; // Debounced --> Now change in spin direction is permited
+              }
+              else
+              {
+                RotaryDebounced = false;
+              }
+            }
+
+            //--Performs Spin Action depending on Run Mode--
+            if (RotaryDebounced == true)
+            {
+              EncoderChangePrev = EncoderChange; // EncoderChangePrev is ONLY updated once the spin direction change is consolidated
+              debouncerRotaryTime = Time;        // Debouncing action counts from here!
+
+              ShowLongpressInfo = NO_LONGPRESS_INFO;
+              BuzzerClick(LOW_PITCH, 2);
+              updateMenuDisplayFLAG = FLAG_ON;
+              MenuSelection = MenuSelection + EncoderChange;
+              MenuSelection = constrain(MenuSelection, 1, 2); // 1.TIMER - 2.NITRO - 3.EXIT
+              display.clearDisplay();                         // clears the screen and buffer
+              display.setTextSize(2);
+              display.setTextColor(WHITE);
+              display.setCursor(35, 10);
+              display.print("LOG");
+              display.setCursor(35, 41);
+              display.print("TEST");
+              switch (MenuSelection)
+              {
+              case 1:
+                display.drawRect(29, 6, 70, 21, WHITE);
+                break;
+
+              case 2:
+                display.drawRect(29, 37, 70, 21, WHITE);
+                break;
+              }
+              display.display();
+            }
+          }
+          encoderALast = encoderA;
+          ReadPushbutton(ROTPUSH_IP, &RotPushNow, &RotPushPrev, &debouncerRotPushTime, DEBOUNCE_ROTPUSH_TIME, &RotPushEvent, BEEP_IS_TRUE, &LongPressRotPushBTime);
+
+          if (RotPushEvent == PUSHBUTTON_FALL)
+          {
+            switch (MenuSelection)
+            {
+            case 1:
+              display.clearDisplay();
+              display.setCursor(35, 10);
+              display.print("LOG");
+              display.display();
+              delay(2000);
+              display.clearDisplay();
+              display.setCursor(0, 0);
+              display.print("LOG");
+              display.setCursor(0, 21);
+              display.print("V:");
+              display.setCursor(0, 42);
+              display.print("H:");
+              display.setCursor(32, 21);
+              display.print(VERSION);
+              display.setCursor(32, 42);
+              hours = EEPROM[EEPROM_HOURS];
+              display.print(hours);
+              display.display();
+              while (true)
+                ;
+              break;
+            case 2:
+              display.clearDisplay();
+              display.setCursor(0, 0);
+              display.setTextSize(2);
+              display.print("1)Insert ");
+              display.setCursor(24, 17);
+              display.print("tester");
+              display.setCursor(0, 33);
+              display.print("2)Press ");
+              display.setCursor(24, 50);
+              display.print("to start");
+              display.display();
+              while (digitalRead(ROTPUSH_IP))
+              {
+              }
+
+              /* Test 1: Medimos corriente sin dar salida.
+                       ERROR 10: Corriente alta.
+                       ERROR 11: Cortocircuito.
+              */
+              display.clearDisplay(); // clears the screen and buffer
+              display.setTextColor(WHITE);
+              display.setTextSize(2);
+              display.setCursor(0, 10);
+              display.print("INTERNAL...");
+              delay(200);
+              display.drawRect(0, 40, 128, 16, WHITE);
+              for (uint16_t i = 0; i <= 100; i++)
+              {
+                display.fillRect(0, 40, i * 128 / 100, 16, WHITE);
+
+                IoutSense = (Read_Analog(ISEN) / 4) * 3000 / 1023 * 40 / 25;
+
+                if (IoutSense > 2000)
+                {
+                  Iout_Test_1_Error = ERROR_11;
+                  Internal_Error = true;
+                }
+                else if (IoutSense > 200)
+                {
+                  Iout_Test_1_Error = ERROR_10;
+                  Internal_Error = true;
+                }
+                /*
+                display.clearDisplay(); // clears the screen and buffer
+                display.setCursor(0, 21);
+                display.print("V:");
+                display.setCursor(0, 42);
+                display.print("H:");
+                display.setCursor(32, 21);
+                display.print(IoutSense);
+                display.setCursor(32, 42);
+                display.print(VoutSense);*/
+                delay(20);
+                display.display();
+              }
+              if (!Internal_Error)
+              {
+
+                /* Test 2: Damos Salida y comprobamos que el voltaje y la corriente.
+                          ERROR 20: El voltaje esta fuera de rango del voltaje obejtivo. V = 6v +- 1v
+                          ERROR 21: La corriente esta fuera de los valores esperados. I = 1A +- 20%
+                          ERROR 22: La corriente es muy pequeño lo que indica que el cable esta roto abierto.
+                */
+
+                TPICvalue = pgm_read_byte_near(TPICLookupTable + 38);
+                Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+                digitalWrite(DCDC_EN, DCDC_ENABLED);
+                display.clearDisplay(); // clears the screen and buffer
+                display.setTextColor(WHITE);
+                display.setTextSize(2);
+                display.setCursor(0, 10);
+                display.print("POWER...");
+                display.display();
+                delay(200);
+                display.drawRect(0, 40, 128, 16, WHITE);
+                for (uint16_t i = 0; i <= 100; i++)
+                {
+                  display.fillRect(0, 40, i * 128 / 100, 16, WHITE);
+
+                  VoutSense = Read_Analog(VOSEN) / 4 * 3000 / 1023 * 177 / 27;
+                  IoutSense = (Read_Analog(ISEN) / 4) * 3000 / 1023 * 40 / 25;
+
+                  if ((VoutSense > 7000) || (VoutSense < 5000))
+                  {
+                    Vout_Test_2_Error = ERROR_20;
+                  }
+
+                  if (IoutSense > 2000)
+                  {
+                    Iout_Test_2_Error = ERROR_11;
+                    display.clearDisplay(); // clears the screen and buffer
+                    display.drawBitmap(0, 0, OverCurrentLogo, 124, 63, WHITE);
+                    display.display();
+                    Mitigate_OVChazard(&OVCerrorsConsecutive);
+                    digitalWrite(DCDC_EN, DCDC_DISABLED);
+                    Cord_Error = true;
+                    break;
+                  }
+                  else if (IoutSense < 200)
+                  {
+                    Iout_Test_2_Error = ERROR_22;
+                    Cord_Error = true;
+                    break;
+                  }
+                  else if ((IoutSense > 1200) || (IoutSense < 800))
+                  {
+                    Iout_Test_2_Error = ERROR_21;
+                  }
+                  /*
+                  display.clearDisplay(); // clears the screen and buffer
+                  display.setCursor(0, 21);
+                  display.print("V:");
+                  display.setCursor(0, 42);
+                  display.print("H:");
+                  display.setCursor(32, 21);
+                  display.print(IoutSense);
+                  display.setCursor(32, 42);
+                  display.print(VoutSense);
+                  */
+
+                  delay(20);
+                  display.display();
+                }
+
+                /* Test 3: Damos un pulso de 0,5s a 12v.
+                          ERROR 30: El voltaje esta fuera de rango del voltaje obejtivo. V = 12v +- 1v
+                          ERROR 31: La corriente esta fuera de los valores esperados. I = 2A +- 20%
+                */
+                display.clearDisplay(); // clears the screen and buffer
+                display.setTextColor(WHITE);
+                display.setTextSize(2);
+                display.setCursor(0, 10);
+                display.print("STABILITY...");
+                TPICvalue = pgm_read_byte_near(TPICLookupTable + 100);
+                display.drawRect(0, 40, 128, 16, WHITE);
+                display.display();
+                Write_TPIC2810(ADDR_I2C_DCDC, TPICvalue);
+                delay(500);
+                for (uint16_t i = 0; i <= 100; i++)
+                {
+                  display.fillRect(0, 40, i * 128 / 100, 16, WHITE);
+
+                  VoutSense = Read_Analog(VOSEN) / 4 * 3000 / 1023 * 177 / 27;
+                  IoutSense = Read_Analog(ISEN) / 4 * 3000 / 1023 * 40 / 25;
+
+                  if ((VoutSense > 13000) || (VoutSense < 11000))
+                  {
+                    Vout_Test_3_Error = ERROR_30;
+                  }
+
+                  if ((IoutSense > 2500) || (IoutSense < 1400))
+                  {
+                    Iout_Test_3_Error = ERROR_31;
+                  }
+                  /*
+                  display.clearDisplay(); // clears the screen and buffer
+                  display.setCursor(0, 42);
+                  display.print("V:");
+                  display.setCursor(32, 42);
+                  display.print(VoutSense);
+                  display.setCursor(0, 21);
+                  display.print("I:");
+                  display.setCursor(32, 21);
+                  display.print(IoutSense);
+                  */
+
+                  delay(10);
+                  display.display();
+                }
+              }
+              if (Internal_Error)
+              {
+                display.clearDisplay(); // clears the screen and buffer
+                display.setTextColor(WHITE);
+                display.setTextSize(2);
+                display.setCursor(0, 0);
+                display.print("Internal");
+                display.setCursor(0, 21);
+                display.print("Error");
+                display.setCursor(50, 42);
+                if (Iout_Test_1_Error == ERROR_10)
+                {
+                  display.print("E10");
+                }
+                else if (Iout_Test_1_Error == ERROR_11)
+                {
+                  display.print("E11");
+                }
+                display.display();
+              }
+              else if (Cord_Error)
+              {
+                display.clearDisplay(); // clears the screen and buffer
+                display.setTextColor(WHITE);
+                display.setTextSize(2);
+                display.setCursor(0, 0);
+                display.print("CHECK");
+                display.setCursor(0, 21);
+                display.print("RCA CORD");
+                display.setCursor(0, 42);
+                display.print("CONNECTION");
+                display.display();
+              }
+              else
+              {
+                display.clearDisplay(); // clears the screen and buffer
+                display.setTextColor(WHITE);
+                display.setTextSize(2);
+                display.setCursor(0, 0);
+                display.print("1:");
+                if (Iout_Test_1_Error == ERROR_10)
+                {
+                  display.setCursor(32, 0);
+                  display.print("E10");
+                }
+                else if (Iout_Test_1_Error == ERROR_11)
+                {
+                  display.setCursor(32, 0);
+                  display.print("E11");
+                }
+                else
+                {
+                  display.setCursor(32, 0);
+                  display.print("OK");
+                }
+
+                display.setCursor(0, 21);
+                display.print("2:");
+                if (Iout_Test_2_Error == ERROR_11)
+                {
+                  display.setCursor(32, 21);
+                  display.print("E11");
+                }
+                else if (Iout_Test_2_Error == ERROR_22)
+                {
+                  display.setCursor(32, 21);
+                  display.print("E22");
+                }
+                else if (Iout_Test_2_Error == ERROR_21)
+                {
+                  display.setCursor(32, 21);
+                  display.print("E21");
+                }
+                else
+                {
+                  display.setCursor(32, 21);
+                  display.print("OK");
+                }
+                if (Vout_Test_2_Error == ERROR_20)
+                {
+                  display.setCursor(80, 21);
+                  display.print("E20");
+                }
+                else
+                {
+                  display.setCursor(80, 21);
+                  display.print("OK");
+                }
+
+                display.setCursor(0, 42);
+                display.print("3:");
+                if (Iout_Test_3_Error == ERROR_31)
+                {
+                  display.setCursor(32, 42);
+                  display.print("E31");
+                }
+                else
+                {
+                  display.setCursor(32, 42);
+                  display.print("OK");
+                }
+                if (Vout_Test_3_Error == ERROR_30)
+                {
+                  display.setCursor(80, 42);
+                  display.print("E30");
+                }
+                else
+                {
+                  display.setCursor(80, 42);
+                  display.print("OK");
+                }
+                display.display();
+              }
+              digitalWrite(DCDC_EN, DCDC_DISABLED);
+              while (true)
+                ;
+
+              break;
+
+            default:
+              break;
+            }
+          }
+        }
+        flag_waiting_test_mode = false;
+      }
+    }
+    else if (timer_waiting_test_mode.poll() != C_TIMER_NOT_EXPIRED) // La ventana de tiempo cumple sin que se active la configuracion
+    {
+      flag_waiting_test_mode = false;
+    }
   }
 
   //  StartupFrontLEDs();
@@ -917,32 +1381,9 @@ void setup()
   PartialRuntimer = Time;
 
   StandbyGlobalTimer = Time; // Reset the standby timer
+  HourTimer = Time;          // Reset the standby timer
 
   // Serial.print("Initialization done");
-
-  // Check Test Version
-
-  int timer_0;
-  timer_0 = millis();
-  while ((!digitalRead(ROTPUSH_IP)) && (!digitalRead(PUSHBUTTON_IP)))
-  {
-    if (millis() - timer_0 >= 5000)
-    {
-      display.clearDisplay(); // clears the screen and buffer
-      display.setTextSize(3);
-      display.setTextColor(WHITE);
-      // display.drawRoundRect(0, 0, 128, 64, 10, WHITE);
-      display.setCursor(0, 8);
-      display.print("Version");
-      display.setCursor(35, 35);
-      display.print(VERSION);
-      display.display();
-    }
-  }
-  if ((!digitalRead(ROTPUSH_IP)) || (!digitalRead(PUSHBUTTON_IP)))
-  {
-    delay(2000);
-  }
 }
 
 void loop()
@@ -981,6 +1422,13 @@ void loop()
   } // RunMode == RUNMODE_NORMAL
 
   Standby_Handler(&StandbyGlobalTimer); // Checks if go to STANDBY
+  if ((Time - HourTimer) > 1000)
+  {
+    hours++;
+    HourTimer = Time;
+    EEPROM[EEPROM_HOURS] = hours;
+    EEPROM.commit();
+  }
 
   //----- DCDC ADJUSTMENT TO ENCODER POSITION -----
   // This section of code does not execute while on MENU CONFIGURATION mode

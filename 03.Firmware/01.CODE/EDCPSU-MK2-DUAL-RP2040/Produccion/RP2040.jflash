@@ -3,7 +3,7 @@
 [GENERAL]
   aATEModuleSel[24] = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
   ConnectMode = 0
-  CurrentFile = "C:\Users\javie\Team Dropbox\JRODRIGUEZ\Repositorios\11.MK1\03.Firmware\MK1-RP2040\740\EDCPSU-TATTOO\build\rp2040.rp2040.rpipico\EDCPSU-TATTOO.ino.bin"
+  CurrentFile = "C:\Users\javie\Team Dropbox\JRODRIGUEZ\Repositorios\11.MK1\03.Firmware\MK1-RP2040\EDCPSU-TATTOO\build\rp2040.rp2040.rpipico\EDCPSU-TATTOO.ino.bin"
   DataFileSAddr = 0x10000000
   GUIMode = 0
   HostName = ""
