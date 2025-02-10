@@ -544,6 +544,7 @@ bool test_mode = false;
 int flag_timer_test_mode = C_TIMER_IDLE;
 int flag_waiting_test_mode = true;
 int hours = 0;
+int mins = 0;
 
 int Iout_Test_1_Error = 0;
 int Vout_Test_1_Error = 0;
@@ -1422,12 +1423,17 @@ void loop()
   } // RunMode == RUNMODE_NORMAL
 
   Standby_Handler(&StandbyGlobalTimer); // Checks if go to STANDBY
-  if ((Time - HourTimer) > 1000)
+  if ((Time - HourTimer) > 60000)
   {
-    hours++;
-    HourTimer = Time;
-    EEPROM[EEPROM_HOURS] = hours;
-    EEPROM.commit();
+    mins++;
+    if (mins == 60)
+    {
+      hours++;
+      mins = 0;
+      HourTimer = Time;
+      EEPROM[EEPROM_HOURS] = hours;
+      EEPROM.commit();
+    }
   }
 
   //----- DCDC ADJUSTMENT TO ENCODER POSITION -----
