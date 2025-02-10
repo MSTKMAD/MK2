@@ -4520,6 +4520,8 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="U$5" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3"/>
 <part name="U$6" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3"/>
 <part name="U$7" library="SparkFun-Aesthetics" deviceset="VCC-ISO" device="" value="3V3"/>
+<part name="Z2" library="MMSZ5227B-7-F" deviceset="MMSZ5227B-7-F" device=""/>
+<part name="Z3" library="MMSZ5227B-7-F" deviceset="MMSZ5227B-7-F" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4660,9 +4662,9 @@ de 1K que hay en la tarjeta.
 <attribute name="NAME" x="173.99" y="96.52" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="173.99" y="93.98" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="Z1" gate="G$1" x="215.9" y="106.68" smashed="yes" rot="R90">
-<attribute name="NAME" x="220.98" y="115.57" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="220.98" y="113.03" size="1.778" layer="96" align="center-left"/>
+<instance part="Z1" gate="G$1" x="215.9" y="93.98" smashed="yes" rot="R90">
+<attribute name="NAME" x="220.98" y="102.87" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="220.98" y="100.33" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="Q5" gate="A" x="213.36" y="228.6" smashed="yes">
 <attribute name="NAME" x="214.122" y="234.315" size="2.54" layer="95" ratio="10" rot="SR0"/>
@@ -4892,6 +4894,14 @@ de 1K que hay en la tarjeta.
 </instance>
 <instance part="U$7" gate="G$1" x="-116.84" y="38.1" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="-115.824" y="41.656" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="Z2" gate="G$1" x="205.74" y="160.02" smashed="yes" rot="R270">
+<attribute name="NAME" x="200.66" y="151.13" size="1.778" layer="95" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="200.66" y="153.67" size="1.778" layer="96" rot="R180" align="center-left"/>
+</instance>
+<instance part="Z3" gate="G$1" x="226.06" y="160.02" smashed="yes" rot="R270">
+<attribute name="NAME" x="220.98" y="151.13" size="1.778" layer="95" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="220.98" y="153.67" size="1.778" layer="96" rot="R180" align="center-left"/>
 </instance>
 </instances>
 <busses>
@@ -5172,13 +5182,17 @@ de 1K que hay en la tarjeta.
 <wire x1="154.94" y1="134.62" x2="154.94" y2="127" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="127" x2="180.34" y2="127" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="127" x2="180.34" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="180.34" y1="144.78" x2="215.9" y2="144.78" width="0.1524" layer="91"/>
-<label x="243.84" y="144.78" size="1.27" layer="95" xref="yes"/>
-<pinref part="Z1" gate="G$1" pin="A"/>
-<wire x1="215.9" y1="144.78" x2="243.84" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="121.92" x2="215.9" y2="144.78" width="0.1524" layer="91"/>
-<junction x="215.9" y="144.78"/>
+<wire x1="180.34" y1="144.78" x2="205.74" y2="144.78" width="0.1524" layer="91"/>
 <junction x="180.34" y="137.16"/>
+<pinref part="Z2" gate="G$1" pin="A"/>
+</segment>
+<segment>
+<label x="243.84" y="160.02" size="1.27" layer="95" xref="yes"/>
+<wire x1="205.74" y1="160.02" x2="226.06" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="Z2" gate="G$1" pin="K"/>
+<pinref part="Z3" gate="G$1" pin="K"/>
+<wire x1="226.06" y1="160.02" x2="243.84" y2="160.02" width="0.1524" layer="91"/>
+<junction x="226.06" y="160.02"/>
 </segment>
 </net>
 <net name="VBUS_SENSE" class="0">
@@ -5536,7 +5550,7 @@ de 1K que hay en la tarjeta.
 <wire x1="177.8" y1="71.12" x2="177.8" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="Z1" gate="G$1" pin="K"/>
 <wire x1="177.8" y1="88.9" x2="215.9" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="88.9" x2="215.9" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="88.9" x2="215.9" y2="93.98" width="0.1524" layer="91"/>
 <junction x="177.8" y="81.28"/>
 </segment>
 </net>
@@ -5900,6 +5914,14 @@ de 1K que hay en la tarjeta.
 <pinref part="X1" gate="G$1" pin="GP8"/>
 <wire x1="-147.32" y1="147.32" x2="-154.94" y2="147.32" width="0.1524" layer="91"/>
 <label x="-154.94" y="147.32" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="Z1" gate="G$1" pin="A"/>
+<pinref part="Z3" gate="G$1" pin="A"/>
+<wire x1="215.9" y1="109.22" x2="226.06" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="109.22" x2="226.06" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
