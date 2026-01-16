@@ -1423,7 +1423,7 @@ void loop()
   } // RunMode == RUNMODE_NORMAL
 
   Standby_Handler(&StandbyGlobalTimer); // Checks if go to STANDBY
-  if ((Time - HourTimer) > 60000)
+  if ((Time - HourTimer) > 1000)
   {
     mins++;
     if (mins == 60)
